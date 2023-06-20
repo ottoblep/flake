@@ -27,7 +27,6 @@
       # VDPAU_DRIVER = "radeonsi";
     };
     environment.systemPackages = with pkgs; [
-      ffmpeg
     ];
 
     services.printing.enable = true;
