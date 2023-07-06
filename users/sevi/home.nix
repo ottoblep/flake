@@ -24,10 +24,6 @@
       name = "palenight";
       package = pkgs.palenight-theme;
     };
-    cursorTheme = {
-      name = "Numix-Cursor";
-      package = pkgs.numix-cursor-theme;
-    };
     gtk3.extraConfig = {
       Settings = ''
         gtk-application-prefer-dark-theme=1
@@ -53,14 +49,23 @@
   ]);
 
   # TODO set vscode config
+  # TODO add vscode extensions
   programs.vscode = {
     enable = true;
     package = pkgs.vscode;
   };
 
-  programs.zsh.enable = true;
-
-  # TODO insert zsh ohmyzsh here
+  programs.zsh = {
+    enable = true;
+    shellAliases = {
+      ll = "ls -l";
+    };
+   ohMyZsh = {
+      enable = true;
+      plugins = [ "git" "fd" "zoxide" "ripgrep" ];
+      theme = "gozilla";
+    };
+  };
 
   programs.home-manager.enable = true;
   home.stateVersion = "23.05";

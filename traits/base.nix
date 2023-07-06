@@ -1,6 +1,3 @@
-/*
-  A trait for all boxxen
-*/
 { config, pkgs, lib, ... }:
 
 {
@@ -15,14 +12,9 @@
       ripgrep
       htop
       fd
+      tree
+      file
     ];
-
-    environment.shellAliases = { };
-    environment.variables = { };
-
-    security.sudo.wheelNeedsPassword = false;
-    security.sudo.extraConfig = ''
-    '';
 
     # Use edge NixOS.
     nix.extraOptions = ''
