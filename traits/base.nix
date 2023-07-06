@@ -14,6 +14,7 @@
       fd
       tree
       file
+      tio
     ];
 
     # Use edge NixOS.
