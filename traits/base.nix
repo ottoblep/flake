@@ -8,10 +8,13 @@
 
     environment.systemPackages = with pkgs; [
       # Shell utilities
+      vim
+      curl
       git
       ripgrep
       htop
       fd
+      zoxide
       tree
       file
       tio
