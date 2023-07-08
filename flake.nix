@@ -114,6 +114,7 @@
         traits.overlay = { nixpkgs.overlays = [ self.overlays.default ]; };
         traits.base = ./traits/base.nix;
         traits.machine = ./traits/machine.nix;
+        traits.laptop = ./traits/laptop.nix;
         traits.workstation = ./traits/workstation.nix;
         traits.gnome = ./traits/gnome.nix;
         services.openssh = ./services/openssh.nix;

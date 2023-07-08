@@ -38,21 +38,42 @@
 
   # TODO update dconf / use dconf2nix
 
-  # TODO set correct extensions
   home.packages = with pkgs; [
     gnomeExtensions.user-themes
     gnomeExtensions.space-bar
+    gnomeExtensions.paperwm
+    gnomeExtensions.transparent-top-bar
+    gnomeExtensions.dash-to-dock
+    gnomeExtensions.bing-wallpaper-changer
     fix-vscode
-  ] ++ (if stdenv.isx86_64 then [
-    # kicad
-    chromium
-  ]);
+    keepassxc
+    speedcrunch
+    xournalpp
+    thunderbird
+    alacritty
+    drawio
+    nil
+    # TODO sleek
+    # TODO LRZ Sync and Share
+  ];
+
+  programs.chromium = {
+    enable = true;
+    extensions  = [
+      # TODO add extensions 
+    ];
+  };
 
   # TODO set vscode config
-  # TODO add vscode extensions
   programs.vscode = {
     enable = true;
-    package = pkgs.vscode;
+    extensions = with pkgs; [
+      vscode-extensions.mhutchie.git-graph
+      vscode-extensions.vscodevim.vim
+      vscode-extensions.github.github-vscode-theme
+      vscode-extensions.pkief.material-icon-theme
+      vscode-extensions.jnoortheen.nix-ide
+    ];
   };
 
   programs.zsh = {
