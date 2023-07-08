@@ -2,7 +2,7 @@
   description = "Ottoblep Personal Flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -19,39 +19,6 @@
       overlays.default = final: prev: {
         fix-vscode = final.callPackage ./packages/fix-vscode { };
       };
-
-      packages = forAllSystems
-        (system:
-          let
-            pkgs = import nixpkgs {
-              inherit system;
-              overlays = [ self.overlays.default ];
-              config.allowUnfree = true;
-            };
-          in
-          {
-            inherit (pkgs) fix-vscode;
-            # Excluded from overlay deliberately to avoid people accidently importing it.
-            unsafe-bootstrap = pkgs.callPackage ./packages/unsafe-bootstrap { };
-          });
-
-      devShells = forAllSystems
-        (system:
-          let
-            pkgs = import nixpkgs {
-              inherit system;
-              overlays = [ self.overlays.default ];
-            };
-          in
-          {
-            default = pkgs.mkShell
-              {
-                inputsFrom = with pkgs; [ ];
-                buildInputs = with pkgs; [
-                  nixpkgs-fmt
-                ];
-              };
-          });
 
       homeConfigurations = forAllSystems
         (system:
@@ -96,6 +63,16 @@
           };
         in
         with self.nixosModules; {
+          nuc = nixpkgs.lib.nixosSystem {
+            inherit (x86_64Base) system;
+            modules = x86_64Base.modules ++ [
+              platforms.nuc
+              traits.machine
+              traits.workstation
+              traits.gnome
+              users.sevi
+            ];
+          };
           sevdesk = nixpkgs.lib.nixosSystem {
             inherit (x86_64Base) system;
             modules = x86_64Base.modules ++ [
@@ -103,8 +80,6 @@
               traits.machine
               traits.workstation
               traits.gnome
-              traits.hardened
-              traits.gaming
               users.sevi
             ];
           };
@@ -116,17 +91,16 @@
               traits.machine
               traits.workstation
               traits.gnome
-              traits.hardened
               users.sevi
             ];
           sevtp2 = nixpkgs.lib.nixosSystem {
             inherit (x86_64Base) system;
             modules = x86_64Base.modules ++ [
               platforms.sevtp2
+              traits.overlay
               traits.machine
               traits.workstation
               traits.gnome
-              traits.hardened
               users.sevi
             ];
           };
@@ -134,13 +108,15 @@
 
       nixosModules = {
         platforms.sevdesk = ./platforms/sevdesk.nix;
+        platforms.sevtp = ./platforms/sevtp.nix;
         platforms.sevtp2 = ./platforms/sevtp2.nix;
+        platforms.nuc = ./platforms/nuc.nix;
         traits.overlay = { nixpkgs.overlays = [ self.overlays.default ]; };
         traits.base = ./traits/base.nix;
         traits.machine = ./traits/machine.nix;
+        traits.workstation = ./traits/workstation.nix;
         traits.gnome = ./traits/gnome.nix;
         services.openssh = ./services/openssh.nix;
-        traits.workstation = ./traits/workstation.nix;
         users.sevi = ./users/sevi;
       };
     };
