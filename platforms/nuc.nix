@@ -6,7 +6,7 @@
   config = {
     # TODO check intel nuc hardware conf
 
-    networking.hostName = "nuc";
+    networking.hostName = "tomnuc";
 
     nixpkgs.overlays = [
       (final: prev: {
