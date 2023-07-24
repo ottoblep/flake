@@ -10,7 +10,7 @@
     boot.loader.systemd-boot.editor = true;
     boot.initrd.systemd.enable = true;
 
-    users.mutableUsers = false;
+    users.mutableUsers = true; # Set passwords after setup
 
     powerManagement.cpuFreqGovernor = "ondemand";
 
