@@ -17,6 +17,7 @@
       zoxide
       tree
       p7zip
+      srm
       file
       tio
       avahi
