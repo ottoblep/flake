@@ -59,8 +59,8 @@
   programs.chromium = {
     enable = true;
     extensions  = [
-      cjpalhdlnbpafiamejdnhcphjbkeiagm # ublock-origin
-      dbepggeogbaibhgnhhndojpepiihcmeb # vimium
+      "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock-origin
+      "dbepggeogbaibhgnhhndojpepiihcmeb" # vimium
     ];
   };
 
@@ -90,7 +90,7 @@
     ];
 
     userSettings = {
-      "security.workspace.trust.untrustedFiles": "open";
+      "security.workspace.trust.untrustedFiles" = "open";
       "editor.fontSize" = 13;
       "editor.wordWrap"= "on";
       "terminal.integrated.fontSize" = 13;
@@ -109,7 +109,7 @@
     shellAliases = {
       ll = "ls -l";
     };
-   ohMyZsh = {
+   oh-my-zsh = {
       enable = true;
       plugins = [ "git" "fd" "zoxide" "ripgrep" ];
       theme = "gozilla";

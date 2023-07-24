@@ -23,7 +23,7 @@
     ];
 
     nixpkgs.overlays = [
-        (final: prev: { })
-      ];
-    };
+      (final: prev: { })
+    ];
+  };
 }
