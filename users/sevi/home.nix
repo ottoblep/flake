@@ -77,7 +77,7 @@
 
     keybindings = [
       {
-        key = "ctrl+oem_5";
+        key = "ctrl+[Backquote]";
         command = "workbench.action.terminal.toggleTerminal";
         when = "terminal.active";
       }
@@ -115,6 +115,11 @@
       plugins = [ "git" "fd" "zoxide" "ripgrep" ];
       theme = "gozilla";
     };
+  };
+
+  programs.git = {
+    userName  = "Severin Lochschmidt";
+    userEmail = "seviron53@gmail.com";
   };
 
   programs.home-manager.enable = true;
