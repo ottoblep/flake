@@ -66,7 +66,6 @@
   };
 
   programs.vscode = {
-    # Add vscode config
     enable = true;
     extensions = with pkgs; [
       vscode-extensions.mhutchie.git-graph
@@ -75,6 +74,35 @@
       vscode-extensions.pkief.material-icon-theme
       vscode-extensions.jnoortheen.nix-ide
     ];
+
+    keybindings = [
+      {
+        key = "ctrl+oem_5";
+        command = "workbench.action.terminal.toggleTerminal";
+        when = "terminal.active";
+      }
+      {
+        key = "alt+q";
+        command = "workbench.action.closeActiveEditor";
+      }
+      # For switching tabs ctrl+tab is default
+      # To launch a new window use the console and 'codium FILE'
+      # To switch to a file by name use ctrl+p
+    ];
+
+    userSettings = {
+      "security.workspace.trust.untrustedFiles": "open";
+      "editor.fontSize" = 13;
+      "editor.wordWrap"= "on";
+      "terminal.integrated.fontSize" = 13;
+      "vim.foldfix" = true;
+      "vim.useSystemClipboard" = true;
+      "vim.vimrc.enable" = true;
+      "editor.minimap.enabled" = false;
+      "workbench.colorTheme" = "GitHub Dark";
+      "workbench.iconTheme" = "material-icon-theme";
+      "workbench.startupEditor" = "none";
+    };
   };
 
   programs.zsh = {
