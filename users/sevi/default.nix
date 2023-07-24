@@ -14,5 +14,6 @@
       ];
     };
     programs.zsh.enable = true;
+    environment.variables.EDITOR = "vim";
   };
 }
