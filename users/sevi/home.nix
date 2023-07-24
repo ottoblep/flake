@@ -1,6 +1,8 @@
 { config, pkgs, lib, ... }:
 
 {
+  imports = [ ./dconf.nix ];
+
   home.username = "sevi";
   home.homeDirectory = "/home/sevi";
 
@@ -45,12 +47,12 @@
     gnomeExtensions.transparent-top-bar
     gnomeExtensions.dash-to-dock
     gnomeExtensions.bing-wallpaper-changer
+    alacritty
     fix-vscode
     keepassxc
     speedcrunch
     xournalpp
     thunderbird
-    alacritty
     drawio
     nil
     # TODO sleek
@@ -64,7 +66,6 @@
     ];
   };
 
-  # TODO set vscode config
   programs.vscode = {
     enable = true;
     extensions = with pkgs; [
