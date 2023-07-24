@@ -38,8 +38,6 @@
     };
   };
 
-  # TODO update dconf / use dconf2nix
-
   home.packages = with pkgs; [
     gnomeExtensions.user-themes
     gnomeExtensions.space-bar
@@ -62,11 +60,13 @@
   programs.chromium = {
     enable = true;
     extensions  = [
-      # TODO add extensions 
+      cjpalhdlnbpafiamejdnhcphjbkeiagm # ublock-origin
+      dbepggeogbaibhgnhhndojpepiihcmeb # vimium
     ];
   };
 
   programs.vscode = {
+    # Add vscode config
     enable = true;
     extensions = with pkgs; [
       vscode-extensions.mhutchie.git-graph
