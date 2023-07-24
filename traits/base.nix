@@ -19,6 +19,7 @@
       file
       tio
       avahi
+      nixpkgs-fmt
     ];
 
     # Use edge NixOS.
