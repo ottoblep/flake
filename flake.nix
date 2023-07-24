@@ -17,7 +17,6 @@
     in
     {
       overlays.default = final: prev: {
-        fix-vscode = final.callPackage ./packages/fix-vscode { };
       };
 
       homeConfigurations = forAllSystems

@@ -46,7 +46,6 @@
     gnomeExtensions.dash-to-dock
     gnomeExtensions.bing-wallpaper-changer
     alacritty
-    fix-vscode
     keepassxc
     speedcrunch
     xournalpp
