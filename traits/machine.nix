@@ -14,11 +14,11 @@
 
     powerManagement.cpuFreqGovernor = "ondemand";
 
-    networking.wireless.enable = true; # For Network Manager
     networking.networkmanager.enable = true;
+    # networking.wireless.enable = true; # For Network Manager
     # networking.firewall.enable = true;
 
     sound.enable = true;
-    hardware.pulseaudio.enable = enable;
-  }
-    }
+    hardware.pulseaudio.enable = true;
+  };
+}
