@@ -5,11 +5,11 @@ with lib.hm.gvariant;
 
 {
   dconf.settings = {
-    "desktop/calendar" = {
+    "org/gnome/desktop/calendar" = {
       show-weekdate = false;
     };
 
-    "desktop/interface" = {
+    "org/gnome/desktop/interface" = {
       clock-show-seconds = false;
       clock-show-weekday = true;
       color-scheme = "prefer-dark";
@@ -18,14 +18,14 @@ with lib.hm.gvariant;
       text-scaling-factor = 1.3;
     };
 
-    "desktop/peripherals/touchpad" = {
+    "org/gnome/desktop/peripherals/touchpad" = {
       edge-scrolling-enabled = false;
       speed = -7.027027027027022e-2;
       tap-to-click = true;
       two-finger-scrolling-enabled = true;
     };
 
-    "desktop/wm/keybindings" = {
+    "org/gnome/desktop/wm/keybindings" = {
       activate-window-menu = [];
       begin-move = [];
       begin-resize = [];
@@ -57,32 +57,32 @@ with lib.hm.gvariant;
       unmaximize = [];
     };
 
-    "eog/ui" = {
+    "org/gnome/eog/ui" = {
       sidebar = false;
     };
 
-    "nautilus/icon-view" = {
+    "org/gnome/nautilus/icon-view" = {
       default-zoom-level = "small";
     };
 
-    "nautilus/list-view" = {
+    "org/gnome/nautilus/list-view" = {
       default-zoom-level = "medium";
     };
 
-    "nautilus/preferences" = {
+    "org/gnome/nautilus/preferences" = {
       default-folder-viewer = "list-view";
       migrated-gtk-settings = true;
       search-filter-time-type = "last_modified";
       search-view = "list-view";
     };
 
-    "nautilus/window-state" = {
+    "org/gnome/nautilus/window-state" = {
       initial-size = mkTuple [ 945 1193 ];
       maximized = false;
       sidebar-width = 204;
     };
 
-    "evince/default" = {
+    "org/gnome/evince/default" = {
       continuous = true;
       dual-page = true;
       dual-page-odd-left = true;
@@ -96,20 +96,20 @@ with lib.hm.gvariant;
       window-ratio = mkTuple [ 1.9833333333333334 1.987037037037037 ];
     };
 
-    "settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
       binding = "<Control><Alt>plus";
       command = "alacritty";
       name = "Launch Shell";
     };
 
-    "shell" = {
+    "org/gnome/shell" = {
       disable-user-extensions = false;
       disabled-extensions = [ ];
       enabled-extensions = [ "user-theme@gnome-shell-extensions.gcampax.github.com" "BingWallpaper@ineffable-gmail.com" "dash-to-dock@micxgx.gmail.com" "transparent-top-bar@ftpix.com" "paperwm@hedning:matrix.org" "paperwm@paperwm-redux.github.com" ];
       favorite-apps = [ "chromium.desktop" "codium.desktop" "thunderbird.desktop" "org.gnome.Nautilus.desktop" "keepassxc.desktop" "speedcrunch.desktop" ];
     };
 
-    "shell/extensions/bingwallpaper" = {
+    "org/gnome/shell/extensions/bingwallpaper" = {
       delete-previous = true;
       download-folder = "/home/sevi/Pictures/BingWallpaper/";
       icon-name = "bing-symbolic";
@@ -118,7 +118,7 @@ with lib.hm.gvariant;
       override-lockscreen-blur = true;
     };
 
-    "shell/extensions/dash-to-dock" = {
+    "org/gnome/shell/extensions/dash-to-dock" = {
       animate-show-apps = true;
       apply-custom-theme = false;
       background-color = "rgb(0,0,0)";
@@ -144,15 +144,15 @@ with lib.hm.gvariant;
       workspace-agnostic-urgent-windows = true;
     };
 
-    "shell/extensions/hibernate-status-button" = {
+    "org/gnome/shell/extensions/hibernate-status-button" = {
       hibernate-works-check = false;
     };
 
-    "shell/extensions/hidetopbar" = {
+    "org/gnome/shell/extensions/hidetopbar" = {
       mouse-sensitive = true;
     };
 
-    "shell/extensions/paperwm" = {
+    "org/gnome/shell/extensions/paperwm" = {
       has-installed-config-template = true;
       horizontal-margin = 8;
       minimap-scale = 0.0;
@@ -166,7 +166,7 @@ with lib.hm.gvariant;
       winprops = [];
     };
 
-    "shell/extensions/paperwm/keybindings" = {
+    "org/gnome/shell/extensions/paperwm/keybindings" = {
       live-alt-tab = [ "" ];
       live-alt-tab-backward = [ "" ];
       move-down = [ "<Control><Super>j" ];
@@ -189,7 +189,7 @@ with lib.hm.gvariant;
       switch-up = [ "<Super>k" ];
     };
 
-    "shell/keybindings" = {
+    "org/gnome/shell/keybindings" = {
       focus-active-notification = [];
       open-application-menu = [];
       toggle-application-view = [];
@@ -197,14 +197,13 @@ with lib.hm.gvariant;
       toggle-overview = [];
     };
 
-    "shell/weather" = {
+    "org/gnome/shell/weather" = {
       automatic-location = true;
       locations = "@av []";
     };
 
-    "shell/world-clocks" = {
+    "org/gnome/shell/world-clocks" = {
       locations = "@av []";
     };
-
   };
 }
