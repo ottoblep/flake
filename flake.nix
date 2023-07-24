@@ -16,8 +16,7 @@
       forAllSystems = f: nixpkgs.lib.genAttrs supportedSystems (system: f system);
     in
     {
-      overlays.default = final: prev: {
-      };
+      overlays.default = final: prev: { };
 
       homeConfigurations = forAllSystems
         (system:
@@ -92,6 +91,7 @@
               traits.gnome
               users.sevi
             ];
+          };
           sevtp2 = nixpkgs.lib.nixosSystem {
             inherit (x86_64Base) system;
             modules = x86_64Base.modules ++ [
@@ -120,5 +120,4 @@
         users.sevi = ./users/sevi;
       };
     };
-  };
 }

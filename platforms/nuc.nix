@@ -9,8 +9,7 @@
     networking.hostName = "tomnuc";
 
     nixpkgs.overlays = [
-      (final: prev: {
-      })
+      (final: prev: { })
     ];
   };
 }
