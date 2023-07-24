@@ -53,6 +53,7 @@
     drawio
     nil
     zoom-us
+    # TODO dotfiles
     # TODO sleek
     # TODO LRZ Sync and Share
   ];
@@ -97,7 +98,6 @@
       "terminal.integrated.fontSize" = 13;
       "vim.foldfix" = true;
       "vim.useSystemClipboard" = true;
-      "vim.vimrc.enable" = true;
       "editor.minimap.enabled" = false;
       "workbench.colorTheme" = "GitHub Dark";
       "workbench.iconTheme" = "material-icon-theme";
