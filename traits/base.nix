@@ -16,6 +16,7 @@
       fd
       zoxide
       tree
+      p7zip
       file
       tio
       avahi
