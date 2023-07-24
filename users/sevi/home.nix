@@ -1,5 +1,4 @@
-{ config, pkgs, lib, ... }:
-
+{pkgs, ...}:
 {
   imports = [ ./dconf.nix ];
 
@@ -121,6 +120,8 @@
     userName  = "Severin Lochschmidt";
     userEmail = "seviron53@gmail.com";
   };
+
+  programs.alacritty.settings = builtins.fromJSON (builtins.readFile "./dotfiles/alacritty.yml");
 
   programs.home-manager.enable = true;
   home.stateVersion = "23.05";
