@@ -52,6 +52,7 @@
     thunderbird
     drawio
     nil
+    zoom-us
     # TODO sleek
     # TODO LRZ Sync and Share
   ];
