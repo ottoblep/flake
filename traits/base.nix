@@ -18,6 +18,7 @@
       tree
       file
       tio
+      avahi
     ];
 
     # Use edge NixOS.
