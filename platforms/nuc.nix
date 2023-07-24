@@ -4,12 +4,26 @@
   ];
 
   config = {
-    # TODO check intel nuc hardware conf
-
     networking.hostName = "tomnuc";
 
-    nixpkgs.overlays = [
-      (final: prev: { })
+    # Picked from nixos-hardware
+    hardware.cpu.intel.updateMicrocode =
+      lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+    boot.initrd.kernelModules = [ "i915" ];
+
+    environment.variables = {
+      VDPAU_DRIVER = lib.mkIf config.hardware.opengl.enable (lib.mkDefault "va_gl");
+    };
+
+    hardware.opengl.extraPackages = with pkgs; [
+      (if (lib.versionOlder (lib.versions.majorMinor lib.version) "23.11") then vaapiIntel else intel-vaapi-driver)
+      libvdpau-va-gl
+      intel-media-driver
     ];
-  };
+
+    nixpkgs.overlays = [
+        (final: prev: { })
+      ];
+    };
 }
