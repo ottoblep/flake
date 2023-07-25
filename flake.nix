@@ -61,10 +61,10 @@
           };
         in
         with self.nixosModules; {
-          nuc = nixpkgs.lib.nixosSystem {
+          tomnuc = nixpkgs.lib.nixosSystem {
             inherit (x86_64Base) system;
             modules = x86_64Base.modules ++ [
-              platforms.nuc
+              platforms.tomnuc
               traits.machine
               traits.workstation
               traits.gnome
@@ -109,7 +109,7 @@
         platforms.sevdesk = ./platforms/sevdesk.nix;
         platforms.sevtp = ./platforms/sevtp.nix;
         platforms.sevtp2 = ./platforms/sevtp2.nix;
-        platforms.nuc = ./platforms/nuc.nix;
+        platforms.tomnuc = ./platforms/tomnuc.nix;
         traits.overlay = { nixpkgs.overlays = [ self.overlays.default ]; };
         traits.base = ./traits/base.nix;
         traits.machine = ./traits/machine.nix;
