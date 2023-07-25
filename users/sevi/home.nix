@@ -44,6 +44,8 @@
     gnomeExtensions.space-bar
     gnomeExtensions.paperwm
     gnomeExtensions.transparent-top-bar
+    gnomeExtensions.hide-top-bar
+    gnomeExtensions.vitals
     gnomeExtensions.dash-to-dock
     gnomeExtensions.bing-wallpaper-changer
     keepassxc

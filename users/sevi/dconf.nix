@@ -109,7 +109,7 @@ with lib.hm.gvariant;
     "org/gnome/shell" = {
       disable-user-extensions = false;
       disabled-extensions = [ ];
-      enabled-extensions = [ "user-theme@gnome-shell-extensions.gcampax.github.com" "BingWallpaper@ineffable-gmail.com" "dash-to-dock@micxgx.gmail.com" "transparent-top-bar@ftpix.com" "paperwm@hedning:matrix.org" "paperwm@paperwm-redux.github.com" ];
+      enabled-extensions = [ "user-theme@gnome-shell-extensions.gcampax.github.com" "BingWallpaper@ineffable-gmail.com" "dash-to-dock@micxgx.gmail.com" "transparent-top-bar@ftpix.com" "paperwm@hedning:matrix.org" "paperwm@paperwm-redux.github.com" "Vitals@CoreCoding.com"];
       favorite-apps = [ 
         "chromium-browser.desktop"
         "code.desktop"
@@ -119,6 +119,18 @@ with lib.hm.gvariant;
         "org.speedcrunch.SpeedCrunch.desktop" 
         ];
     };
+
+    "org/gnome/shell/extensions/vitals" = {
+      alphabetize = true;
+      fixed-widths = true;
+      hide-icons = false;
+      hide-zeros = false;
+      hot-sensors = [ "_processor_usage_"  "_memory_usage_" "__network-rx_max__" ];
+      show-battery = true;
+      show-voltage = true;
+      use-higher-precision = false;
+    };
+
 
     "org/gnome/shell/extensions/bingwallpaper" = {
       delete-previous = true;
