@@ -5,11 +5,17 @@
 
 {
   config = {
-    services.xserver.enable = true;
-    services.xserver.layout = "de";
-    services.xserver.displayManager.gdm.enable = true;
-    services.xserver.displayManager.autoLogin.enable = false;
-    services.xserver.desktopManager.gnome.enable = true;
+    services = {
+      xserver = {
+        enable = true;
+        layout = "de";
+        displayManager.gdm.enable = true;
+        displayManager.autoLogin.enable = false;
+        desktopManager.gnome.enable = true;
+      };
+      gnome.gnome-keyring.enable = true;
+      dbus.packages = with pkgs; [ dconf ];
+    };
     environment.gnome.excludePackages = (with pkgs; [
       gnome-photos
       gnome-tour
@@ -33,8 +39,6 @@
       gnome.gnome-tweaks
       gnome.gnome-characters
     ];
-
-    services.gnome.gnome-keyring.enable = true;
 
     programs.dconf.enable = true;
   };

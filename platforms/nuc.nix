@@ -23,18 +23,19 @@
     boot.extraModulePackages = [ ];
 
     fileSystems."/" =
-    { device = "/dev/disk/by-label/nixos";
-      fsType = "ext4";
-    };
+      {
+        device = "/dev/disk/by-label/nixos";
+        fsType = "ext4";
+      };
 
     fileSystems."/boot" =
-    { device = "/dev/disk/by-label/boot";
-      fsType = "vfat";
-    };
+      {
+        device = "/dev/disk/by-label/boot";
+        fsType = "vfat";
+      };
 
     swapDevices =
-    [ { device = "/dev/disk/by-label/swap"; }
-    ];
+      [{ device = "/dev/disk/by-label/swap"; }];
 
     environment.variables = {
       VDPAU_DRIVER = lib.mkIf config.hardware.opengl.enable (lib.mkDefault "va_gl");

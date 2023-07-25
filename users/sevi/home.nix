@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 {
   imports = [ ./dconf.nix ];
 
@@ -59,7 +59,7 @@
 
   programs.chromium = {
     enable = true;
-    extensions  = [
+    extensions = [
       "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock-origin
       "dbepggeogbaibhgnhhndojpepiihcmeb" # vimium
     ];
@@ -93,7 +93,7 @@
     userSettings = {
       "security.workspace.trust.untrustedFiles" = "open";
       "editor.fontSize" = 13;
-      "editor.wordWrap"= "on";
+      "editor.wordWrap" = "on";
       "terminal.integrated.fontSize" = 13;
       "vim.foldfix" = true;
       "vim.useSystemClipboard" = true;
@@ -109,7 +109,7 @@
     shellAliases = {
       ll = "ls -l";
     };
-   oh-my-zsh = {
+    oh-my-zsh = {
       enable = true;
       plugins = [ "git" "fd" "zoxide" "ripgrep" ];
       theme = "gozilla";
@@ -117,7 +117,7 @@
   };
 
   programs.git = {
-    userName  = "Severin Lochschmidt";
+    userName = "Severin Lochschmidt";
     userEmail = "seviron53@gmail.com";
   };
 
