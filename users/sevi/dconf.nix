@@ -15,7 +15,7 @@ with lib.hm.gvariant;
       color-scheme = "prefer-dark";
       enable-hot-corners = false;
       show-battery-percentage = true;
-      text-scaling-factor = 1.3;
+      text-scaling-factor = 1.1;
     };
 
     "org/gnome/desktop/peripherals/touchpad" = {
