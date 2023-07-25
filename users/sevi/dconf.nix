@@ -106,7 +106,14 @@ with lib.hm.gvariant;
       disable-user-extensions = false;
       disabled-extensions = [ ];
       enabled-extensions = [ "user-theme@gnome-shell-extensions.gcampax.github.com" "BingWallpaper@ineffable-gmail.com" "dash-to-dock@micxgx.gmail.com" "transparent-top-bar@ftpix.com" "paperwm@hedning:matrix.org" "paperwm@paperwm-redux.github.com" ];
-      favorite-apps = [ "chromium.desktop" "codium.desktop" "thunderbird.desktop" "org.gnome.Nautilus.desktop" "keepassxc.desktop" "speedcrunch.desktop" ];
+      favorite-apps = [ 
+        "chromium-browser.desktop"
+        "code.desktop"
+        "thunderbird.desktop"
+        "org.gnome.Nautilus.desktop"
+        "org.keepassxc.KeePassXC.desktop"
+        "org.speedcrunch.SpeedCrunch.desktop" 
+        ];
     };
 
     "org/gnome/shell/extensions/bingwallpaper" = {
