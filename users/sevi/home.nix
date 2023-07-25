@@ -44,7 +44,6 @@
     gnomeExtensions.transparent-top-bar
     gnomeExtensions.dash-to-dock
     gnomeExtensions.bing-wallpaper-changer
-    alacritty
     keepassxc
     speedcrunch
     xournalpp
@@ -121,7 +120,10 @@
     userEmail = "seviron53@gmail.com";
   };
 
-  programs.alacritty.settings = builtins.fromJSON (builtins.readFile "./dotfiles/alacritty.yml");
+  programs.alacritty =  {
+    enable = true;
+    settings = import ./dotfiles/alacritty.nix;
+  };
 
   programs.home-manager.enable = true;
   home.stateVersion = "23.05";
