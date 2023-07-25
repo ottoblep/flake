@@ -7,6 +7,8 @@
 
   programs.git = {
     enable = true;
+    userName = "Severin Lochschmidt";
+    userEmail = "seviron53@gmail.com";
     extraConfig = {
       init = {
         defaultBranch = "main";
@@ -113,11 +115,6 @@
       plugins = [ "git" "fd" "zoxide" "ripgrep" ];
       theme = "gozilla";
     };
-  };
-
-  programs.git = {
-    userName = "Severin Lochschmidt";
-    userEmail = "seviron53@gmail.com";
   };
 
   programs.alacritty =  {
