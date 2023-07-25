@@ -4,8 +4,15 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  config = {
+  config = let 
+    tomnook-image = ./icons/tomnook.jpeg;
+  in
+  {
     networking.hostName = "tomnuc";
+    # Set profile images
+    system.activationScripts.setUserImages.text = ''
+      cp -f ${tomnook-image} /var/lib/AccountsService/icons/sevi
+    '';
 
     networking.useDHCP = lib.mkDefault true;
     # networking.interfaces.eno1.useDHCP = lib.mkDefault true;
