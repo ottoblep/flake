@@ -12,8 +12,6 @@
 
   font = {
     size = 12.0;
-    use_thin_strokes = true;
-
     # normal.family = "FuraCode Nerd Font";
     # bold.family = "FuraCode Nerd Font";
     # italic.family = "FuraCode Nerd Font";
