@@ -26,35 +26,35 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/desktop/wm/keybindings" = {
-      activate-window-menu = [];
-      begin-move = [];
-      begin-resize = [];
-      cycle-panels = [];
-      cycle-panels-backward = [];
-      maximize = [];
-      minimize = [];
-      move-to-monitor-down = [];
-      move-to-monitor-left = [];
-      move-to-monitor-right = [];
-      move-to-monitor-up = [];
-      move-to-workspace-1 = [];
-      move-to-workspace-last = [];
-      move-to-workspace-left = [];
-      move-to-workspace-right = [];
-      panel-run-dialog = [];
-      switch-applications = [];
-      switch-applications-backward = [];
-      switch-panels = [];
-      switch-panels-backward = [];
-      switch-to-workspace-1 = [];
-      switch-to-workspace-last = [];
-      switch-to-workspace-left = [];
-      switch-to-workspace-right = [];
+      activate-window-menu = [ ];
+      begin-move = [ ];
+      begin-resize = [ ];
+      cycle-panels = [ ];
+      cycle-panels-backward = [ ];
+      maximize = [ ];
+      minimize = [ ];
+      move-to-monitor-down = [ ];
+      move-to-monitor-left = [ ];
+      move-to-monitor-right = [ ];
+      move-to-monitor-up = [ ];
+      move-to-workspace-1 = [ ];
+      move-to-workspace-last = [ ];
+      move-to-workspace-left = [ ];
+      move-to-workspace-right = [ ];
+      panel-run-dialog = [ ];
+      switch-applications = [ ];
+      switch-applications-backward = [ ];
+      switch-panels = [ ];
+      switch-panels-backward = [ ];
+      switch-to-workspace-1 = [ ];
+      switch-to-workspace-last = [ ];
+      switch-to-workspace-left = [ ];
+      switch-to-workspace-right = [ ];
       switch-windows = [ "<Alt>Tab" ];
       switch-windows-backward = [ "<Shift><Alt>Tab" ];
       toggle-fullscreen = [ "<Super>d" ];
-      toggle-maximized = [];
-      unmaximize = [];
+      toggle-maximized = [ ];
+      unmaximize = [ ];
     };
 
     "org/gnome/eog/ui" = {
@@ -163,7 +163,7 @@ with lib.hm.gvariant;
       vertical-margin = 3;
       vertical-margin-bottom = 3;
       window-gap = 8;
-      winprops = [];
+      winprops = [ ];
     };
 
     "org/gnome/shell/extensions/paperwm/keybindings" = {
@@ -190,11 +190,11 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell/keybindings" = {
-      focus-active-notification = [];
-      open-application-menu = [];
-      toggle-application-view = [];
-      toggle-message-tray = [];
-      toggle-overview = [];
+      focus-active-notification = [ ];
+      open-application-menu = [ ];
+      toggle-application-view = [ ];
+      toggle-message-tray = [ ];
+      toggle-overview = [ ];
     };
 
     "org/gnome/shell/weather" = {
