@@ -10,7 +10,7 @@
       # Shell utilities
       vim
       curl
-      git
+      gitMinimal
       ripgrep
       htop
       fd
