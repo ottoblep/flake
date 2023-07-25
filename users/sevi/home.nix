@@ -44,16 +44,17 @@
     gnomeExtensions.space-bar
     gnomeExtensions.paperwm
     gnomeExtensions.transparent-top-bar
-    gnomeExtensions.hide-top-bar
     gnomeExtensions.vitals
     gnomeExtensions.dash-to-dock
     gnomeExtensions.bing-wallpaper-changer
+    gnomeExtensions.unite
     keepassxc
     speedcrunch
     xournalpp
     thunderbird
     drawio
     nil
+    dconf2nix
     zoom-us
     # TODO dotfiles
     # TODO sleek

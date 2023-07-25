@@ -109,7 +109,7 @@ with lib.hm.gvariant;
     "org/gnome/shell" = {
       disable-user-extensions = false;
       disabled-extensions = [ ];
-      enabled-extensions = [ "user-theme@gnome-shell-extensions.gcampax.github.com" "BingWallpaper@ineffable-gmail.com" "dash-to-dock@micxgx.gmail.com" "transparent-top-bar@ftpix.com" "paperwm@hedning:matrix.org" "paperwm@paperwm-redux.github.com" "Vitals@CoreCoding.com"];
+      enabled-extensions = [ "user-theme@gnome-shell-extensions.gcampax.github.com" "BingWallpaper@ineffable-gmail.com" "dash-to-dock@micxgx.gmail.com" "transparent-top-bar@ftpix.com" "paperwm@hedning:matrix.org" "paperwm@paperwm-redux.github.com" "Vitals@CoreCoding.com" "unite@hardpixel.eu" ];
       favorite-apps = [ 
         "chromium-browser.desktop"
         "code.desktop"
@@ -129,6 +129,24 @@ with lib.hm.gvariant;
       show-battery = true;
       show-voltage = true;
       use-higher-precision = false;
+    };
+
+    "org/gnome/shell/extensions/unite" = {
+      autofocus-windows = false;
+      enable-titlebar-actions = false;
+      extend-left-box = true;
+      greyscale-tray-icons = false;
+      hide-activities-button = "always";
+      hide-dropdown-arrows = false;
+      hide-window-titlebars = "always";
+      notifications-position = "center";
+      reduce-panel-spacing = true;
+      restrict-to-primary-screen = false;
+      show-desktop-name = false;
+      show-legacy-tray = false;
+      show-window-buttons = "never";
+      show-window-title = "never";
+      window-buttons-theme = "auto";
     };
 
 
