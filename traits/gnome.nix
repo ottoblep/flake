@@ -9,7 +9,14 @@
       xserver = {
         enable = true;
         layout = "de";
-        displayManager.gdm.enable = true;
+        displayManager.gdm = {
+          enable = true;
+          settings = {
+            greeter = {
+              # Exclude = "root"; # Disable root in gdm
+            };
+          };
+        };
         displayManager.autoLogin.enable = false;
         desktopManager.gnome.enable = true;
       };
