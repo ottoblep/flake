@@ -96,6 +96,10 @@ with lib.hm.gvariant;
       window-ratio = mkTuple [ 1.9833333333333334 1.987037037037037 ];
     };
 
+    "org/gnome/settings-daemon/plugins/media-keys" = {
+      custom-keybindings=[ "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/" ];
+    };
+
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
       binding = "<Control><Alt>plus";
       command = "alacritty";
