@@ -57,9 +57,8 @@
     pdfgrep
     dconf2nix
     zoom-us
-    # TODO dotfiles
+    nix-lrz-sync-share.lrz-sync-share
     # TODO sleek
-    # TODO LRZ Sync and Share
   ];
 
   programs.chromium = {

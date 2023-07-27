@@ -8,15 +8,19 @@
       url = "github:nix-community/home-manager/release-23.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-lrz-sync-share = {
+      url = "github:ottoblep/nix-lrz-sync-share";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, home-manager }:
+  outputs = { self, nixpkgs, nixos-hardware, home-manager, nix-lrz-sync-share, ... }:
     let
       supportedSystems = [ "x86_64-linux" "aarch64-linux" ];
       forAllSystems = f: nixpkgs.lib.genAttrs supportedSystems (system: f system);
     in
     {
-      overlays.default = final: prev: { };
+      overlays.default = nix-lrz-sync-share.overlays.default;
 
       homeConfigurations = forAllSystems
         (system:
@@ -42,9 +46,8 @@
           aarch64Base = {
             system = "aarch64-linux";
             modules = with self.nixosModules; [
-              ({ config = { nix.registry.nixpkgs.flake = nixpkgs; }; })
-              home-manager.nixosModules.home-manager
               traits.overlay
+              home-manager.nixosModules.home-manager
               traits.nixos
               traits.base
               services.openssh
@@ -53,9 +56,8 @@
           x86_64Base = {
             system = "x86_64-linux";
             modules = with self.nixosModules; [
-              ({ config = { nix.registry.nixpkgs.flake = nixpkgs; }; })
-              home-manager.nixosModules.home-manager
               traits.overlay
+              home-manager.nixosModules.home-manager
               traits.nixos
               traits.base
               services.openssh
