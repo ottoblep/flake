@@ -44,6 +44,8 @@
             modules = with self.nixosModules; [
               ({ config = { nix.registry.nixpkgs.flake = nixpkgs; }; })
               home-manager.nixosModules.home-manager
+              ({ config, ... }:
+              { home-manager.useGlobalPkgs = true; home-manager.useUserPackages = true; })
               traits.overlay
               traits.base
               services.openssh
@@ -53,6 +55,8 @@
             system = "x86_64-linux";
             modules = with self.nixosModules; [
               ({ config = { nix.registry.nixpkgs.flake = nixpkgs; }; })
+              ({ config, ... }:
+              { home-manager.useGlobalPkgs = true; home-manager.useUserPackages = true; })
               home-manager.nixosModules.home-manager
               traits.overlay
               traits.base
