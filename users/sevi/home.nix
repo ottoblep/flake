@@ -54,6 +54,7 @@
     thunderbird
     drawio
     nil
+    pdfgrep
     dconf2nix
     zoom-us
     # TODO dotfiles

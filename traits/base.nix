@@ -12,6 +12,7 @@
       curl
       gitMinimal
       ripgrep
+      pdfgrep
       htop
       fd
       zoxide
