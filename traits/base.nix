@@ -31,9 +31,6 @@
     '';
     # nix.package = pkgs.nixUnstable;
 
-    home-manager.useGlobalPkgs = true;
-    home-manager.useUserPackages = true;
-
     nixpkgs.config.allowUnfree = true;
 
     # This value determines the NixOS release from which the default
