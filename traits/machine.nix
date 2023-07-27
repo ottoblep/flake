@@ -1,8 +1,7 @@
 /*
-  A trait for configurations which are most definitely machines
+  Universal hardware configuration options 
 */
 { pkgs, ... }:
-
 {
   config = {
     boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -21,5 +20,12 @@
 
     sound.enable = true;
     hardware.pulseaudio.enable = true;
+
+    hardware.opengl.enable = true;
+    hardware.opengl.driSupport = true;
+    hardware.opengl.extraPackages = with pkgs; [ libvdpau vdpauinfo libvdpau-va-gl ];
+
+    services.printing.enable = true;
+    hardware.sane.enable = true;
   };
 }

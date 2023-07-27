@@ -44,9 +44,8 @@
             modules = with self.nixosModules; [
               ({ config = { nix.registry.nixpkgs.flake = nixpkgs; }; })
               home-manager.nixosModules.home-manager
-              ({ config, ... }:
-              { home-manager.useGlobalPkgs = true; home-manager.useUserPackages = true; })
               traits.overlay
+              traits.nixos
               traits.base
               services.openssh
             ];
@@ -55,10 +54,9 @@
             system = "x86_64-linux";
             modules = with self.nixosModules; [
               ({ config = { nix.registry.nixpkgs.flake = nixpkgs; }; })
-              ({ config, ... }:
-              { home-manager.useGlobalPkgs = true; home-manager.useUserPackages = true; })
               home-manager.nixosModules.home-manager
               traits.overlay
+              traits.nixos
               traits.base
               services.openssh
             ];
@@ -70,7 +68,6 @@
             modules = x86_64Base.modules ++ [
               platforms.tomnuc
               traits.machine
-              traits.workstation
               traits.gnome
               users.sevi
             ];
@@ -80,7 +77,6 @@
             modules = x86_64Base.modules ++ [
               platforms.sevdesk
               traits.machine
-              traits.workstation
               traits.gnome
               users.sevi
             ];
@@ -91,7 +87,6 @@
               nixos-hardware.nixosModules.lenovo-thinkpad-x250
               platforms.sevtp
               traits.machine
-              traits.workstation
               traits.gnome
               users.sevi
             ];
@@ -100,9 +95,7 @@
             inherit (x86_64Base) system;
             modules = x86_64Base.modules ++ [
               platforms.sevtp2
-              traits.overlay
               traits.machine
-              traits.workstation
               traits.gnome
               users.sevi
             ];
@@ -118,7 +111,7 @@
         traits.base = ./traits/base.nix;
         traits.machine = ./traits/machine.nix;
         traits.laptop = ./traits/laptop.nix;
-        traits.workstation = ./traits/workstation.nix;
+        traits.nixos = ./traits/nixos.nix;
         traits.gnome = ./traits/gnome.nix;
         services.openssh = ./services/openssh.nix;
         users.sevi = ./users/sevi;
