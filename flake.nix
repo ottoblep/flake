@@ -50,7 +50,6 @@
               home-manager.nixosModules.home-manager
               traits.nixos
               traits.base
-              services.openssh
             ];
           };
           x86_64Base = {
@@ -60,7 +59,6 @@
               home-manager.nixosModules.home-manager
               traits.nixos
               traits.base
-              services.openssh
             ];
           };
         in
@@ -70,7 +68,7 @@
             modules = x86_64Base.modules ++ [
               platforms.tomnuc
               traits.machine
-              traits.gnome
+              traits.hyprland
               users.sevi
             ];
           };
@@ -115,6 +113,7 @@
         traits.laptop = ./traits/laptop.nix;
         traits.nixos = ./traits/nixos.nix;
         traits.gnome = ./traits/gnome.nix;
+        traits.hyprland = ./traits/hyprland.nix;
         services.openssh = ./services/openssh.nix;
         users.sevi = ./users/sevi;
       };

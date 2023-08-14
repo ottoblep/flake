@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  imports = [ ./dconf.nix ];
+  imports = [ ./hyprland.nix ];
 
   home.username = "sevi";
   home.homeDirectory = "/home/sevi";
@@ -40,14 +40,6 @@
   };
 
   home.packages = with pkgs; [
-    gnomeExtensions.user-themes
-    gnomeExtensions.space-bar
-    gnomeExtensions.paperwm
-    gnomeExtensions.transparent-top-bar
-    gnomeExtensions.vitals
-    gnomeExtensions.dash-to-dock
-    gnomeExtensions.bing-wallpaper-changer
-    gnomeExtensions.unite
     keepassxc
     speedcrunch
     xournalpp
@@ -55,7 +47,6 @@
     drawio
     nil
     pdfgrep
-    dconf2nix
     zoom-us
     nix-lrz-sync-share.lrz-sync-share
     # TODO sleek
