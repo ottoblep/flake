@@ -12,9 +12,17 @@
       url = "github:ottoblep/nix-lrz-sync-share";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    vscode-server = {
+      url = "github:nix-community/nixos-vscode-server";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, home-manager, nix-lrz-sync-share, ... }:
+  outputs = { self, nixpkgs, nixos-hardware, home-manager, nix-lrz-sync-share, nixos-wsl, vscode-server, ... }:
     let
       supportedSystems = [ "x86_64-linux" "aarch64-linux" ];
       forAllSystems = f: nixpkgs.lib.genAttrs supportedSystems (system: f system);
@@ -100,6 +108,14 @@
               users.sevi
             ];
           };
+          wsl = nixpkgs.lib.nixosSystem {
+            inherit (x86_64Base) system;
+            modules = x86_64Base.modules ++ [
+              nixos-wsl.nixosModules.default
+              vscode-server.nixosModules.default
+              platforms.wsl
+            ];
+          };
         };
 
       nixosModules = {
@@ -107,6 +123,7 @@
         platforms.sevtp = ./platforms/sevtp.nix;
         platforms.sevtp2 = ./platforms/sevtp2.nix;
         platforms.tomnuc = ./platforms/tomnuc.nix;
+        platforms.wsl = ./platforms/wsl.nix;
         traits.overlay = { nixpkgs.overlays = [ self.overlays.default ]; };
         traits.base = ./traits/base.nix;
         traits.machine = ./traits/machine.nix;

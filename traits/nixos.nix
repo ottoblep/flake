@@ -14,6 +14,7 @@
     # nix.package = pkgs.nixUnstable;
 
     nixpkgs.config.allowUnfree = true;
+    nixpkgs.config.allowBroken = true;
 
     # This value determines the NixOS release from which the default
     # settings for stateful data, like file locations and database versions
