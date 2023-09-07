@@ -12,6 +12,7 @@
       # Shell utilities
       vim
       curl
+      wget
       gitMinimal
       ripgrep
       pdfgrep
