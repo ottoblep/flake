@@ -1,8 +1,8 @@
-{ lib, pkgs, ... }:
-
+{ config, lib, pkgs, ... }:
 {
   config = {
     home-manager.users.sevi = ./home.nix;
+
     users.users.sevi = {
       isNormalUser = true;
       home = "/home/sevi";

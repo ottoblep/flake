@@ -1,9 +1,9 @@
-{ pkgs, lib, ... }:
+{ config, pkgs, lib, ... }:
 {
 
   home.packages = with pkgs; [
   ];
-  home.file.".config/hypr/hyprland.conf".source = ./dotfiles/hyprland.conf;
+  home.file.".config/hypr/hyprland.conf".source = ./hyprland.conf;
 
   services.dunst = {
     enable = true;
