@@ -3,22 +3,22 @@
 {
   config = {
     services.xserver = {
+      enable = true;
+      layout = "de";
+      displayManager.gdm = {
         enable = true;
-        layout = "de";
-        displayManager.gdm = {
-            enable = true;
-            wayland = true;
-        };
+        wayland = true;
+      };
     };
 
     hardware = {
-        opengl.enable = true;
+      opengl.enable = true;
     };
 
     # hyprland
     programs.hyprland = {
-        enable = true;
-        xwayland.enable = true;
+      enable = true;
+      xwayland.enable = true;
     };
     programs.waybar.enable = true;
     security.polkit.enable = true;

@@ -76,7 +76,7 @@
             modules = x86_64Base.modules ++ [
               platforms.tomnuc
               traits.machine
-              traits.hyprland
+              traits.gnome
               users.sevi
             ];
           };
@@ -114,6 +114,7 @@
               nixos-wsl.nixosModules.default
               vscode-server.nixosModules.default
               platforms.wsl
+              users.sevi
             ];
           };
         };
