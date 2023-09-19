@@ -16,6 +16,8 @@ with lib.hm.gvariant;
       enable-hot-corners = false;
       show-battery-percentage = true;
       text-scaling-factor = 1.1;
+      cursor-theme = "Adwaita";
+      gtk-theme = "Adwaita-dark";
     };
 
     "org/gnome/desktop/peripherals/touchpad" = {
@@ -109,19 +111,8 @@ with lib.hm.gvariant;
     "org/gnome/shell" = {
       disable-user-extensions = false;
       disabled-extensions = [ ];
-      enabled-extensions = [ "BingWallpaper@ineffable-gmail.com" "transparent-top-bar@ftpix.com" "paperwm@hedning:matrix.org" "hibernate-status@dromi" "Vitals@CoreCoding.com" "user-theme@gnome-shell-extensions.gcampax.github.com" "just-perfection-desktop@just-perfection" ];
+      enabled-extensions = [ "BingWallpaper@ineffable-gmail.com" "unite@hardpixel.eu" "paperwm@hedning:matrix.org" "hibernate-status@dromi" "user-theme@gnome-shell-extensions.gcampax.github.com" "just-perfection-desktop@just-perfection" ];
       favorite-apps = [ ];
-    };
-
-    "org/gnome/shell/extensions/vitals" = {
-      alphabetize = true;
-      fixed-widths = true;
-      hide-icons = false;
-      hide-zeros = false;
-      hot-sensors = [ "_processor_usage_"  "_memory_usage_" "__network-rx_max__" ];
-      show-battery = true;
-      show-voltage = true;
-      use-higher-precision = false;
     };
 
     # Just-Perfection hides the Dash and other stuff
@@ -129,24 +120,17 @@ with lib.hm.gvariant;
       accessibility-menu = false;
       activities-button = false;
       activities-button-icon-monochrome = true;
-      animation = 1;
+      animation = 3;
       app-menu = false;
-      app-menu-icon = false;
-      app-menu-label = true;
       background-menu = true;
       calendar = false;
       clock-menu = true;
       clock-menu-position = 2;
       controls-manager-spacing-size = 0;
       dash = false;
-      dash-app-running = false;
-      dash-icon-size = 16;
-      dash-separator = false;
       double-super-to-appgrid = true;
       overlay-key = true;
-      panel = false;
-      panel-icon-size = 22;
-      panel-in-overview = true;
+      panel = true;
       panel-notification-icon = true;
       power-icon = true;
       quick-settings = true;
@@ -172,23 +156,9 @@ with lib.hm.gvariant;
     };
 
     # Unite hides window panel bars
-    # "org/gnome/shell/extensions/unite" = {
-    #   autofocus-windows = false;
-    #   enable-titlebar-actions = false;
-    #   extend-left-box = true;
-    #   greyscale-tray-icons = false;
-    #   hide-activities-button = "always";
-    #   hide-dropdown-arrows = false;
-    #   hide-window-titlebars = "always";
-    #   notifications-position = "center";
-    #   reduce-panel-spacing = true;
-    #   restrict-to-primary-screen = false;
-    #   show-desktop-name = false;
-    #   show-legacy-tray = false;
-    #   show-window-buttons = "never";
-    #   show-window-title = "never";
-    #   window-buttons-theme = "auto";
-    # };
+    "org/gnome/shell/extensions/unite" = {
+      hide-window-titlebars = "always";
+    };
 
     "org/gnome/shell/extensions/user-theme" = {
       name = "Flat-Remix-Green-Dark";
