@@ -7,7 +7,8 @@
     paperwm
     bing-wallpaper-changer
     just-perfection
-    pkgs.dconf2nix
     unite
+    pkgs.dconf2nix
+    pkgs.flat-remix-gnome
   ];
 }
