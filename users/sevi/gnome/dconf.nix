@@ -108,8 +108,8 @@ with lib.hm.gvariant;
 
     "org/gnome/shell" = {
       disable-user-extensions = false;
-      disabled-extensions = [ "transparent-top-bar@zhanghai.me" "dash-to-dock@micxgx.gmail.com" "transparent-top-bar@ftpix.com" "unite@hardpixel.eu" ];
-      enabled-extensions = [ "BingWallpaper@ineffable-gmail.com" "transparent-shell@siroj42.github.io" "paperwm@hedning:matrix.org" "paperwm@paperwm-redux.github.com" "hibernate-status@dromi" "Vitals@CoreCoding.com" "user-theme@gnome-shell-extensions.gcampax.github.com" "just-perfection-desktop@just-perfection" "hidetopbar@mathieu.bidon.ca" ];
+      disabled-extensions = [ ];
+      enabled-extensions = [ "BingWallpaper@ineffable-gmail.com" "transparent-top-bar@ftpix.com" "paperwm@hedning:matrix.org" "hibernate-status@dromi" "Vitals@CoreCoding.com" "user-theme@gnome-shell-extensions.gcampax.github.com" "just-perfection-desktop@just-perfection" ];
       favorite-apps = [ ];
     };
 
