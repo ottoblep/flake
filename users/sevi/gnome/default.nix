@@ -9,6 +9,7 @@
     vitals
     bing-wallpaper-changer
     just-perfection
+    transparent-top-bar
     pkgs.dconf2nix
   ];
 }
