@@ -8,8 +8,8 @@
       package = pkgs.papirus-icon-theme;
     };
     theme = {
-      name = "palenight";
-      package = pkgs.palenight-theme;
+      name = "FlatRemix";
+      package = pkgs.flat-remix-gnome;
     };
     gtk3.extraConfig = {
       Settings = ''
