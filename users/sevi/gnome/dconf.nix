@@ -108,16 +108,9 @@ with lib.hm.gvariant;
 
     "org/gnome/shell" = {
       disable-user-extensions = false;
-      disabled-extensions = [ ];
-      enabled-extensions = [ "user-theme@gnome-shell-extensions.gcampax.github.com" "BingWallpaper@ineffable-gmail.com" "dash-to-dock@micxgx.gmail.com" "transparent-top-bar@ftpix.com" "paperwm@hedning:matrix.org" "paperwm@paperwm-redux.github.com" "Vitals@CoreCoding.com" "unite@hardpixel.eu" ];
-      favorite-apps = [ 
-        "chromium-browser.desktop"
-        "code.desktop"
-        "thunderbird.desktop"
-        "org.gnome.Nautilus.desktop"
-        "org.keepassxc.KeePassXC.desktop"
-        "org.speedcrunch.SpeedCrunch.desktop" 
-        ];
+      disabled-extensions = [ "transparent-top-bar@zhanghai.me" "dash-to-dock@micxgx.gmail.com" "transparent-top-bar@ftpix.com" "unite@hardpixel.eu" ];
+      enabled-extensions = [ "BingWallpaper@ineffable-gmail.com" "transparent-shell@siroj42.github.io" "paperwm@hedning:matrix.org" "paperwm@paperwm-redux.github.com" "hibernate-status@dromi" "Vitals@CoreCoding.com" "user-theme@gnome-shell-extensions.gcampax.github.com" "just-perfection-desktop@just-perfection" "hidetopbar@mathieu.bidon.ca" ];
+      favorite-apps = [ ];
     };
 
     "org/gnome/shell/extensions/vitals" = {
@@ -131,24 +124,75 @@ with lib.hm.gvariant;
       use-higher-precision = false;
     };
 
-    "org/gnome/shell/extensions/unite" = {
-      autofocus-windows = false;
-      enable-titlebar-actions = false;
-      extend-left-box = true;
-      greyscale-tray-icons = false;
-      hide-activities-button = "always";
-      hide-dropdown-arrows = false;
-      hide-window-titlebars = "always";
-      notifications-position = "center";
-      reduce-panel-spacing = true;
-      restrict-to-primary-screen = false;
-      show-desktop-name = false;
-      show-legacy-tray = false;
-      show-window-buttons = "never";
-      show-window-title = "never";
-      window-buttons-theme = "auto";
+    # Just-Perfection hides the Dash and other stuff
+    "org/gnome/shell/extensions/just-perfection" = {
+      accessibility-menu = false;
+      activities-button = false;
+      activities-button-icon-monochrome = true;
+      animation = 1;
+      app-menu = false;
+      app-menu-icon = false;
+      app-menu-label = true;
+      background-menu = true;
+      calendar = false;
+      clock-menu = true;
+      clock-menu-position = 2;
+      controls-manager-spacing-size = 0;
+      dash = false;
+      dash-app-running = false;
+      dash-icon-size = 16;
+      dash-separator = false;
+      double-super-to-appgrid = true;
+      overlay-key = true;
+      panel = false;
+      panel-icon-size = 22;
+      panel-in-overview = true;
+      panel-notification-icon = true;
+      power-icon = true;
+      quick-settings = true;
+      ripple-box = false;
+      search = true;
+      show-apps-button = false;
+      startup-status = 0;
+      theme = false;
+      top-panel-position = 0;
+      type-to-search = true;
+      weather = true;
+      window-demands-attention-focus = true;
+      window-picker-icon = false;
+      window-preview-caption = true;
+      window-preview-close-button = true;
+      workspace = false;
+      workspace-peek = true;
+      workspace-popup = true;
+      workspace-switcher-should-show = false;
+      workspace-wrap-around = true;
+      workspaces-in-app-grid = false;
+      world-clock = true;
     };
 
+    # Unite hides window panel bars
+    # "org/gnome/shell/extensions/unite" = {
+    #   autofocus-windows = false;
+    #   enable-titlebar-actions = false;
+    #   extend-left-box = true;
+    #   greyscale-tray-icons = false;
+    #   hide-activities-button = "always";
+    #   hide-dropdown-arrows = false;
+    #   hide-window-titlebars = "always";
+    #   notifications-position = "center";
+    #   reduce-panel-spacing = true;
+    #   restrict-to-primary-screen = false;
+    #   show-desktop-name = false;
+    #   show-legacy-tray = false;
+    #   show-window-buttons = "never";
+    #   show-window-title = "never";
+    #   window-buttons-theme = "auto";
+    # };
+
+    "org/gnome/shell/extensions/user-theme" = {
+      name = "Flat-Remix-Green-Dark";
+    };
 
     "org/gnome/shell/extensions/bingwallpaper" = {
       delete-previous = true;
@@ -157,32 +201,6 @@ with lib.hm.gvariant;
       lockscreen-blur-brightness = 60;
       lockscreen-blur-strength = 2;
       override-lockscreen-blur = true;
-    };
-
-    "org/gnome/shell/extensions/dash-to-dock" = {
-      animate-show-apps = true;
-      apply-custom-theme = false;
-      background-color = "rgb(0,0,0)";
-      background-opacity = 0.0;
-      custom-background-color = true;
-      custom-theme-shrink = false;
-      dash-max-icon-size = 58;
-      disable-overview-on-startup = false;
-      dock-position = "BOTTOM";
-      height-fraction = 1.0;
-      icon-size-fixed = true;
-      isolate-monitors = true;
-      isolate-workspaces = true;
-      preferred-monitor = -2;
-      preferred-monitor-by-connector = "eDP";
-      preview-size-scale = 0.0;
-      running-indicator-style = "DASHES";
-      show-favorites = true;
-      show-show-apps-button = true;
-      show-trash = false;
-      show-windows-preview = true;
-      transparency-mode = "FIXED";
-      workspace-agnostic-urgent-windows = true;
     };
 
     "org/gnome/shell/extensions/hibernate-status-button" = {
