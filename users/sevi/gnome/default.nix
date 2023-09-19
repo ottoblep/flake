@@ -2,15 +2,13 @@
 {
   imports = [ ./dconf.nix ];
 
-  home.packages = with pkgs; [
-    gnomeExtensions.user-themes
-    gnomeExtensions.space-bar
-    gnomeExtensions.paperwm
-    gnomeExtensions.transparent-top-bar
-    gnomeExtensions.vitals
-    gnomeExtensions.dash-to-dock
-    gnomeExtensions.bing-wallpaper-changer
-    gnomeExtensions.unite
-    dconf2nix
+  home.packages = with pkgs.gnomeExtensions; [
+    user-themes
+    hide-top-bar
+    paperwm
+    vitals
+    bing-wallpaper-changer
+    just-perfection
+    pkgs.dconf2nix
   ];
 }

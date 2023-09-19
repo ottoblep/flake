@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-  imports = [ ./graphical.nix ];
+  imports = [ ./graphical.nix ./gnome ];
 
   home.username = "sevi";
   home.homeDirectory = "/home/sevi";
