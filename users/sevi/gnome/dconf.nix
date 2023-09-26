@@ -161,7 +161,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell/extensions/user-theme" = {
-      name = "Flat-Remix-Green-Dark";
+      name = "Orchis-Purple-Dark";
     };
 
     "org/gnome/shell/extensions/bingwallpaper" = {

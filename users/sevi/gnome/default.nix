@@ -9,6 +9,6 @@
     just-perfection
     unite
     pkgs.dconf2nix
-    pkgs.flat-remix-gnome
+    pkgs.orchis-theme
   ];
 }
