@@ -80,7 +80,7 @@
     };
   };
 
-  programs.alacritty =  {
+  programs.alacritty = {
     enable = true;
     settings = import ./dotfiles/alacritty.nix;
   };
