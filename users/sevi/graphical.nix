@@ -1,6 +1,5 @@
 { pkgs, ... }:
 {
-  # TODO set theme and icons
   gtk = {
     enable = true;
     iconTheme = {

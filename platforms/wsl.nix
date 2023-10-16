@@ -11,12 +11,6 @@
 
     boot.loader.grub.device = "nodev";
 
-    users.users.sevi = {
-      isNormalUser = true;
-      home = "/home/sevi";
-      createHome = true;
-    };
-
     wsl = {
       enable = true;
       wslConf.automount.root = "/mnt";
