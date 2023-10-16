@@ -78,7 +78,7 @@
               traits.machine
               traits.graphical
               traits.gnome
-              users.sevi
+              users.sevi-full
             ];
           };
           sevdesk = nixpkgs.lib.nixosSystem {
@@ -88,7 +88,7 @@
               traits.machine
               traits.graphical
               traits.gnome
-              users.sevi
+              users.sevi-full
             ];
           };
           sevtp = nixpkgs.lib.nixosSystem {
@@ -99,7 +99,7 @@
               traits.machine
               traits.graphical
               traits.gnome
-              users.sevi
+              users.sevi-full
             ];
           };
           sevtp2 = nixpkgs.lib.nixosSystem {
@@ -109,7 +109,7 @@
               traits.machine
               traits.graphical
               traits.gnome
-              users.sevi
+              users.sevi-full
             ];
           };
           wsl = nixpkgs.lib.nixosSystem {
@@ -118,7 +118,7 @@
               platforms.wsl
               nixos-wsl.nixosModules.default
               vscode-server.nixosModules.default
-              users.sevi
+              users.sevi-basic
             ];
           };
         };
@@ -138,7 +138,20 @@
         traits.gnome = ./traits/gnome.nix;
         traits.hyprland = ./traits/hyprland.nix;
         services.openssh = ./services/openssh.nix;
-        users.sevi = ./users/sevi;
+        users.sevi-basic = ({lib, ...}:{
+          imports = [ ./users/sevi ];
+          home-manager.users.sevi = lib.mkMerge [
+            ./users/sevi/home.nix
+          ];
+        });
+        users.sevi-full = ({lib, ...}:{
+          imports = [ ./users/sevi ];
+          home-manager.users.sevi = lib.mkMerge [
+            ./users/sevi/home.nix
+            ./users/sevi/graphical.nix
+            ./users/sevi/gnome
+          ];
+        });
       };
     };
 }
