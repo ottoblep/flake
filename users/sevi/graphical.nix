@@ -19,19 +19,6 @@
     };
   };
 
-  home.packages = with pkgs; [
-    keepassxc
-    speedcrunch
-    xournalpp
-    thunderbird
-    drawio
-    nil
-    pdfgrep
-    zoom-us
-    nix-lrz-sync-share.lrz-sync-share
-    # TODO sleek
-  ];
-
   programs.chromium = {
     enable = true;
     extensions = [
