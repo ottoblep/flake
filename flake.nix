@@ -76,6 +76,7 @@
             modules = x86_64Base.modules ++ [
               platforms.tomnuc
               traits.machine
+              traits.graphical
               traits.gnome
               users.sevi
             ];
@@ -85,6 +86,7 @@
             modules = x86_64Base.modules ++ [
               platforms.sevdesk
               traits.machine
+              traits.graphical
               traits.gnome
               users.sevi
             ];
@@ -95,6 +97,7 @@
               nixos-hardware.nixosModules.lenovo-thinkpad-x250
               platforms.sevtp
               traits.machine
+              traits.graphical
               traits.gnome
               users.sevi
             ];
@@ -104,6 +107,7 @@
             modules = x86_64Base.modules ++ [
               platforms.sevtp2
               traits.machine
+              traits.graphical
               traits.gnome
               users.sevi
             ];
@@ -111,9 +115,9 @@
           wsl = nixpkgs.lib.nixosSystem {
             inherit (x86_64Base) system;
             modules = x86_64Base.modules ++ [
+              platforms.wsl
               nixos-wsl.nixosModules.default
               vscode-server.nixosModules.default
-              platforms.wsl
               users.sevi
             ];
           };
@@ -127,6 +131,7 @@
         platforms.wsl = ./platforms/wsl.nix;
         traits.overlay = { nixpkgs.overlays = [ self.overlays.default ]; };
         traits.base = ./traits/base.nix;
+        traits.graphical = ./traits/graphical.nix;
         traits.machine = ./traits/machine.nix;
         traits.laptop = ./traits/laptop.nix;
         traits.nixos = ./traits/nixos.nix;
