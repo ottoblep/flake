@@ -15,10 +15,6 @@
         cp -f ${tomnook-image} /var/lib/AccountsService/icons/sevi
       '';
 
-      networking.useDHCP = lib.mkDefault true;
-      # networking.interfaces.eno1.useDHCP = lib.mkDefault true;
-      # networking.interfaces.wlp0s20f3.useDHCP = lib.mkDefault true;
-
       nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
       # Picked from nixos-hardware
