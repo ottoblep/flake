@@ -20,6 +20,7 @@ in
       unite
       pkgs.dconf2nix
       pkgs.orchis-theme
+      pkgs.nix-lrz-sync-share.lrz-sync-share
       lrzSnSDesktopItem
     ];
 

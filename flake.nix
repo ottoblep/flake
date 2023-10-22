@@ -81,12 +81,11 @@
               users.sevi-full
             ];
           };
-          sevdesk = nixpkgs.lib.nixosSystem {
+          slab = nixpkgs.lib.nixosSystem {
             inherit (x86_64Base) system;
             modules = x86_64Base.modules ++ [
-              platforms.sevdesk
+              platforms.slab
               traits.machine
-              traits.graphical
               traits.gnome
               users.sevi-full
             ];
@@ -124,7 +123,7 @@
         };
 
       nixosModules = {
-        platforms.sevdesk = ./platforms/sevdesk.nix;
+        platforms.slab = ./platforms/slab.nix;
         platforms.sevtp = ./platforms/sevtp.nix;
         platforms.sevtp2 = ./platforms/sevtp2.nix;
         platforms.tomnuc = ./platforms/tomnuc.nix;
