@@ -137,13 +137,13 @@
         traits.gnome = ./traits/gnome.nix;
         traits.hyprland = ./traits/hyprland.nix;
         services.openssh = ./services/openssh.nix;
-        users.sevi-basic = ({lib, ...}:{
+        users.sevi-basic = ({ lib, ... }: {
           imports = [ ./users/sevi ];
           home-manager.users.sevi = lib.mkMerge [
             ./users/sevi/home.nix
           ];
         });
-        users.sevi-full = ({lib, ...}:{
+        users.sevi-full = ({ lib, ... }: {
           imports = [ ./users/sevi ];
           home-manager.users.sevi = lib.mkMerge [
             ./users/sevi/home.nix
