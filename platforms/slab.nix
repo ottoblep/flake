@@ -4,32 +4,41 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  config = {
-    networking.hostName = "slab";
+  config =
+    let
+      slab-image = ./icons/slab.jpeg;
+    in
+    {
+      networking.hostName = "tomnuc";
+      # Set profile images
+      system.activationScripts.setUserImages.text = ''
+        cp -f ${slab-image} /var/lib/AccountsService/icons/sevi
+      '';
+      networking.hostName = "slab";
 
-    boot.initrd.kernelModules = [ "amdgpu" ];
+      boot.initrd.kernelModules = [ "amdgpu" ];
 
-    services.xserver.videoDrivers = [ "amdgpu" ];
+      services.xserver.videoDrivers = [ "amdgpu" ];
 
-    fileSystems."/" =
-      {
-        device = "/dev/disk/by-label/nixos";
-        fsType = "ext4";
+      fileSystems."/" =
+        {
+          device = "/dev/disk/by-label/nixos";
+          fsType = "ext4";
+        };
+
+      fileSystems."/boot" =
+        {
+          device = "/dev/disk/by-label/boot";
+          fsType = "vfat";
+        };
+
+      hardware.opengl = {
+        enable = true;
+        extraPackages = with pkgs; [
+          mesa
+          amdvlk
+        ];
       };
 
-    fileSystems."/boot" =
-      {
-        device = "/dev/disk/by-label/boot";
-        fsType = "vfat";
-      };
-
-    hardware.opengl = {
-      enable = true;
-      extraPackages = with pkgs; [
-        mesa
-      amdvlk
-      ];
     };
-
-  };
 }
