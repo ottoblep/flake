@@ -28,5 +28,14 @@
       nixpkgs-fmt
     ];
 
+    services.avahi = {
+      nssmdns = true;
+      enable = true;
+      publish = {
+        enable = true;
+        domain = true;
+        addresses = true;
+      };
+    };
   };
 }
