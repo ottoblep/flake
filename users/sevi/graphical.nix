@@ -53,7 +53,7 @@
 
     keybindings = [
       {
-        key = "ctrl+[Backquote]";
+        key = "ctrl+alt+[Backslash]"; # ctrl + alt + #
         command = "workbench.action.terminal.toggleTerminal";
         when = "terminal.active";
       }
@@ -61,9 +61,19 @@
         key = "alt+q";
         command = "workbench.action.closeActiveEditor";
       }
-      # For switching tabs ctrl+tab is default
-      # To launch a new window use the console and 'codium FILE'
-      # To switch to a file by name use ctrl+p
+      {
+        key = "ctrl+shift+[Backslash]"; # ctrl + shift + #
+        command = "workbench.action.closeSidebar";
+      }
+      {
+        key = "ctrl+alt+p";
+        command = "workbench.action.quickOpen";
+      }
+      # ctrl+tab to switch tabs 
+      # ctrl + 1234 to switch panes
+      # ctrl + shift + EFG for sidebar opening
+      # ctrl + alt + p to open files
+      # ctrl + shift + p for all vscode commands
     ];
 
     userSettings = {
@@ -77,6 +87,7 @@
       "workbench.colorTheme" = "GitHub Dark";
       "workbench.iconTheme" = "material-icon-theme";
       "workbench.startupEditor" = "none";
+      "workbench.activityBar.visible" = false;
     };
   };
 
