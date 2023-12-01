@@ -1,6 +1,5 @@
 { pkgs, ... }:
 {
-  # TODO set theme and icons
   gtk = {
     enable = true;
     iconTheme = {
@@ -18,19 +17,6 @@
       '';
     };
   };
-
-  home.packages = with pkgs; [
-    keepassxc
-    speedcrunch
-    xournalpp
-    thunderbird
-    drawio
-    nil
-    pdfgrep
-    zoom-us
-    nix-lrz-sync-share.lrz-sync-share
-    # TODO sleek
-  ];
 
   programs.chromium = {
     enable = true;

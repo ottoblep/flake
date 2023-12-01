@@ -76,17 +76,18 @@
             modules = x86_64Base.modules ++ [
               platforms.tomnuc
               traits.machine
+              traits.graphical
               traits.gnome
-              users.sevi
+              users.sevi-full
             ];
           };
-          sevdesk = nixpkgs.lib.nixosSystem {
+          slab = nixpkgs.lib.nixosSystem {
             inherit (x86_64Base) system;
             modules = x86_64Base.modules ++ [
-              platforms.sevdesk
+              platforms.slab
               traits.machine
               traits.gnome
-              users.sevi
+              users.sevi-full
             ];
           };
           sevtp = nixpkgs.lib.nixosSystem {
@@ -95,8 +96,9 @@
               nixos-hardware.nixosModules.lenovo-thinkpad-x250
               platforms.sevtp
               traits.machine
+              traits.graphical
               traits.gnome
-              users.sevi
+              users.sevi-full
             ];
           };
           sevtp2 = nixpkgs.lib.nixosSystem {
@@ -104,36 +106,51 @@
             modules = x86_64Base.modules ++ [
               platforms.sevtp2
               traits.machine
+              traits.graphical
               traits.gnome
-              users.sevi
+              users.sevi-full
             ];
           };
           wsl = nixpkgs.lib.nixosSystem {
             inherit (x86_64Base) system;
             modules = x86_64Base.modules ++ [
+              platforms.wsl
               nixos-wsl.nixosModules.default
               vscode-server.nixosModules.default
-              platforms.wsl
-              users.sevi
+              users.sevi-basic
             ];
           };
         };
 
       nixosModules = {
-        platforms.sevdesk = ./platforms/sevdesk.nix;
+        platforms.slab = ./platforms/slab.nix;
         platforms.sevtp = ./platforms/sevtp.nix;
         platforms.sevtp2 = ./platforms/sevtp2.nix;
         platforms.tomnuc = ./platforms/tomnuc.nix;
         platforms.wsl = ./platforms/wsl.nix;
         traits.overlay = { nixpkgs.overlays = [ self.overlays.default ]; };
         traits.base = ./traits/base.nix;
+        traits.graphical = ./traits/graphical.nix;
         traits.machine = ./traits/machine.nix;
         traits.laptop = ./traits/laptop.nix;
         traits.nixos = ./traits/nixos.nix;
         traits.gnome = ./traits/gnome.nix;
         traits.hyprland = ./traits/hyprland.nix;
         services.openssh = ./services/openssh.nix;
-        users.sevi = ./users/sevi;
+        users.sevi-basic = ({ lib, ... }: {
+          imports = [ ./users/sevi ];
+          home-manager.users.sevi = lib.mkMerge [
+            ./users/sevi/home.nix
+          ];
+        });
+        users.sevi-full = ({ lib, ... }: {
+          imports = [ ./users/sevi ];
+          home-manager.users.sevi = lib.mkMerge [
+            ./users/sevi/home.nix
+            ./users/sevi/graphical.nix
+            ./users/sevi/gnome
+          ];
+        });
       };
     };
 }
