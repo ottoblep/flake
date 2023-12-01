@@ -15,6 +15,7 @@
     powerManagement.cpuFreqGovernor = "ondemand";
 
     networking.networkmanager.enable = true;
+    networking.wireless.userControlled.enable = true;
     # networking.wireless.enable = true; # For Network Manager
     # networking.firewall.enable = true;
 
