@@ -16,7 +16,7 @@
       gitMinimal
       ripgrep
       pdfgrep
-      htop
+      btop
       fd
       zoxide
       tree
