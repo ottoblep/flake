@@ -71,6 +71,16 @@
           };
         in
         with self.nixosModules; {
+          stele = nixpkgs.lib.nixosSystem {
+            inherit (x86_64Base) system;
+            modules = x86_64Base.modules ++ [
+              platforms.stele
+              traits.machine
+              traits.graphical
+              traits.gnome
+              users.sevi-full
+            ];
+          };
           tomnuc = nixpkgs.lib.nixosSystem {
             inherit (x86_64Base) system;
             modules = x86_64Base.modules ++ [
@@ -123,6 +133,7 @@
         };
 
       nixosModules = {
+        platforms.stele = ./platforms/stele.nix;
         platforms.slab = ./platforms/slab.nix;
         platforms.sevtp = ./platforms/sevtp.nix;
         platforms.sevtp2 = ./platforms/sevtp2.nix;
