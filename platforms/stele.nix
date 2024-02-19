@@ -69,6 +69,8 @@
           fsType = "vfat";
         };
 
+      boot.supportedFilesystems = [ "ntfs" ];
+
       nixpkgs.overlays = [
         (final: prev: { })
       ];
