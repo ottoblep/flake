@@ -111,7 +111,7 @@ with lib.hm.gvariant;
     "org/gnome/shell" = {
       disable-user-extensions = false;
       disabled-extensions = [ ];
-      enabled-extensions = [ "BingWallpaper@ineffable-gmail.com" "unite@hardpixel.eu" "paperwm@hedning:matrix.org" "hibernate-status@dromi" "user-theme@gnome-shell-extensions.gcampax.github.com" "just-perfection-desktop@just-perfection" ];
+      enabled-extensions = [ "BingWallpaper@ineffable-gmail.com" "unite@hardpixel.eu" "paperwm@paperwm.github.com" "hibernate-status@dromi" "user-theme@gnome-shell-extensions.gcampax.github.com" "just-perfection-desktop@just-perfection" ];
       favorite-apps = [ ];
     };
 
