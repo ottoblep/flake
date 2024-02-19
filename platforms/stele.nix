@@ -57,6 +57,12 @@
           fsType = "ext4";
         };
 
+      fileSystems."/storage" =
+        {
+          device = "/dev/disk/by-label/storage";
+          fsType = "ext4";
+        };
+
       fileSystems."/boot" =
         {
           device = "/dev/disk/by-label/boot";
