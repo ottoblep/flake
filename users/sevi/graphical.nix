@@ -35,11 +35,7 @@
       vscode-extensions.github.github-vscode-theme
       vscode-extensions.pkief.material-icon-theme
       vscode-extensions.jnoortheen.nix-ide
-      vscode-extensions.arrterian.nix-env-selector # This enables using shell.nix with VSCode necessary for the following
-      # C++
-      vscode-extensions.ms-vscode.cmake-tools
-      vscode-extensions.llvm-vs-code-extensions.vscode-clangd
-      vscode-extensions.vadimcn.vscode-lldb
+      vscode-extensions.arrterian.nix-env-selector
     ];
 
     keybindings = [
