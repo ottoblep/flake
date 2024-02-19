@@ -78,6 +78,7 @@
               traits.machine
               traits.graphical
               traits.gnome
+              traits.game
               users.sevi-full
             ];
           };
@@ -146,6 +147,7 @@
         traits.laptop = ./traits/laptop.nix;
         traits.nixos = ./traits/nixos.nix;
         traits.gnome = ./traits/gnome.nix;
+        traits.game = ./traits/game.nix;
         traits.hyprland = ./traits/hyprland.nix;
         services.openssh = ./services/openssh.nix;
         users.sevi-basic = ({ lib, ... }: {
