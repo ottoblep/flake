@@ -5,6 +5,10 @@ with lib.hm.gvariant;
 
 {
   dconf.settings = {
+    "org/gnome/mutter" = {
+      experimental-features = [ "scale-monitor-framebuffer" "x11-randr-fractional-scaling" ];
+    };
+
     "org/gnome/desktop/calendar" = {
       show-weekdate = false;
     };
