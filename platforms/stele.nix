@@ -10,8 +10,10 @@
 
       nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
-      # RTX 2060
-      services.xserver.videoDrivers = [ "nvidia" ];
+      boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" "sr_mod" ];
+      boot.initrd.kernelModules = [ ];
+      boot.kernelModules = [ "kvm-intel" ];
+      boot.extraModulePackages = [ ];
 
       # Enable OpenGL
       hardware.opengl = {
@@ -29,10 +31,10 @@
         modesetting.enable = true;
 
         # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
-        powerManagement.enable = true;
+        powerManagement.enable = false;
         # Fine-grained power management. Turns off GPU when not in use.
         # Experimental and only works on modern Nvidia GPUs (Turing or newer).
-        powerManagement.finegrained = true;
+        powerManagement.finegrained = false;
 
         # Use the NVidia open source kernel module (not to be confused with the
         # independent third-party "nouveau" open source driver).
@@ -41,14 +43,14 @@
         # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus 
         # Only available from driver 515.43.04+
         # Currently alpha-quality/buggy, so false is currently the recommended setting.
-        open = true;
+        open = false;
 
         # Enable the Nvidia settings menu,
 	      # accessible via `nvidia-settings`.
         nvidiaSettings = true;
 
         # Optionally, you may need to select the appropriate driver version for your specific GPU.
-        package = config.boot.kernelPackages.nvidiaPackages.stable;
+        package = config.boot.kernelPackages.nvidiaPackages.production;
       };
 
       fileSystems."/" =
@@ -70,6 +72,12 @@
         };
 
       boot.supportedFilesystems = [ "ntfs" ];
+
+      networking.useDHCP = lib.mkDefault true;
+      networking.interfaces.enp7s0.useDHCP = lib.mkDefault true;
+      networking.interfaces.wlp0s20f0u10.useDHCP = lib.mkDefault true;
+
+      hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
       nixpkgs.overlays = [
         (final: prev: { })
