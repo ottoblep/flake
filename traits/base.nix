@@ -26,6 +26,7 @@
       tio
       avahi
       nixpkgs-fmt
+      todo-txt-cli
     ];
 
     services.avahi = {
