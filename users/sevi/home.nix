@@ -38,6 +38,8 @@
     in
     "${src}/themes";
 
+  home.file.".config/todo-cli.conf".source = ./dotfiles/todo-txt-cli.conf;
+
   home.shellAliases = {
     rm = "rm -i";
     srm = "srm -i";
@@ -45,6 +47,7 @@
     ls = "ls --color=tty";
     "..." = "cd ../..";
     btop = "btop -p 0";
+    todo = "todo.sh -d ~/.config/todo-cli.conf -T -A -n";
   };
 
   programs.home-manager.enable = true;
