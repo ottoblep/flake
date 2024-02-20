@@ -72,7 +72,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/nautilus/list-view" = {
-      default-zoom-level = "medium";
+      default-zoom-level = "small";
     };
 
     "org/gnome/nautilus/preferences" = {
