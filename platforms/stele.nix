@@ -21,6 +21,7 @@
         driSupport = true;
         driSupport32Bit = true;
       };
+      environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
       # Load nvidia driver for Xorg and Wayland
       services.xserver.videoDrivers = ["nvidia"];
