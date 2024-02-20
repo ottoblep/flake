@@ -9,7 +9,6 @@
       slab-image = ./icons/slab.jpeg;
     in
     {
-      networking.hostName = "tomnuc";
       # Set profile images
       system.activationScripts.setUserImages.text = ''
         cp -f ${slab-image} /var/lib/AccountsService/icons/sevi
