@@ -36,6 +36,7 @@
       vscode-extensions.pkief.material-icon-theme
       vscode-extensions.jnoortheen.nix-ide
       vscode-extensions.arrterian.nix-env-selector
+      vscode-extensions.james-yu.latex-workshop
     ];
 
     keybindings = [

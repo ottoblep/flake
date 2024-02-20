@@ -79,6 +79,7 @@
               traits.graphical
               traits.gnome
               traits.game
+              traits.office
               users.sevi-full
             ];
           };
@@ -147,6 +148,7 @@
         traits.laptop = ./traits/laptop.nix;
         traits.nixos = ./traits/nixos.nix;
         traits.gnome = ./traits/gnome.nix;
+        traits.office = ./traits/office.nix;
         traits.game = ./traits/game.nix;
         traits.hyprland = ./traits/hyprland.nix;
         services.openssh = ./services/openssh.nix;

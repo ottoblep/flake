@@ -12,10 +12,8 @@
       thunderbird
       drawio
       nil
-      pdfgrep
       zoom-us
       pinta
-      pandoc
       nix-lrz-sync-share.lrz-sync-share
       zerotierone
       # TODO sleek
