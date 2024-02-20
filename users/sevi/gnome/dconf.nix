@@ -19,7 +19,7 @@ with lib.hm.gvariant;
       color-scheme = "prefer-dark";
       enable-hot-corners = false;
       show-battery-percentage = true;
-      text-scaling-factor = 1.1;
+      text-scaling-factor = 1.0;
       cursor-theme = "Adwaita";
       gtk-theme = "Adwaita-dark";
     };
