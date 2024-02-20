@@ -8,5 +8,7 @@
     # TODO check hardware conf
     networking.hostName = "sevtp2";
   };
+
+  powerManagement.cpuFreqGovernor = "ondemand";
 }
 
