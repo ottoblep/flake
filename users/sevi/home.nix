@@ -38,6 +38,15 @@
   in 
   "${src}/themes";
 
+  home.shellAliases = {
+   rm = "rm -i";
+   srm = "srm -i";
+   ll = "ls -l";
+   ls = "ls --color=tty";
+   "..." = "cd ../..";
+   btop = "btop -p 0";
+  };
+
   programs.home-manager.enable = true;
   home.stateVersion = "23.05";
 }
