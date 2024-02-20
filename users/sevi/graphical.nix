@@ -56,6 +56,10 @@
         key = "ctrl+alt+p";
         command = "workbench.action.quickOpen";
       }
+      {
+        key = "ctrl+shift+e";
+        command = "-workbench.action.quickOpenNavigatePreviousInFilePicker";
+      }
       # ctrl+tab to switch tabs 
       # ctrl + 1234 to switch panes
       # ctrl + shift + EFG for sidebar opening
