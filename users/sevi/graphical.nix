@@ -74,7 +74,7 @@
       "workbench.colorTheme" = "GitHub Dark";
       "workbench.iconTheme" = "material-icon-theme";
       "workbench.startupEditor" = "none";
-      "workbench.activityBar.visible" = false;
+      "workbench.activityBar.location" = "hidden";
     };
   };
 
