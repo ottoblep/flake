@@ -37,6 +37,7 @@
       vscode-extensions.jnoortheen.nix-ide
       vscode-extensions.arrterian.nix-env-selector
       vscode-extensions.james-yu.latex-workshop
+      vscode-extensions.mechatroner.rainbow-csv
     ];
 
     keybindings = [
