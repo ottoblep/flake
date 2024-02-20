@@ -13,6 +13,7 @@
       };
     };
   };
+
   programs.zsh = {
     enable = true;
     shellAliases = {
@@ -24,6 +25,18 @@
       theme = "gozilla";
     };
   };
+
+  home.file.".config/btop/btop.conf".source = ./dotfiles/btop.conf;
+  home.file.".config/btop/themes".source = 
+  let
+    src = pkgs.fetchFromGitHub {
+      repo = "btop";
+      owner = "catppuccin";
+      rev = "1.0.0";
+      hash = "sha256-J3UezOQMDdxpflGax0rGBF/XMiKqdqZXuX4KMVGTxFk=";
+    };
+  in 
+  "${src}/themes";
 
   programs.home-manager.enable = true;
   home.stateVersion = "23.05";
