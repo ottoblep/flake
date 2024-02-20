@@ -8,8 +8,8 @@
       steam
       firefox
       discord
-      telegram-desktop
       whatsapp-for-linux
+      signal-desktop
     ];
   };
 }
