@@ -23,6 +23,13 @@
       };
       environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
+      hardware.openrazer.enable = true;
+      hardware.openrazer.users = [ "sevi" ];
+      environment.systemPackages = with pkgs; [
+        openrazer-daemon
+        polychromatic
+      ];
+
       # Load nvidia driver for Xorg and Wayland
       services.xserver.videoDrivers = ["nvidia"];
 

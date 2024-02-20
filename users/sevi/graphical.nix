@@ -90,4 +90,6 @@
     enable = true;
     settings = import ./dotfiles/alacritty.nix;
   };
+
+  home.file.".config/openrazer".source = ./dotfiles/openrazer;
 }
