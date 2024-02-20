@@ -80,6 +80,8 @@
       "workbench.iconTheme" = "material-icon-theme";
       "workbench.startupEditor" = "none";
       "workbench.activityBar.location" = "hidden";
+      "latex-workshop.view.pdf.invert" = 1;
+      "latex-workshop.view.pdf.spreadMode" = 1;
     };
   };
 
