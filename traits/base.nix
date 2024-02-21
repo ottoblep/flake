@@ -27,6 +27,7 @@
       avahi
       nixpkgs-fmt
       todo-txt-cli
+      neofetch
     ];
 
     services.avahi = {
