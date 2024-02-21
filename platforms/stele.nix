@@ -22,6 +22,12 @@
         enable = true;
         driSupport = true;
         driSupport32Bit = true;
+        extraPackages = with pkgs; [
+          libva
+          libvdpau
+          libvdpau-va-gl 
+          nvidia-vaapi-driver
+          ];
       };
       environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
@@ -31,6 +37,8 @@
         openrazer-daemon
         polychromatic
         nvitop
+        libva-utils
+        vdpauinfo
       ];
 
       # Load nvidia driver for Xorg and Wayland
