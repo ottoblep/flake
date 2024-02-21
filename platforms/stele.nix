@@ -30,6 +30,7 @@
       environment.systemPackages = with pkgs; [
         openrazer-daemon
         polychromatic
+        nvitop
       ];
 
       # Load nvidia driver for Xorg and Wayland
