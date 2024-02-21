@@ -93,6 +93,6 @@
     settings = import ./dotfiles/alacritty.nix;
   };
 
-  home.file.".config/openrazer".source = ./dotfiles/openrazer;
+  home.file.".config/openrazer/persistence.conf".source = ./dotfiles/openrazer.conf;
   home.file.".config/xournalpp/settings.xml".source = ./dotfiles/xournalpp.xml;
 }
