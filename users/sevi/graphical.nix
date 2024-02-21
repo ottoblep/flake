@@ -94,4 +94,5 @@
   };
 
   home.file.".config/openrazer".source = ./dotfiles/openrazer;
+  home.file.".config/xournalpp/settings.xml".source = ./dotfiles/xournalpp.xml;
 }
