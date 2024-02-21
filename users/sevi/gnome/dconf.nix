@@ -125,7 +125,7 @@ with lib.hm.gvariant;
       accessibility-menu = false;
       activities-button = false;
       activities-button-icon-monochrome = true;
-      animation = 3;
+      animation = 4;
       app-menu = false;
       background-menu = true;
       calendar = false;
@@ -189,15 +189,16 @@ with lib.hm.gvariant;
 
     "org/gnome/shell/extensions/paperwm" = {
       has-installed-config-template = true;
+      default-focus-mode = 0;
       horizontal-margin = 8;
-      minimap-scale = 0.0;
+      minimap-scale = 0.10;
       show-window-position-bar = false;
       tiling-edge-margin = 3;
       topbar-follow-focus = false;
       use-default-background = true;
-      vertical-margin = 3;
-      vertical-margin-bottom = 3;
-      window-gap = 8;
+      vertical-margin = 5;
+      vertical-margin-bottom = 5;
+      window-gap = 10;
       winprops = [ ];
     };
 
