@@ -6,6 +6,7 @@
   config = {
     environment.systemPackages = with pkgs; [
       steam
+      gamemode
       firefox
       discord
       whatsapp-for-linux
