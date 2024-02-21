@@ -17,7 +17,7 @@
     # italic.family = "FuraCode Nerd Font";
   };
 
-  cursor.style = "Beam";
+  cursor.style = "Block";
 
   shell = {
     program = "zsh";
