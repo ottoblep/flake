@@ -72,6 +72,7 @@
     userSettings = {
       "security.workspace.trust.untrustedFiles" = "open";
       "window.menuBarVisibility" = "toggle";
+      "window.titleBarStyle" = "custom";
       "editor.fontSize" = 13;
       "editor.wordWrap" = "on";
       "terminal.integrated.fontSize" = 13;
