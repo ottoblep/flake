@@ -16,6 +16,8 @@
       pinta
       nix-lrz-sync-share.lrz-sync-share
       zerotierone
+      whatsapp-for-linux
+      signal-desktop
       # TODO sleek
       # TODO pdf tool (maybe pdftk)
     ];
