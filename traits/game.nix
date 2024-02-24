@@ -9,8 +9,6 @@
       gamemode
       firefox
       discord
-      whatsapp-for-linux
-      signal-desktop
     ];
   };
 }
