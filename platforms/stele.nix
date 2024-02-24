@@ -25,9 +25,9 @@
         extraPackages = with pkgs; [
           libva
           libvdpau
-          libvdpau-va-gl 
+          libvdpau-va-gl
           nvidia-vaapi-driver
-          ];
+        ];
       };
       environment.sessionVariables.NIXOS_OZONE_WL = "1";
 

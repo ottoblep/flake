@@ -76,6 +76,7 @@
             modules = x86_64Base.modules ++ [
               platforms.stele
               traits.machine
+              traits.tower
               traits.graphical
               traits.gnome
               traits.game
@@ -88,6 +89,7 @@
             modules = x86_64Base.modules ++ [
               platforms.tomnuc
               traits.machine
+              traits.tower
               traits.graphical
               traits.gnome
               users.sevi-full
@@ -97,6 +99,7 @@
             inherit (x86_64Base) system;
             modules = x86_64Base.modules ++ [
               platforms.slab
+              traits.tower
               traits.machine
               traits.gnome
               users.sevi-full
@@ -108,6 +111,7 @@
               nixos-hardware.nixosModules.lenovo-thinkpad-x250
               platforms.sevtp
               traits.machine
+              traits.laptop
               traits.graphical
               traits.gnome
               users.sevi-full
@@ -118,6 +122,7 @@
             modules = x86_64Base.modules ++ [
               platforms.sevtp2
               traits.machine
+              traits.laptop
               traits.graphical
               traits.gnome
               users.sevi-full
@@ -145,6 +150,7 @@
         traits.base = ./traits/base.nix;
         traits.graphical = ./traits/graphical.nix;
         traits.machine = ./traits/machine.nix;
+        traits.tower = ./traits/tower.nix;
         traits.laptop = ./traits/laptop.nix;
         traits.nixos = ./traits/nixos.nix;
         traits.gnome = ./traits/gnome.nix;

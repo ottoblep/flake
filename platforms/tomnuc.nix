@@ -15,8 +15,6 @@
         cp -f ${tomnook-image} /var/lib/AccountsService/icons/sevi
       '';
 
-      powerManagement.cpuFreqGovernor = "performance";
-
       nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
       # Picked from nixos-hardware
