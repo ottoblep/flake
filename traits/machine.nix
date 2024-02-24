@@ -1,7 +1,7 @@
 /*
   Universal hardware configuration options 
 */
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   config = {
     boot.kernelPackages = pkgs.linuxPackages_latest;
