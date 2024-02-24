@@ -15,8 +15,6 @@
       boot.kernelModules = [ "kvm-intel" ];
       boot.extraModulePackages = [ ];
 
-      powerManagement.cpuFreqGovernor = "performance";
-
       # Enable OpenGL
       hardware.opengl = {
         enable = true;
