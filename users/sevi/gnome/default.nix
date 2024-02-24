@@ -13,6 +13,8 @@ in
   home.packages =
     with pkgs.gnomeExtensions;
     [
+      # rounded-window-corners # As soon as available for 45
+      rounded-corners
       user-themes
       paperwm
       bing-wallpaper-changer
