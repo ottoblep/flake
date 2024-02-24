@@ -12,9 +12,10 @@
 
     users.mutableUsers = true; # Set passwords after setup
 
+    networking.useDHCP = lib.mkDefault true;
     networking.networkmanager.enable = true;
     networking.wireless.userControlled.enable = true;
-    # networking.wireless.enable = true; # For Network Manager
+    # networking.wireless.enable = true;
     # networking.firewall.enable = true;
 
     sound.enable = true;
