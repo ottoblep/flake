@@ -7,6 +7,7 @@
     time.timeZone = "Europe/Berlin";
     # Windows wants hardware clock in local time instead of UTC
     time.hardwareClockInLocalTime = true;
+    console.keyMap = "de";
 
     environment.systemPackages = with pkgs; [
       # Shell utilities
