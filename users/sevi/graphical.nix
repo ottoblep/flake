@@ -32,8 +32,8 @@
     extensions = with pkgs; [
       vscode-extensions.mhutchie.git-graph
       vscode-extensions.vscodevim.vim
-      vscode-extensions.github.github-vscode-theme
-      vscode-extensions.pkief.material-icon-theme
+      vscode-extensions.catppuccin.catppuccin-vsc
+      vscode-extensions.catppuccin.catppuccin-vsc-icons
       vscode-extensions.jnoortheen.nix-ide
       vscode-extensions.arrterian.nix-env-selector
       vscode-extensions.james-yu.latex-workshop
@@ -79,8 +79,8 @@
       "vim.foldfix" = true;
       "vim.useSystemClipboard" = true;
       "editor.minimap.enabled" = false;
-      "workbench.colorTheme" = "GitHub Dark";
-      "workbench.iconTheme" = "material-icon-theme";
+      "workbench.colorTheme" = "Catppuccin Macchiato";
+      "workbench.iconTheme" = "catppuccin-macchiato";
       "workbench.startupEditor" = "none";
       "workbench.activityBar.location" = "hidden";
       "latex-workshop.view.pdf.invert" = 1;

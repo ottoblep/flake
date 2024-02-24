@@ -9,7 +9,7 @@
     environment.systemPackages = with pkgs; [
       steam
       gamemode
-      firefox
+      firefox # Use Catppuccin Macchiato theme
       discord
     ];
   };
