@@ -19,7 +19,6 @@
       whatsapp-for-linux
       signal-desktop
       # TODO sleek
-      # TODO pdf tool (maybe pdftk)
     ];
   };
 }
