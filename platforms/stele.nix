@@ -94,8 +94,6 @@
       boot.supportedFilesystems = [ "ntfs" ];
 
       networking.useDHCP = lib.mkDefault true;
-      networking.interfaces.enp7s0.useDHCP = lib.mkDefault true;
-      networking.interfaces.wlp0s20f0u10.useDHCP = lib.mkDefault true;
 
       hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
