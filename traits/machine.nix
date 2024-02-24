@@ -9,6 +9,7 @@
     boot.loader.systemd-boot.enable = true;
     boot.loader.systemd-boot.editor = true;
     boot.initrd.systemd.enable = true;
+    boot.initrd.availableKernelModules = [ "hid_cherry" "usbhid" ];
 
     users.mutableUsers = true; # Set passwords after setup
 
