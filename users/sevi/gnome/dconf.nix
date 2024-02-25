@@ -63,6 +63,34 @@ with lib.hm.gvariant;
       unmaximize = [ ];
     };
 
+   "org/gnome/shell/extensions/paperwm/workspaces" = {
+      list = [ "c124eb8f-f8f7-4c93-a3fc-3dca6dfe562e" "108ba727-52d0-4e10-91c3-fcb64248c7ff" "0703f2ab-3993-4b66-b94e-2b0e522b5b63" "0907e1ae-6d98-4a58-b7b5-fd1d0e4ef81e" ];
+    };
+
+    "org/gnome/shell/extensions/paperwm/workspaces/c124eb8f-f8f7-4c93-a3fc-3dca6dfe562e" = {
+      background = "/home/sevi/Pictures/Wallpapers/wallpaper.png";
+      index = 0;
+      show-top-bar = false;
+    };
+
+    "org/gnome/shell/extensions/paperwm/workspaces/108ba727-52d0-4e10-91c3-fcb64248c7ff" = {
+      background = "/home/sevi/Pictures/Wallpapers/wallpaper2.png";
+      index = 1;
+      show-top-bar = false;
+    };
+
+    "org/gnome/shell/extensions/paperwm/workspaces/0703f2ab-3993-4b66-b94e-2b0e522b5b63" = {
+      background = "/home/sevi/Pictures/Wallpapers/wallpaper.png";
+      index = 2;
+      show-top-bar = false;
+    };
+
+    "org/gnome/shell/extensions/paperwm/workspaces/0907e1ae-6d98-4a58-b7b5-fd1d0e4ef81e" = {
+      background = "/home/sevi/Pictures/Wallpapers/wallpaper2.png";
+      index = 3;
+      show-top-bar = false;
+    };
+
     "org/gnome/eog/ui" = {
       sidebar = false;
     };
@@ -116,7 +144,7 @@ with lib.hm.gvariant;
     "org/gnome/shell" = {
       disable-user-extensions = false;
       disabled-extensions = [ ];
-      enabled-extensions = [ "BingWallpaper@ineffable-gmail.com" "unite@hardpixel.eu" "paperwm@paperwm.github.com" "hibernate-status@dromi" "user-theme@gnome-shell-extensions.gcampax.github.com" "just-perfection-desktop@just-perfection" "Rounded_Corners@lennart-k" ];
+      enabled-extensions = [ "unite@hardpixel.eu" "paperwm@paperwm.github.com" "hibernate-status@dromi" "user-theme@gnome-shell-extensions.gcampax.github.com" "just-perfection-desktop@just-perfection" "Rounded_Corners@lennart-k" ];
       favorite-apps = [ ];
     };
 
@@ -170,13 +198,10 @@ with lib.hm.gvariant;
       name = "Orchis-Purple-Dark";
     };
 
-    "org/gnome/shell/extensions/bingwallpaper" = {
-      delete-previous = true;
-      download-folder = "/home/sevi/Pictures/BingWallpaper/";
-      icon-name = "bing-symbolic";
-      lockscreen-blur-brightness = 60;
-      lockscreen-blur-strength = 2;
-      override-lockscreen-blur = true;
+    "org/gnome/desktop/background" = {
+      picture-uri = "";
+      picture-uri-dark = "";
+      # picture-options = "spanned";
     };
 
     "org/gnome/shell/extensions/hibernate-status-button" = {
@@ -195,7 +220,7 @@ with lib.hm.gvariant;
       show-window-position-bar = false;
       tiling-edge-margin = 3;
       topbar-follow-focus = false;
-      use-default-background = true;
+      use-default-background = false;
       vertical-margin = 5;
       vertical-margin-bottom = 5;
       window-gap = 10;
