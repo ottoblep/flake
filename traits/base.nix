@@ -14,9 +14,8 @@
       vim
       curl
       wget
-      gitMinimal
+      git
       ripgrep
-      pdfgrep
       btop
       fd
       zoxide
