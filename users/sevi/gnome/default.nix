@@ -11,18 +11,17 @@ in
   imports = [ ./dconf.nix ];
 
   home.packages =
-    with pkgs.gnomeExtensions;
+    with pkgs; with pkgs.gnomeExtensions;
     [
       # rounded-window-corners # As soon as available for 45
       rounded-corners
       user-themes
       paperwm
-      bing-wallpaper-changer
       just-perfection
       unite
-      pkgs.dconf2nix
-      pkgs.orchis-theme
-      pkgs.nix-lrz-sync-share.lrz-sync-share
+      dconf2nix
+      orchis-theme
+      nix-lrz-sync-share.lrz-sync-share
       lrzSnSDesktopItem
     ];
 
