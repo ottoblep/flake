@@ -83,8 +83,11 @@
       "workbench.iconTheme" = "catppuccin-macchiato";
       "workbench.startupEditor" = "none";
       "workbench.activityBar.location" = "hidden";
-      "latex-workshop.view.pdf.invert" = 1;
       "latex-workshop.view.pdf.spreadMode" = 1;
+      "latex-workshop.view.pdf.color.dark.pageBorderColor" = "#181926"; # Catppuccin Macchiato
+      "latex-workshop.view.pdf.color.dark.backgroundColor" = "#1e2030";
+      "latex-workshop.view.pdf.color.dark.pageColorsBackground" = "#24273a";
+      "latex-workshop.view.pdf.color.dark.pageColorsForeground" = "#cad3f5";
     };
   };
 
