@@ -24,6 +24,7 @@
       "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock-origin
       "dbepggeogbaibhgnhhndojpepiihcmeb" # vimium
       "bkdgflcldnnnapblkhphbgpggdiikppg" # duckduckgo
+      "eimadpbcbfnmbkopoojfekhnkhdbieeh" # Dark Reader
     ];
   };
 
