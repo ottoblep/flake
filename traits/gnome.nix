@@ -9,14 +9,7 @@
       xserver = {
         enable = true;
         layout = "de";
-        displayManager.gdm = {
-          enable = true;
-          settings = {
-            greeter = {
-              # Exclude = "root"; # Disable root in gdm
-            };
-          };
-        };
+        displayManager.gdm.enable = true;
         displayManager.autoLogin.enable = false;
         desktopManager.gnome.enable = true;
       };
@@ -45,6 +38,7 @@
     environment.systemPackages = with pkgs; [
       gnome.gnome-tweaks
       gnome.gnome-characters
+      gnome.eog
     ];
 
     programs.dconf.enable = true;
