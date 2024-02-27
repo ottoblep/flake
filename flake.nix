@@ -59,7 +59,7 @@
       nixosConfigurations =
         let
           # We overlay unstable into the stable pkgs to be passed to all modules (accessible via pkgs.unstable.<pkg>)
-          overlay-packages = {system}:{
+          overlay-packages = { system }: {
             overlay-unstable = final: prev: {
               unstable = import nixpkgs-unstable {
                 inherit system;
@@ -67,30 +67,11 @@
               };
             };
           };
-          # Shared base configs
-          aarch64Base =
-            let
-              system = "aarch64-linux";
-            in
-            {
-            system=system;
+          # Shared base config
+          base = { system }: {
+            system = system;
             modules = with self.nixosModules; [
-              { nixpkgs.overlays = [ self.overlays.default (overlay-packages {system=system;}).overlay-unstable ]; }
-              traits.overlay
-              home-manager.nixosModules.home-manager
-              traits.nixos
-              traits.base
-            ];
-          };
-          x86_64Base =
-            let
-              system = "x86_64-linux";
-            in
-            {
-            system=system;
-            modules = with self.nixosModules; [
-              { nixpkgs.overlays = [ self.overlays.default (overlay-packages {system=system;}).overlay-unstable ]; }
-              traits.overlay
+              { nixpkgs.overlays = [ self.overlays.default (overlay-packages { system = system; }).overlay-unstable ]; }
               home-manager.nixosModules.home-manager
               traits.nixos
               traits.base
@@ -99,72 +80,84 @@
         in
         # Machine specific configs
         with self.nixosModules; {
-          stele = nixpkgs.lib.nixosSystem {
-            inherit (x86_64Base) system;
-            modules = x86_64Base.modules ++ [
-              platforms.stele
-              traits.machine
-              traits.tower
-              traits.graphical
-              traits.gnome
-              traits.game
-              traits.office
-              users.sevi-full
-            ];
-          };
-          tomnuc = nixpkgs.lib.nixosSystem {
-            inherit (x86_64Base) system;
-            modules = x86_64Base.modules ++ [
-              platforms.tomnuc
-              traits.machine
-              traits.tower
-              traits.graphical
-              traits.gnome
-              users.sevi-full
-            ];
-          };
-          slab = nixpkgs.lib.nixosSystem {
-            inherit (x86_64Base) system;
-            modules = x86_64Base.modules ++ [
-              platforms.slab
-              traits.tower
-              traits.machine
-              traits.gnome
-              users.sevi-full
-            ];
-          };
-          sevtp = nixpkgs.lib.nixosSystem {
-            inherit (x86_64Base) system;
-            modules = x86_64Base.modules ++ [
-              nixos-hardware.nixosModules.lenovo-thinkpad-x250
-              platforms.sevtp
-              traits.machine
-              traits.laptop
-              traits.graphical
-              traits.gnome
-              users.sevi-full
-            ];
-          };
-          sevtp2 = nixpkgs.lib.nixosSystem {
-            inherit (x86_64Base) system;
-            modules = x86_64Base.modules ++ [
-              platforms.sevtp2
-              traits.machine
-              traits.laptop
-              traits.graphical
-              traits.gnome
-              users.sevi-full
-            ];
-          };
-          wsl = nixpkgs.lib.nixosSystem {
-            inherit (x86_64Base) system;
-            modules = x86_64Base.modules ++ [
-              platforms.wsl
-              nixos-wsl.nixosModules.default
-              vscode-server.nixosModules.default
-              users.sevi-basic
-            ];
-          };
+          stele = let system = "x86_64-linux"; in
+            nixpkgs.lib.nixosSystem
+              {
+                system = system;
+                modules = (base { system = system; }).modules ++ [
+                  platforms.stele
+                  traits.machine
+                  traits.tower
+                  traits.graphical
+                  traits.gnome
+                  traits.game
+                  traits.office
+                  users.sevi-full
+                ];
+              };
+          tomnuc = let system = "x86_64-linux"; in
+            nixpkgs.lib.nixosSystem
+              {
+                system = system;
+                modules = (base { system = system; }).modules ++ [
+                  platforms.tomnuc
+                  traits.machine
+                  traits.tower
+                  traits.graphical
+                  traits.gnome
+                  users.sevi-full
+                ];
+              };
+          slab = let system = "x86_64-linux"; in
+            nixpkgs.lib.nixosSystem
+              {
+                system = system;
+                modules = (base { system = system; }).modules ++ [
+                  platforms.slab
+                  traits.tower
+                  traits.machine
+                  traits.gnome
+                  users.sevi-full
+                ];
+              };
+          sevtp = let system = "x86_64-linux"; in
+            nixpkgs.lib.nixosSystem
+              {
+                system = system;
+                modules = (base { system = system; }).modules ++ [
+                  nixos-hardware.nixosModules.lenovo-thinkpad-x250
+                  platforms.sevtp
+                  traits.machine
+                  traits.laptop
+                  traits.graphical
+                  traits.gnome
+                  users.sevi-full
+                ];
+              };
+          sevtp2 = let system = "x86_64-linux"; in
+            nixpkgs.lib.nixosSystem
+              {
+                system = system;
+                modules = (base { system = system; }).modules ++ [
+                  platforms.sevtp2
+                  traits.machine
+                  traits.laptop
+                  traits.graphical
+                  traits.gnome
+                  users.sevi-full
+                ];
+              };
+          wsl = let system = "x86_64-linux"; in
+            nixpkgs.lib.nixosSystem
+              {
+                system = system;
+                modules = (base { system = system; }).modules ++ [
+                  platforms.wsl
+                  nixos-wsl.nixosModules.default
+                  vscode-server.nixosModules.default
+                  users.sevi-basic
+                ];
+              };
         };
 
       nixosModules = {
@@ -174,7 +167,6 @@
         platforms.sevtp2 = ./platforms/sevtp2.nix;
         platforms.tomnuc = ./platforms/tomnuc.nix;
         platforms.wsl = ./platforms/wsl.nix;
-        traits.overlay = { nixpkgs.overlays = [ self.overlays.default ]; };
         traits.base = ./traits/base.nix;
         traits.graphical = ./traits/graphical.nix;
         traits.machine = ./traits/machine.nix;

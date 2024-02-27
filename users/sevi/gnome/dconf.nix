@@ -63,7 +63,7 @@ with lib.hm.gvariant;
       unmaximize = [ ];
     };
 
-   "org/gnome/shell/extensions/paperwm/workspaces" = {
+    "org/gnome/shell/extensions/paperwm/workspaces" = {
       list = [ "c124eb8f-f8f7-4c93-a3fc-3dca6dfe562e" "108ba727-52d0-4e10-91c3-fcb64248c7ff" "0703f2ab-3993-4b66-b94e-2b0e522b5b63" "0907e1ae-6d98-4a58-b7b5-fd1d0e4ef81e" ];
     };
 
