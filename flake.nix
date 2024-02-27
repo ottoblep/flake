@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     home-manager = {
       url = "github:nix-community/home-manager/release-23.11";
@@ -22,20 +23,27 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, home-manager, nix-lrz-sync-share, nixos-wsl, vscode-server, ... }:
+  outputs = { self, nixpkgs, nixpkgs-unstable, nixos-hardware, home-manager, nix-lrz-sync-share, nixos-wsl, vscode-server, ... }:
     let
       supportedSystems = [ "x86_64-linux" "aarch64-linux" ];
       forAllSystems = f: nixpkgs.lib.genAttrs supportedSystems (system: f system);
     in
     {
+      # These overlays will be applied to all systems
+      # Define custom packages here
       overlays.default = nix-lrz-sync-share.overlays.default;
 
+      # Home-Manager has separate pkgs definitions
       homeConfigurations = forAllSystems
         (system:
           let
             pkgs = import nixpkgs {
               inherit system;
               overlays = [ self.overlays.default ];
+            };
+            unstable = import nixpkgs-unstable {
+              inherit system;
+              config.allowUnfree = true;
             };
           in
           {
@@ -50,19 +58,38 @@
 
       nixosConfigurations =
         let
-          # Shared config between both the liveimage and real system
-          aarch64Base = {
-            system = "aarch64-linux";
+          # We overlay unstable into the stable pkgs to be passed to all modules (accessible via pkgs.unstable.<pkg>)
+          overlay-packages = {system}:{
+            overlay-unstable = final: prev: {
+              unstable = import nixpkgs-unstable {
+                inherit system;
+                config.allowUnfree = true;
+              };
+            };
+          };
+          # Shared base configs
+          aarch64Base =
+            let
+              system = "aarch64-linux";
+            in
+            {
+            system=system;
             modules = with self.nixosModules; [
+              { nixpkgs.overlays = [ self.overlays.default (overlay-packages {system=system;}).overlay-unstable ]; }
               traits.overlay
               home-manager.nixosModules.home-manager
               traits.nixos
               traits.base
             ];
           };
-          x86_64Base = {
-            system = "x86_64-linux";
+          x86_64Base =
+            let
+              system = "x86_64-linux";
+            in
+            {
+            system=system;
             modules = with self.nixosModules; [
+              { nixpkgs.overlays = [ self.overlays.default (overlay-packages {system=system;}).overlay-unstable ]; }
               traits.overlay
               home-manager.nixosModules.home-manager
               traits.nixos
@@ -70,6 +97,7 @@
             ];
           };
         in
+        # Machine specific configs
         with self.nixosModules; {
           stele = nixpkgs.lib.nixosSystem {
             inherit (x86_64Base) system;
