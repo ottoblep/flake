@@ -33,29 +33,6 @@
       # Define custom packages here
       overlays.default = nix-lrz-sync-share.overlays.default;
 
-      # Home-Manager has separate pkgs definitions
-      homeConfigurations = forAllSystems
-        (system:
-          let
-            pkgs = import nixpkgs {
-              inherit system;
-              overlays = [ self.overlays.default ];
-            };
-            unstable = import nixpkgs-unstable {
-              inherit system;
-              config.allowUnfree = true;
-            };
-          in
-          {
-            sevi = home-manager.lib.homeManagerConfiguration {
-              inherit pkgs;
-              modules = [
-                ./users/sevi/home.nix
-              ];
-            };
-          }
-        );
-
       nixosConfigurations =
         let
           # We overlay unstable into the stable pkgs to be passed to all modules (accessible via pkgs.unstable.<pkg>)
