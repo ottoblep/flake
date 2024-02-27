@@ -25,6 +25,7 @@
       "dbepggeogbaibhgnhhndojpepiihcmeb" # vimium
       "bkdgflcldnnnapblkhphbgpggdiikppg" # duckduckgo
       "eimadpbcbfnmbkopoojfekhnkhdbieeh" # Dark Reader
+      "cmpdlhmnmjhihmcfnigoememnffkimlk" # Catppuccin Macchiato
     ];
   };
 
