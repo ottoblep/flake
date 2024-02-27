@@ -18,6 +18,7 @@
       zerotierone
       whatsapp-for-linux
       signal-desktop
+      unstable.youtube-music
       # TODO sleek
     ];
   };
