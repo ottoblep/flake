@@ -37,8 +37,18 @@
       };
     in
     "${src}/themes";
-
   home.file.".config/todo-cli.conf".source = ./dotfiles/todo-txt-cli.conf;
+  home.file.".vim/".source = 
+    let
+      src = pkgs.fetchFromGitHub {
+        repo = "vim";
+        owner = "catppuccin";
+        rev = "be4725cfc3fb6ed96f706d9d1bd5baa24d2b048c";
+        hash = "sha256-Z3ZfpmMrnKugOhu8cuGZGMM8hVy0GpaOfuGNyQBkGdY=";
+      };
+    in
+    "${src}/";
+  home.file.".vimrc".source = ./dotfiles/.vimrc;
 
   home.shellAliases = {
     rm = "rm -i";
