@@ -18,6 +18,7 @@
       ripgrep
       btop
       fd
+      duf
       zoxide
       tree
       p7zip
