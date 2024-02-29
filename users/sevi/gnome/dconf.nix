@@ -21,7 +21,7 @@ with lib.hm.gvariant;
       show-battery-percentage = true;
       text-scaling-factor = 1.0;
       cursor-theme = "Adwaita";
-      gtk-theme = "Adwaita-dark";
+      gtk-theme = "${config.gtk.theme.package}";
     };
 
     "org/gnome/desktop/peripherals/touchpad" = {
@@ -195,7 +195,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell/extensions/user-theme" = {
-      name = "Orchis-Purple-Dark";
+        name = "${config.gtk.theme.package}";
     };
 
     "org/gnome/desktop/background" = {
