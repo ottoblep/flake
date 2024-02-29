@@ -67,6 +67,9 @@ with lib.hm.gvariant;
       list = [ "c124eb8f-f8f7-4c93-a3fc-3dca6dfe562e" "108ba727-52d0-4e10-91c3-fcb64248c7ff" "0703f2ab-3993-4b66-b94e-2b0e522b5b63" "0907e1ae-6d98-4a58-b7b5-fd1d0e4ef81e" ];
     };
 
+    # For wallpapers, download any you like, optionally throw them into faerber and place them into Pictures/Wallpapers
+    # TODO: automate wallpapers
+
     "org/gnome/shell/extensions/paperwm/workspaces/c124eb8f-f8f7-4c93-a3fc-3dca6dfe562e" = {
       background = "/home/sevi/Pictures/Wallpapers/wallpaper.png";
       index = 0;
