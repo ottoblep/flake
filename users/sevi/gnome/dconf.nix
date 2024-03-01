@@ -197,7 +197,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell/extensions/user-theme" = {
-        name = "${config.gtk.theme.name}";
+      name = "${config.gtk.theme.name}";
     };
 
     "org/gnome/desktop/background" = {
