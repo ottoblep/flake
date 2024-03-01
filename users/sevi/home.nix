@@ -38,7 +38,7 @@
     in
     "${src}/themes";
   home.file.".config/todo-cli.conf".source = ./dotfiles/todo-txt-cli.conf;
-  home.file.".vim/".source = 
+  home.file.".vim/".source =
     let
       src = pkgs.fetchFromGitHub {
         repo = "vim";
