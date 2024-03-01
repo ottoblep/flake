@@ -1,5 +1,5 @@
 # Generated via dconf2nix: https://github.com/gvolpe/dconf2nix
-{ lib, ... }:
+{ lib, config, ... }:
 
 with lib.hm.gvariant;
 
@@ -21,7 +21,6 @@ with lib.hm.gvariant;
       show-battery-percentage = true;
       text-scaling-factor = 1.0;
       cursor-theme = "Adwaita";
-      gtk-theme = "${config.gtk.theme.package}";
     };
 
     "org/gnome/desktop/peripherals/touchpad" = {
@@ -198,7 +197,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/shell/extensions/user-theme" = {
-        name = "${config.gtk.theme.package}";
+        name = "${config.gtk.theme.name}";
     };
 
     "org/gnome/desktop/background" = {
