@@ -6,7 +6,7 @@
 
   config =
     let
-      tomnook-image = ./icons/tomnook.jpeg;
+      tomnook-image = ./icons/tomnook.jpg;
     in
     {
       networking.hostName = "tomnuc";

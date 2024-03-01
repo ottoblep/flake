@@ -5,8 +5,16 @@
   ];
 
   config =
+    let
+      user-image = ./icons/stele.jpg;
+    in
     {
       networking.hostName = "stele";
+
+      # Set profile images
+      system.activationScripts.setUserImages.text = ''
+        cp -f ${user-image} /var/lib/AccountsService/icons/sevi
+      '';
 
       nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 

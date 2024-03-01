@@ -6,14 +6,15 @@
 
   config =
     let
-      slab-image = ./icons/slab.jpeg;
+      user-image = ./icons/slab.jpg;
     in
     {
+      networking.hostName = "slab";
+
       # Set profile images
       system.activationScripts.setUserImages.text = ''
-        cp -f ${slab-image} /var/lib/AccountsService/icons/sevi
+        cp -f ${user-image} /var/lib/AccountsService/icons/sevi
       '';
-      networking.hostName = "slab";
 
       boot.initrd.kernelModules = [ "amdgpu" ];
 
