@@ -29,10 +29,6 @@
 
     swapDevices =
       [{ device = "/dev/disk/by-label/swap"; }];
-
-    nixpkgs.overlays = [
-      (final: prev: { })
-    ];
   };
 }
 
