@@ -4,23 +4,32 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  config = {
-    networking.hostName = "sevtp2";
+  config =
+    let
+      user-image = ./icons/sevtp2.jpg;
+    in
+    {
+      networking.hostName = "sevtp2";
 
-    nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+      # Set profile images
+      system.activationScripts.setUserImages.text = ''
+        cp -f ${user-image} /var/lib/AccountsService/icons/sevi
+      '';
 
-    fileSystems."/" =
-      {
-        device = "/dev/disk/by-label/nixos";
-        fsType = "ext4";
-      };
+      nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
-    fileSystems."/boot" =
-      {
-        device = "/dev/disk/by-label/boot";
-        fsType = "vfat";
-      };
+      fileSystems."/" =
+        {
+          device = "/dev/disk/by-label/nixos";
+          fsType = "ext4";
+        };
 
-  };
+      fileSystems."/boot" =
+        {
+          device = "/dev/disk/by-label/boot";
+          fsType = "vfat";
+        };
+
+    };
 }
 
