@@ -112,6 +112,7 @@
               {
                 system = system;
                 modules = (base { system = system; }).modules ++ [
+                  nixos-hardware.nixosModules.lenovo-thinkpad-t14-amd-gen3
                   platforms.sevtp2
                   traits.machine
                   traits.laptop
