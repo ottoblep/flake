@@ -1,10 +1,17 @@
 # Generated via dconf2nix: https://github.com/gvolpe/dconf2nix
-{ lib, config, ... }:
+{ pkgs, lib, config, ... }:
 
 with lib.hm.gvariant;
 
 {
-  dconf.settings = {
+  dconf.settings = 
+  let 
+    background = pkgs.fetchurl {
+      url = "https://raw.githubusercontent.com/NixOS/nixos-artwork/97444e18b7fe97705e8caedd29ae05e62cb5d4b7/wallpapers/nixos-wallpaper-catppuccin-macchiato.png";
+      hash = "sha256-SkXrLbHvBOItJ7+8vW+6iXV+2g0f8bUJf9KcCXYOZF0=";
+    };
+  in 
+  {
     "org/gnome/mutter" = {
       experimental-features = [ "scale-monitor-framebuffer" "x11-randr-fractional-scaling" ];
     };
@@ -202,9 +209,9 @@ with lib.hm.gvariant;
       name = "${config.gtk.theme.name}";
     };
 
+    # Due to PaperWM this background is only drawn in the overview screen
     "org/gnome/desktop/background" = {
-      picture-uri = "";
-      picture-uri-dark = "";
+      picture-uri-dark = "${background}";
       # picture-options = "spanned";
     };
 
