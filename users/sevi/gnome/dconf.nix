@@ -158,13 +158,14 @@ with lib.hm.gvariant;
       animation = 4;
       app-menu = false;
       background-menu = true;
-      calendar = false;
+      calendar = true;
       clock-menu = true;
       clock-menu-position = 2;
       controls-manager-spacing-size = 0;
       dash = false;
       double-super-to-appgrid = true;
       overlay-key = true;
+      events-button = false;
       panel = false;
       panel-in-overview = true;
       panel-notification-icon = true;
@@ -176,6 +177,7 @@ with lib.hm.gvariant;
       startup-status = 0;
       theme = false;
       top-panel-position = 0;
+      panel-icon-size = 18;
       type-to-search = true;
       weather = true;
       window-demands-attention-focus = true;
@@ -188,7 +190,7 @@ with lib.hm.gvariant;
       workspace-switcher-should-show = false;
       workspace-wrap-around = false;
       workspaces-in-app-grid = false;
-      world-clock = true;
+      world-clock = false;
     };
 
     # Unite hides window panel bars
@@ -262,11 +264,6 @@ with lib.hm.gvariant;
 
     "org/gnome/shell/weather" = {
       automatic-location = true;
-      locations = "@av []";
-    };
-
-    "org/gnome/shell/world-clocks" = {
-      locations = "@av []";
     };
   };
 }
