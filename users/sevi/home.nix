@@ -56,7 +56,9 @@
     ll = "ls -l";
     ls = "ls --color=tty";
     "..." = "cd ../..";
+    top = "btop -p 0";
     btop = "btop -p 0";
+    df = "duf";
     todo = "todo.sh -d ~/.config/todo-cli.conf -T -A -n";
   };
 
