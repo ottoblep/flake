@@ -15,6 +15,7 @@
       curl
       wget
       git
+      git-lfs
       ripgrep
       btop
       fd
