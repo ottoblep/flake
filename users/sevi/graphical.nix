@@ -13,15 +13,17 @@
 
   programs.vscode = {
     enable = true;
-    extensions = with pkgs; [
-      vscode-extensions.mhutchie.git-graph
-      vscode-extensions.vscodevim.vim
-      vscode-extensions.catppuccin.catppuccin-vsc
-      vscode-extensions.catppuccin.catppuccin-vsc-icons
-      vscode-extensions.jnoortheen.nix-ide
-      vscode-extensions.arrterian.nix-env-selector
-      vscode-extensions.james-yu.latex-workshop
-      vscode-extensions.mechatroner.rainbow-csv
+    extensions = with pkgs.vscode-extensions; [
+      mhutchie.git-graph
+      vscodevim.vim
+      catppuccin.catppuccin-vsc
+      catppuccin.catppuccin-vsc-icons
+      jnoortheen.nix-ide
+      arrterian.nix-env-selector
+      james-yu.latex-workshop
+      mechatroner.rainbow-csv
+      ms-python.python
+      ms-python.vscode-pylance
     ];
 
     keybindings = [
