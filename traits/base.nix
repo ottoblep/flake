@@ -32,6 +32,8 @@
       neofetch
     ];
 
+    programs.nano.enable = false; # Remove default
+
     services.avahi = {
       nssmdns = true;
       enable = true;
