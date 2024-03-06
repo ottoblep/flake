@@ -38,7 +38,6 @@
     environment.systemPackages = with pkgs.gnome; [
       gnome-tweaks
       gnome-characters
-      eog
     ];
 
     programs.dconf.enable = true;
