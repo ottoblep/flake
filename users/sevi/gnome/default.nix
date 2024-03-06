@@ -95,4 +95,7 @@ in
 
   # Autostart Graphical Program
   home.file.".config/autostart/lrz-sync-share.desktop".source = "${lrzSnSDesktopItem}/share/applications/lrz-sync-share.desktop";
+
+  # Default Apps
+  home.file.".config/mimeapps.list".source = ../dotfiles/mimeapps.list;
 }
