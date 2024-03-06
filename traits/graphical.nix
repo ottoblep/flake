@@ -19,7 +19,6 @@
       whatsapp-for-linux
       signal-desktop
       shortwave
-      # TODO sleek
     ];
   };
 }
