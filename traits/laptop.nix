@@ -22,6 +22,8 @@
     };
   };
 
+  services.power-profiles-daemon.enable = false;
+
   # TODO Add distinct dconf for small screens
 }
 
