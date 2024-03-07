@@ -30,6 +30,9 @@
           fsType = "vfat";
         };
 
+      environment.systemPackages = with pkgs; [
+        tpacpi-bat
+      ];
     };
 }
 
