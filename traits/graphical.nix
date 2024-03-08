@@ -14,11 +14,11 @@
       nil
       zoom-us
       pinta
-      nix-lrz-sync-share.lrz-sync-share
       zerotierone
       whatsapp-for-linux
       signal-desktop
       shortwave
+      sleek
     ];
   };
 }

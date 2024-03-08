@@ -20,7 +20,7 @@ in
       just-perfection
       unite
       dconf2nix
-      nix-lrz-sync-share.lrz-sync-share
+      lrz-sync-share
       lrzSnSDesktopItem
     ];
 
