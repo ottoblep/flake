@@ -9,10 +9,6 @@
       url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-lrz-sync-share = {
-      url = "github:ottoblep/nix-lrz-sync-share";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,16 +19,23 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, nixos-hardware, home-manager, nix-lrz-sync-share, nixos-wsl, vscode-server, ... }:
+  outputs = { self, nixpkgs, nixpkgs-unstable, nixos-hardware, home-manager, nixos-wsl, vscode-server, ... }:
+    let
+      supportedSystems = [ "x86_64-linux" "aarch64-linux" ]; # Only used for package definitions 
+      forAllSystems = f: nixpkgs.lib.genAttrs supportedSystems (system: f system);
+    in
     {
-      # These overlays will be applied to all systems
+      # This overlay will be applied to all systems
       # Define custom packages here
-      overlays.default = nix-lrz-sync-share.overlays.default;
+      overlays.default = final: prev: {
+        lrz-sync-share = prev.callPackage ./pkgs/lrz-sync-share { };
+        sleek = prev.callPackage ./pkgs/sleek { };
+      };
 
       nixosConfigurations =
         let
-          # We overlay unstable into the stable pkgs to be passed to all modules (accessible via pkgs.unstable.<pkg>)
-          overlay-packages = { system }: {
+          system-dependent-overlays = { system }: {
+            # An overlay containing the entirety of unstable nixpkgs
             overlay-unstable = final: prev: {
               unstable = import nixpkgs-unstable {
                 inherit system;
@@ -44,7 +47,13 @@
           base = { system }: {
             system = system;
             modules = with self.nixosModules; [
-              { nixpkgs.overlays = [ self.overlays.default (overlay-packages { system = system; }).overlay-unstable ]; }
+              {
+                nixpkgs.overlays = [
+                  self.overlays.default
+                  # We overlay our unstable into the stable pkgs that is passed to all systems (access via pkgs.unstable.<pkg>)
+                  (system-dependent-overlays { system = system; }).overlay-unstable
+                ];
+              }
               home-manager.nixosModules.home-manager
               traits.nixos
               traits.base
@@ -133,6 +142,20 @@
                 ];
               };
         };
+
+      # This presents the packages from the default overlay to the outside
+      packages = forAllSystems
+        (system:
+          let
+            pkgs = import nixpkgs {
+              inherit system;
+              overlays = [ self.overlays.default ];
+            };
+          in {
+            lrz-sync-share = pkgs.lrz-sync-share;
+            sleek = pkgs.sleek;
+          }
+        );
 
       nixosModules = {
         platforms.stele = ./platforms/stele.nix;
