@@ -4,7 +4,7 @@
   <img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/macchiato.png" width="400" />
 </p>
 
-<h4 align="center">You may not believe it, but this is what horribly mutilated gnome looks like.</h4>
-
+<h4 align="center">You may not like it, but this is what peak gnome looks like. <br><br>This flake contains my workstation setups, devShells and some obscure packages I use.</h4>
+<h4 align="center"></h4>
 
 ![](./images/example.png)

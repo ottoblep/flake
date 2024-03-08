@@ -144,18 +144,23 @@
         };
 
       # This presents the packages from the default overlay to the outside
-      packages = forAllSystems
-        (system:
+      packages = forAllSystems (system:
           let
-            pkgs = import nixpkgs {
-              inherit system;
-              overlays = [ self.overlays.default ];
-            };
-          in {
+            pkgs = import nixpkgs { inherit system; overlays = [ self.overlays.default ]; };
+          in
+          {
             lrz-sync-share = pkgs.lrz-sync-share;
             sleek = pkgs.sleek;
           }
         );
+
+      devShells = forAllSystems (system:
+          let
+            pkgs = import nixpkgs { inherit system; overlays = [ self.overlays.default ]; };
+          in
+         {
+          python-optimize = import ./devShells/python-optimization { pkgs=pkgs; };
+        });
 
       nixosModules = {
         platforms.stele = ./platforms/stele.nix;
