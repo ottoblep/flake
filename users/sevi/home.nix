@@ -7,6 +7,7 @@
     enable = true;
     userName = "Severin Lochschmidt";
     userEmail = "seviron53@gmail.com";
+    lfs.enable = true;
     extraConfig = {
       init = {
         defaultBranch = "main";
