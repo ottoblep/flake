@@ -63,7 +63,7 @@ in
         hash = "sha256-ZbKJoStbyd5lYukpuflN66UPNlEceRtBG1D+T8t669A=";
       };
       script = pkgs.writeShellScriptBin "fetch-wallpaper" ''
-        export PATH=$PATH:${lib.makeBinPath [ pkgs.coreutils pkgs.jq pkgs.curl pkgs.imagemagick ]}
+        export PATH=$PATH:${lib.makeBinPath [ pkgs.coreutils pkgs.jq pkgs.curl pkgs.imagemagick pkgs.gnome.gnome-shell ]}
         export WD=/home/sevi/.cache/wallpaper-fetcher
         export WPD=/home/sevi/Pictures/Wallpapers
         export META=$(curl 'https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=2&mkt=en-US')
@@ -74,7 +74,8 @@ in
         convert -append ${palette-1} ${palette-2} $WD/palette.png
         convert $WD/wallpaper_raw_1.jpg -map $WD/palette.png $WPD/wallpaper.png
         convert $WD/wallpaper_raw_2.jpg -map $WD/palette.png $WPD/wallpaper2.png
-        echo "Wallpaper updated."
+        gnome-extensions reset paperwm@paperwm.github.com
+        gnome-extensions enable paperwm@paperwm.github.com
       '';
     in
     {
@@ -82,7 +83,7 @@ in
         Type = "simple";
         ExecStart = "${script}/bin/fetch-wallpaper";
       };
-      Install.WantedBy = [ "default.target" ];
+      Install.WantedBy = [ "gnome-session-initialized.target" ];
     };
 
   # Now symlink the `~/.config/gtk-4.0/` folder declaratively:
