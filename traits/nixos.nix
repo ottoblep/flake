@@ -16,10 +16,14 @@
     nixpkgs.config.allowUnfree = true;
     nixpkgs.config.allowBroken = true;
 
-    nix.gc = {
-      automatic = true;
-      options = "--delete-older-than 3d";
-      dates = "weekly";
+    nix = {
+      gc = {
+        automatic = true;
+        options = "--delete-older-than 3d";
+        dates = "weekly";
+      };
+      optimise.automatic = true;
+      settings.auto-optimise-store = true;
     };
 
     # Only for quick prototyping or proprietary blobs
