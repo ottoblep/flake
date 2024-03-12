@@ -19,6 +19,7 @@
       signal-desktop
       shortwave
       sleek
+      vlc
     ];
   };
 }
