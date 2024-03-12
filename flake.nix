@@ -74,6 +74,7 @@
                   traits.gnome
                   traits.game
                   traits.office
+                  traits.media
                   users.sevi-full
                 ];
               };
@@ -87,6 +88,7 @@
                   traits.tower
                   traits.graphical
                   traits.gnome
+                  traits.media
                   users.sevi-full
                 ];
               };
@@ -99,6 +101,7 @@
                   traits.tower
                   traits.machine
                   traits.gnome
+                  traits.media
                   users.sevi-full
                 ];
               };
@@ -113,6 +116,7 @@
                   traits.laptop
                   traits.graphical
                   traits.gnome
+                  traits.media
                   users.sevi-full
                 ];
               };
@@ -127,6 +131,7 @@
                   traits.laptop
                   traits.graphical
                   traits.gnome
+                  traits.media
                   users.sevi-full
                 ];
               };
@@ -170,7 +175,8 @@
         platforms.tomnuc = ./platforms/tomnuc.nix;
         platforms.wsl = ./platforms/wsl.nix;
         traits.base = ./traits/base.nix;
-        traits.graphical = ./traits/graphical.nix;
+        traits.graphical =./traits/graphical.nix;
+        traits.media =./traits/media.nix;
         traits.machine = ./traits/machine.nix;
         traits.tower = ./traits/tower.nix;
         traits.laptop = ./traits/laptop.nix;

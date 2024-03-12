@@ -13,13 +13,10 @@
       drawio
       nil
       zoom-us
-      pinta
       zerotierone
       whatsapp-for-linux
       signal-desktop
-      shortwave
       sleek
-      vlc
     ];
   };
 }
