@@ -11,6 +11,9 @@
     {
       networking.hostName = "sevtp2";
 
+      boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "sd_mod" "sr_mod" ];
+      boot.kernelModules = [ "kvm-intel" ];
+
       # Set profile images
       system.activationScripts.setUserImages.text = ''
         cp -f ${user-image} /var/lib/AccountsService/icons/sevi
@@ -33,6 +36,8 @@
       environment.systemPackages = with pkgs; [
         tpacpi-bat
       ];
+
+      hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     };
 }
 
