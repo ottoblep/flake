@@ -1,5 +1,5 @@
 /*
-    Programs for Image, Audio and Video Processing
+  Programs for Image, Audio and Video Processing
 */
 { config, pkgs, lib, ... }:
 {
