@@ -7,7 +7,6 @@
     home-manager.useGlobalPkgs = true;
     home-manager.useUserPackages = true;
 
-    # Use edge NixOS.
     nix.extraOptions = ''
       experimental-features = nix-command flakes
     '';
@@ -17,7 +16,11 @@
     # Mind the firewall and add ignore trusted substituters thus as root
     # nixos-install --flake github:ottoblep/flake#MACHINE --substituters "http://SERVER_URL:PORT?trusted=1 https://cache.nixos.org/" 
     # nixos-rebuild switch --flake github:ottoblep/flake#MACHINE --option substituters "http://SERVER_URL:PORT?trusted=1 https://cache.nixos.org/" 
-    environment.systemPackages = with pkgs; [ nix-serve ];
+
+    environment.systemPackages = with pkgs; [
+      nix-serve
+      nixpkgs-fmt
+      ];
 
     nixpkgs.config.allowUnfree = true;
     nixpkgs.config.allowBroken = true;
