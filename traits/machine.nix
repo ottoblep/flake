@@ -16,8 +16,16 @@
     networking.useDHCP = lib.mkDefault true;
     networking.networkmanager.enable = true;
     networking.wireless.userControlled.enable = true;
-    # networking.wireless.enable = true;
-    # networking.firewall.enable = true;
+
+    networking.firewall = {
+      enable = true;
+      allowedTCPPorts = [ 80 443 ];
+      # allowedUDPPortRanges = [
+      #   { from = 4000; to = 4007; }
+      #   { from = 8000; to = 8010; }
+      # ];
+    };
+    networking.nftables.enable = true;
 
     sound.enable = true;
     hardware.pulseaudio.enable = true;
