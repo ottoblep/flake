@@ -27,14 +27,14 @@ let
 in
 effectiveStdenv.mkDerivation (finalAttrs: {
   pname = "stable-diffusion-cpp";
-  version = "349439f239c4f5e27d414719ba8ac7340270ca6d";
+  version = "a469688e30122d3b6c1faa5b36ffc3261e6deb82";
 
   src = fetchFromGitHub {
     owner = "leejet";
     repo = "stable-diffusion.cpp";
     rev = "${finalAttrs.version}";
     fetchSubmodules = true;
-    hash = "sha256-ywxNHxHSMIqvSfo62TNyfLwAO55tDzrhVsedqnDiHPY=";
+    hash = "sha256-vbKxXNlXHe5sEKvr1WTVzjh00RFwUIe9gxpyuF0lPy0=";
   };
 
   # postPatch = ''
