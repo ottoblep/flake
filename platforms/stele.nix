@@ -46,6 +46,7 @@
         libva-utils
         vdpauinfo
         (llama-cpp.override { cudaSupport = true; })
+        stable-diffusion-cpp-cuda
       ];
 
       # Load nvidia driver for Xorg and Wayland
