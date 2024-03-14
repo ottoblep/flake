@@ -18,4 +18,4 @@ pkgs.mkShell {
     [
       python-with-my-packages
     ];
-  }
+}

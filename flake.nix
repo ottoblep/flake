@@ -150,21 +150,21 @@
 
       # This presents the packages from the default overlay to the outside
       packages = forAllSystems (system:
-          let
-            pkgs = import nixpkgs { inherit system; overlays = [ self.overlays.default ]; };
-          in
-          {
-            lrz-sync-share = pkgs.lrz-sync-share;
-            sleek = pkgs.sleek;
-          }
-        );
+        let
+          pkgs = import nixpkgs { inherit system; overlays = [ self.overlays.default ]; };
+        in
+        {
+          lrz-sync-share = pkgs.lrz-sync-share;
+          sleek = pkgs.sleek;
+        }
+      );
 
       devShells = forAllSystems (system:
-          let
-            pkgs = import nixpkgs { inherit system; overlays = [ self.overlays.default ]; };
-          in
-         {
-          python-optimize = import ./devShells/python-optimization { pkgs=pkgs; };
+        let
+          pkgs = import nixpkgs { inherit system; overlays = [ self.overlays.default ]; };
+        in
+        {
+          python-optimize = import ./devShells/python-optimization { pkgs = pkgs; };
         });
 
       nixosModules = {
@@ -175,8 +175,8 @@
         platforms.tomnuc = ./platforms/tomnuc.nix;
         platforms.wsl = ./platforms/wsl.nix;
         traits.base = ./traits/base.nix;
-        traits.graphical =./traits/graphical.nix;
-        traits.media =./traits/media.nix;
+        traits.graphical = ./traits/graphical.nix;
+        traits.media = ./traits/media.nix;
         traits.machine = ./traits/machine.nix;
         traits.tower = ./traits/tower.nix;
         traits.laptop = ./traits/laptop.nix;

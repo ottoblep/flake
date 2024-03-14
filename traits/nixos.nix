@@ -20,7 +20,7 @@
     environment.systemPackages = with pkgs; [
       nix-serve
       nixpkgs-fmt
-      ];
+    ];
 
     nixpkgs.config.allowUnfree = true;
     nixpkgs.config.allowBroken = true;
