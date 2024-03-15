@@ -84,7 +84,7 @@ effectiveStdenv.mkDerivation (finalAttrs: {
     (lib.cmakeBool "CMAKE_SKIP_BUILD_RPATH" true)
   ]
   ++ lib.optionals metalSupport [
-    (lib.cmakeOptionType "STRING" "CMAKE_C_FLAGS" "-D__ARM_FEATURE_DOTPROD=1" )
+    (lib.cmakeOptionType "STRING" "CMAKE_C_FLAGS" "-D__ARM_FEATURE_DOTPROD=1")
     "-DSD_METAL=ON"
     "-DSD_FLASH_ATTN=ON"
   ]
@@ -93,8 +93,8 @@ effectiveStdenv.mkDerivation (finalAttrs: {
   ]
   ++ lib.optionals rocmSupport [
     "SD_HIPBLAS=ON"
-    (lib.cmakeOptionType "STRING" "CMAKE_C_COMPILER" "hipcc" )
-    (lib.cmakeOptionType "STRING" "CMAKE_CXX_COMPILER" "hipcc" )
+    (lib.cmakeOptionType "STRING" "CMAKE_C_COMPILER" "hipcc")
+    (lib.cmakeOptionType "STRING" "CMAKE_CXX_COMPILER" "hipcc")
     (lib.cmakeBool "CMAKE_POSITION_INDEPENDENT_CODE" true)
     "-DAMDGPU_TARGETS=gfx1100"
     "-DSD_FLASH_ATTN=ON"
@@ -122,7 +122,7 @@ effectiveStdenv.mkDerivation (finalAttrs: {
     license = licenses.mit;
     mainProgram = "sd";
     maintainers = with maintainers; [ lfdominguez ];
-    broken = (effectiveStdenv.isDarwin && effectiveStdenv.isx86_64) || lib.count lib.id [blasSupport rocmSupport cudaSupport] == 0;
+    broken = (effectiveStdenv.isDarwin && effectiveStdenv.isx86_64) || lib.count lib.id [ blasSupport rocmSupport cudaSupport ] == 0;
     platforms = platforms.unix;
   };
 })
