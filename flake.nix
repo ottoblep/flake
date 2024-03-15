@@ -70,6 +70,7 @@
                 modules = (base { system = system; }).modules ++ [
                   platforms.stele
                   traits.machine
+                  traits.virtualization
                   traits.tower
                   traits.graphical
                   traits.gnome
@@ -179,6 +180,7 @@
         traits.graphical = ./traits/graphical.nix;
         traits.media = ./traits/media.nix;
         traits.machine = ./traits/machine.nix;
+        traits.virtualization = ./traits/virtualization.nix;
         traits.tower = ./traits/tower.nix;
         traits.laptop = ./traits/laptop.nix;
         traits.nixos = ./traits/nixos.nix;
