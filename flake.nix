@@ -167,6 +167,7 @@
         in
         {
           python-optimize = import ./devShells/python-optimization { pkgs = pkgs; };
+          api-scripting = import ./devShells/api-scripting { pkgs = pkgs; };
         });
 
       nixosModules = {
