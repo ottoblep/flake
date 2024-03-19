@@ -168,6 +168,7 @@
         {
           python-optimize = import ./devShells/python-optimization { pkgs = pkgs; };
           api-scripting = import ./devShells/api-scripting { pkgs = pkgs; };
+          rust = import ./devShells/rust { pkgs = pkgs; };
         });
 
       nixosModules = {
