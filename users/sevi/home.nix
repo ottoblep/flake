@@ -13,6 +13,10 @@
         defaultBranch = "main";
       };
     };
+    ignores = [
+      ".vscode"
+      "result"
+    ];
   };
 
   programs.zsh = {
