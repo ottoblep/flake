@@ -13,6 +13,15 @@
 
   programs.vscode = {
     enable = true;
+    package = pkgs.vscode.fhsWithPackages (ps: with ps;
+      [
+        gcc
+        rustup # Need to 'rustup default stable' manually
+        zlib
+        openssl.dev
+        pkg-config
+        lldb
+      ]);
     extensions = with pkgs.vscode-extensions; [
       mhutchie.git-graph
       vscodevim.vim
@@ -24,6 +33,8 @@
       mechatroner.rainbow-csv
       ms-python.python
       ms-python.vscode-pylance
+      rust-lang.rust-analyzer
+      vadimcn.vscode-lldb
     ];
 
     keybindings = [

@@ -6,6 +6,7 @@ pkgs.mkShell {
     cargo
     rustfmt
     rust-analyzer
+    lldb
   ];
 
   RUST_BACKTRACE = 1;
