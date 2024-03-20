@@ -7,7 +7,5 @@
     enable = true;
     enableNvidia = true;
   };
-
-  users.users.sevi.extraGroups = [ "docker" ];
 }
 
