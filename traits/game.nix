@@ -11,6 +11,7 @@
       gamemode # Set steam launch option to activate
       firefox # Sync should set up Catppuccin Macchiato theme for firefox and dark reader 
       discord
+      noita-together
     ];
   };
 }

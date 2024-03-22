@@ -31,6 +31,7 @@
         lrz-sync-share = prev.callPackage ./pkgs/lrz-sync-share { };
         sleek = prev.callPackage ./pkgs/sleek { };
         stable-diffusion-cpp-cuda = prev.callPackage ./pkgs/stable-diffusion-cpp { cudaSupport = true; };
+        noita-together = prev.callPackage ./pkgs/noita-together { };
       };
 
       nixosConfigurations =
@@ -158,6 +159,7 @@
         {
           lrz-sync-share = pkgs.lrz-sync-share;
           sleek = pkgs.sleek;
+          noita-together = pkgs.noita-together;
         }
       );
 

@@ -36,11 +36,8 @@
     };
 
     # Only for quick prototyping or proprietary blobs
-    # programs.nix-ld = {
-    #   enable = true;
-    #   libraries = with pkgs; [
-    #   ];
-    # };
+    # Use devShell to define libraries
+    programs.nix-ld.enable = true;
 
     # This value determines the NixOS release from which the default
     # settings for stateful data, like file locations and database versions
