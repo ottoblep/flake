@@ -168,8 +168,9 @@
           pkgs = import nixpkgs { inherit system; overlays = [ self.overlays.default ]; };
         in
         {
-          python-optimize = import ./devShells/python-optimization { pkgs = pkgs; };
-          api-scripting = import ./devShells/api-scripting { pkgs = pkgs; };
+          py-optimize = import ./devShells/py-optimize { pkgs = pkgs; };
+          py-api = import ./devShells/py-api { pkgs = pkgs; };
+          py-scrape = import ./devShells/py-scrape { pkgs = pkgs; };
           rust = import ./devShells/rust { pkgs = pkgs; };
         });
 
