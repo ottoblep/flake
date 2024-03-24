@@ -26,9 +26,9 @@
       file
       tio
       avahi
-      nixpkgs-fmt
       todo-txt-cli
       neofetch
+      wormhole-william # Large file transfer without ssh
     ];
 
     programs.nano.enable = false; # Remove default
