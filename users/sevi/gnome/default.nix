@@ -72,8 +72,8 @@ in
         curl -o $WD/wallpaper_raw_1.jpg "https://bing.com$(echo $META| jq -r '.images[0].url')"
         curl -o $WD/wallpaper_raw_2.jpg "https://bing.com$(echo $META| jq -r '.images[1].url')"
         convert -append ${palette-1} ${palette-2} $WD/palette.png
-        convert $WD/wallpaper_raw_1.jpg -dither FloydSteinberg -remap $WD/palette.png $WPD/wallpaper.png
-        convert $WD/wallpaper_raw_2.jpg -dither FloydSteinberg -remap $WD/palette.png $WPD/wallpaper2.png
+        convert $WD/wallpaper_raw_1.jpg -dither FloydSteinberg -remap $WD/palette.png -blur 0x1  $WPD/wallpaper.png
+        convert $WD/wallpaper_raw_2.jpg -dither FloydSteinberg -remap $WD/palette.png -blur 0x1 $WPD/wallpaper2.png
         gnome-extensions reset paperwm@paperwm.github.com
         gnome-extensions enable paperwm@paperwm.github.com
       '';
