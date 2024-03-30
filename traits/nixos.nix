@@ -20,6 +20,7 @@
     environment.systemPackages = with pkgs; [
       nix-serve
       nixpkgs-fmt
+      nix-tree
     ];
 
     nixpkgs.config.allowUnfree = true;
