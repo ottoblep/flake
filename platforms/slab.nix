@@ -16,9 +16,12 @@
         cp -f ${user-image} /var/lib/AccountsService/icons/sevi
       '';
 
-      boot.initrd.kernelModules = [ "amdgpu" ];
+      boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usb_storage" "sd_mod" "ahci" "usb_storage" "sr_mod" ];
+      boot.initrd.kernelModules = [ "amdgpu" "kvm-amd" ];
 
       services.xserver.videoDrivers = [ "amdgpu" ];
+
+      nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
       fileSystems."/" =
         {
@@ -40,5 +43,6 @@
         ];
       };
 
+      hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     };
 }
