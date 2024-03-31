@@ -192,7 +192,6 @@
         traits.gnome = ./traits/gnome.nix;
         traits.office = ./traits/office.nix;
         traits.game = ./traits/game.nix;
-        traits.hyprland = ./traits/hyprland.nix;
         services.openssh = ./services/openssh.nix;
         users.sevi-basic = ({ lib, ... }: {
           imports = [ ./users/sevi ];
