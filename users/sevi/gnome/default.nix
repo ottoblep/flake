@@ -1,12 +1,4 @@
 { pkgs, lib, config, ... }:
-let
-  lrzSnSDesktopItem = pkgs.makeDesktopItem
-    {
-      name = "lrz-sync-share";
-      desktopName = "LRZ Sync and Share";
-      exec = "lrz-sync-share";
-    };
-in
 {
   imports = [ ./dconf.nix ];
 
@@ -20,8 +12,6 @@ in
       just-perfection
       unite
       dconf2nix
-      lrz-sync-share
-      lrzSnSDesktopItem
     ];
 
   gtk = {
@@ -93,9 +83,6 @@ in
   #   "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
   #   "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
   # };
-
-  # Autostart Graphical Program
-  home.file.".config/autostart/lrz-sync-share.desktop".source = "${lrzSnSDesktopItem}/share/applications/lrz-sync-share.desktop";
 
   # Default Apps
   home.file.".config/mimeapps.list".source = ../dotfiles/mimeapps.list;

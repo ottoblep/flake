@@ -105,7 +105,7 @@
                   traits.machine
                   traits.gnome
                   traits.media
-                  users.sevi-full
+                  users.sevi-minimal
                 ];
               };
           sevtp = let system = "x86_64-linux"; in
@@ -146,7 +146,7 @@
                   platforms.wsl
                   nixos-wsl.nixosModules.default
                   vscode-server.nixosModules.default
-                  users.sevi-basic
+                  users.sevi-headless
                 ];
               };
         };
@@ -193,10 +193,19 @@
         traits.office = ./traits/office.nix;
         traits.game = ./traits/game.nix;
         services.openssh = ./services/openssh.nix;
-        users.sevi-basic = ({ lib, ... }: {
+
+        users.sevi-headless = ({ lib, ... }: {
           imports = [ ./users/sevi ];
           home-manager.users.sevi = lib.mkMerge [
             ./users/sevi/home.nix
+          ];
+        });
+        users.sevi-minimal = ({ lib, ... }: {
+          imports = [ ./users/sevi ];
+          home-manager.users.sevi = lib.mkMerge [
+            ./users/sevi/home.nix
+            ./users/sevi/graphical.nix
+            ./users/sevi/gnome
           ];
         });
         users.sevi-full = ({ lib, ... }: {
@@ -204,6 +213,7 @@
           home-manager.users.sevi = lib.mkMerge [
             ./users/sevi/home.nix
             ./users/sevi/graphical.nix
+            ./users/sevi/develop.nix
             ./users/sevi/gnome
           ];
         });
