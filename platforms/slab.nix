@@ -17,7 +17,8 @@
       '';
 
       boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usb_storage" "sd_mod" "ahci" "usb_storage" "sr_mod" ];
-      boot.initrd.kernelModules = [ "amdgpu" "kvm-amd" ];
+      boot.initrd.kernelModules = [ "amdgpu" "btintel" ];
+      boot.kernelModules = [ "kvm-amd" ];
 
       services.xserver.videoDrivers = [ "amdgpu" ];
 
