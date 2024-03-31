@@ -6,6 +6,7 @@
   config = {
     boot.kernelPackages = pkgs.linuxPackages_latest;
     services.fwupd.enable = true;
+    hardware.enableAllFirmware = true;
     boot.loader.systemd-boot.enable = true;
     boot.loader.systemd-boot.editor = true;
     boot.initrd.systemd.enable = true;
