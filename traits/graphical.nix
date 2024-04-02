@@ -12,7 +12,7 @@
       thunderbird
       drawio
       nil
-      zoom-us
+      pkgs.unstable.zoom-us
       zerotierone
       whatsapp-for-linux
       signal-desktop
