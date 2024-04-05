@@ -8,6 +8,10 @@
     enableNvidia = true;
   };
 
+  environment.systemPackages = with pkgs; [
+    qemu_kvm
+  ];
+
   # Impure Single container example 
   # virtualisation.oci-containers = {
   #   backend = "docker";
