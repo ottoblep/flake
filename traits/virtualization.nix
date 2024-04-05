@@ -8,9 +8,7 @@
     enableNvidia = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    qemu_kvm
-  ];
+  # Emulate ESP32: nix run github:SFrijters/nix-qemu-espressif#qemu-esp32
 
   # Impure Single container example 
   # virtualisation.oci-containers = {
