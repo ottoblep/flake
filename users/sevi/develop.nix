@@ -26,6 +26,8 @@ in
         openssl.dev
         pkg-config
         lldb
+        espup
+        probe-rs
       ]);
     extensions = with pkgs.vscode-extensions; [
       mhutchie.git-graph
