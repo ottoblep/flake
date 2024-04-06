@@ -57,16 +57,23 @@
         export WD=/home/sevi/.cache/wallpaper-fetcher
         export WPD=/home/sevi/Pictures/Wallpapers
         export META=$(curl 'https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=2&mkt=en-US')
+
         mkdir -p $WPD
         mkdir -p $WD
+
         curl -o $WD/wallpaper_raw_1.jpg "https://bing.com$(echo $META| jq -r '.images[0].url')"
         curl -o $WD/wallpaper_raw_2.jpg "https://bing.com$(echo $META| jq -r '.images[1].url')"
-        convert -append ${palette-1} ${palette-2} $WD/palette.png
-        convert $WD/wallpaper_raw_1.jpg -dither FloydSteinberg -remap $WD/palette.png -blur 0x1  $WPD/wallpaper.png
-        convert $WD/wallpaper_raw_2.jpg -dither FloydSteinberg -remap $WD/palette.png -blur 0x1 $WPD/wallpaper2.png
+        convert $WD/wallpaper_raw_1.jpg -paint 5 $WD/wallpaper_raw_1.jpg
+        convert $WD/wallpaper_raw_2.jpg -paint 5 $WD/wallpaper_raw_2.jpg
+        cp $WD/wallpaper_raw_1.jpg $WPD/wallpaper.png
+        cp $WD/wallpaper_raw_2.jpg $WPD/wallpaper2.png
+
         gnome-extensions reset paperwm@paperwm.github.com
         gnome-extensions enable paperwm@paperwm.github.com
       '';
+      # convert -append ${palette-1} ${palette-2} $WD/palette.png
+      # convert $WD/wallpaper_raw_1.jpg -remap $WD/palette.png $WD/wallpaper_raw_1.jpg
+      # convert $WD/wallpaper_raw_2.jpg -remap $WD/palette.png $WD/wallpaper_raw_2.jpg
     in
     {
       Service = {
