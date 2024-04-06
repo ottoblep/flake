@@ -13,7 +13,7 @@
 buildPythonPackage rec {
   pname = "pygad";
   version = "3.3.1";
-  disabled = (pythonOlder "3.7");
+  disabled = pythonOlder "3.7";
 
   src = fetchFromGitHub {
     owner = "ahmedfgad";
@@ -22,12 +22,22 @@ buildPythonPackage rec {
     sha256 = "sha256-Tie1gTcoHItGlqKr+wemh1m6KTbW8cEB1iDgEl7Wap8=ha256-Tie1gTcoHItGlqKr+wemh1m6KTbW8cEB1iDgEl7Wap8=";
   };
 
+  # This is necessay to ignore the presence of two protobufs version (tensorflow is bringing an
+  # older version).
   catchConflicts = false;
 
-  buildInputs = [
+  propagatedBuildInputs = [
     numpy
     matplotlib
     cloudpickle
+  ];
+
+  passthru.optional-dependencies = {
+    torch = [ torch ];
+    keras = [ tensorflow keras ];
+  };
+
+  nativeCheckInputs = [
     torch
     tensorflow
     keras
@@ -38,6 +48,6 @@ buildPythonPackage rec {
     homepage = "https://github.com/ahmedfgad/GeneticAlgorithmPython";
     changelog = "https://github.com/ahmedfgad/GeneticAlgorithmPython/releases/tag/${version}";
     license = licenses.bsd3;
-    maintainers = [ ];
+    maintainers = with maintainers; [ ottoblep ];
   };
 }

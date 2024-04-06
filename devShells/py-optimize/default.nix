@@ -9,10 +9,6 @@ pkgs.mkShell {
       python-with-my-packages = python3.withPackages (ps: with ps; [
         (ahpy ps)
         (pygad ps)
-        ps.numpy
-        ps.scipy
-        ps.cloudpickle
-        ps.matplotlib
       ]);
     in
     [
