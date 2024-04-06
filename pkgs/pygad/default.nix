@@ -22,8 +22,7 @@ buildPythonPackage rec {
     sha256 = "sha256-Tie1gTcoHItGlqKr+wemh1m6KTbW8cEB1iDgEl7Wap8=ha256-Tie1gTcoHItGlqKr+wemh1m6KTbW8cEB1iDgEl7Wap8=";
   };
 
-  # This is necessay to ignore the presence of two protobufs version (tensorflow is bringing an
-  # older version).
+  # This is necessay to ignore the presence of two tensorboard, protobug, grpcio and tensorboard_plugin profile versions during testing
   catchConflicts = false;
 
   propagatedBuildInputs = [
@@ -33,6 +32,7 @@ buildPythonPackage rec {
   ];
 
   passthru.optional-dependencies = {
+    # Loading both causes a collision
     torch = [ torch ];
     keras = [ tensorflow keras ];
   };
