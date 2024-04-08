@@ -9,6 +9,7 @@
       url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    catppuccin.url = "github:catppuccin/nix";
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -19,7 +20,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, nixos-hardware, home-manager, nixos-wsl, vscode-server, ... }:
+  outputs = { self, nixpkgs, nixpkgs-unstable, nixos-hardware, home-manager, nixos-wsl, vscode-server, catppuccin, ... }:
     let
       supportedSystems = [ "x86_64-linux" "aarch64-linux" ]; # Only used for package definitions 
       forAllSystems = f: nixpkgs.lib.genAttrs supportedSystems (system: f system);
@@ -57,6 +58,7 @@
                 ];
               }
               home-manager.nixosModules.home-manager
+              catppuccin.nixosModules.catppuccin
               traits.nixos
               traits.base
             ];
@@ -194,29 +196,34 @@
         traits.game = ./traits/game.nix;
         services.openssh = ./services/openssh.nix;
 
-        users.sevi-headless = ({ lib, ... }: {
-          imports = [ ./users/sevi ];
-          home-manager.users.sevi = lib.mkMerge [
-            ./users/sevi/home.nix
-          ];
-        });
-        users.sevi-minimal = ({ lib, ... }: {
-          imports = [ ./users/sevi ];
-          home-manager.users.sevi = lib.mkMerge [
-            ./users/sevi/home.nix
-            ./users/sevi/graphical.nix
-            ./users/sevi/gnome
-          ];
-        });
-        users.sevi-full = ({ lib, ... }: {
-          imports = [ ./users/sevi ];
-          home-manager.users.sevi = lib.mkMerge [
-            ./users/sevi/home.nix
-            ./users/sevi/graphical.nix
-            ./users/sevi/develop.nix
-            ./users/sevi/gnome
-          ];
-        });
+        users =
+          let
+            user-base = [
+              catppuccin.homeManagerModules.catppuccin
+              ./users/sevi/home.nix
+            ];
+          in
+          {
+            sevi-headless = ({ lib, ... }: {
+              imports = [ ./users/sevi ];
+              home-manager.users.sevi = lib.mkMerge user-base;
+            });
+            sevi-minimal = ({ lib, ... }: {
+              imports = [ ./users/sevi ];
+              home-manager.users.sevi = lib.mkMerge (user-base ++ [
+                ./users/sevi/graphical.nix
+                ./users/sevi/gnome
+              ]);
+            });
+            sevi-full = ({ lib, ... }: {
+              imports = [ ./users/sevi ];
+              home-manager.users.sevi = lib.mkMerge (user-base ++ [
+                ./users/sevi/graphical.nix
+                ./users/sevi/develop.nix
+                ./users/sevi/gnome
+              ]);
+            });
+          };
       };
     };
 }

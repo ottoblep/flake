@@ -16,28 +16,15 @@
 
   gtk = {
     enable = true;
-    theme = {
-      name = "Catppuccin-Macchiato-Compact-Mauve-Dark";
-      package = pkgs.catppuccin-gtk.override {
-        accents = [ "blue" "flamingo" "green" "lavender" "maroon" "mauve" "peach" "pink" "red" "rosewater" "sapphire" "sky" "teal" ]; # You can specify multiple accents here to output multiple themes
-        size = "compact";
-        tweaks = [ "rimless" ]; # You can also specify multiple tweaks here
-        variant = "macchiato";
-      };
+    catppuccin = {
+      enable = true;
+      cursor.enable = true;
+      size = "standard";
+      tweaks = [ "rimless" ];
     };
     iconTheme = {
       name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme;
-    };
-    gtk3.extraConfig = {
-      Settings = ''
-        gtk-application-prefer-dark-theme=1
-      '';
-    };
-    gtk4.extraConfig = {
-      Settings = ''
-        gtk-application-prefer-dark-theme=1
-      '';
     };
   };
 

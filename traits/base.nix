@@ -3,44 +3,48 @@
 */
 { config, pkgs, lib, ... }:
 {
-  config = {
-    time.timeZone = "Europe/Berlin";
-    time.hardwareClockInLocalTime = true;
-    console.keyMap = "de";
+  time.timeZone = "Europe/Berlin";
+  time.hardwareClockInLocalTime = true;
 
-    environment.systemPackages = with pkgs; [
-      # Shell utilities
-      vim
-      curl
-      wget
-      git
-      git-lfs
-      ripgrep
-      btop
-      fd
-      duf
-      zoxide
-      tree
-      p7zip
-      srm
-      file
-      tio
-      avahi
-      todo-txt-cli
-      neofetch
-      wormhole-william # Large file transfer without ssh
-    ];
+  catppuccin.flavour = "macchiato";
 
-    programs.nano.enable = false; # Remove default
+  console = {
+    keyMap = "de";
+    catppuccin.enable = true;
+  };
 
-    services.avahi = {
-      nssmdns = true;
+  environment.systemPackages = with pkgs; [
+    # Shell utilities
+    neovim
+    curl
+    wget
+    git
+    git-lfs
+    ripgrep
+    btop
+    fd
+    duf
+    zoxide
+    tree
+    p7zip
+    srm
+    file
+    tio
+    avahi
+    todo-txt-cli
+    neofetch
+    wormhole-william # Large file transfer without ssh
+  ];
+
+  programs.nano.enable = false; # Remove default
+
+  services.avahi = {
+    nssmdns = true;
+    enable = true;
+    publish = {
       enable = true;
-      publish = {
-        enable = true;
-        domain = true;
-        addresses = true;
-      };
+      domain = true;
+      addresses = true;
     };
   };
 }

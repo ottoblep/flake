@@ -27,7 +27,6 @@ with lib.hm.gvariant;
         enable-hot-corners = false;
         show-battery-percentage = true;
         text-scaling-factor = 1.0;
-        cursor-theme = "Adwaita";
       };
 
       "org/gnome/desktop/peripherals/touchpad" = {
@@ -203,10 +202,6 @@ with lib.hm.gvariant;
       # Unite hides window panel bars
       "org/gnome/shell/extensions/unite" = {
         hide-window-titlebars = "always";
-      };
-
-      "org/gnome/shell/extensions/user-theme" = {
-        name = "${config.gtk.theme.name}";
       };
 
       # Due to PaperWM this background is only drawn in the overview screen
