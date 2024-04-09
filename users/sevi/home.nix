@@ -16,6 +16,8 @@
     ignores = [
       ".vscode"
       "result"
+      "notes.md"
+      "extra_documents"
     ];
   };
 
