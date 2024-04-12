@@ -37,6 +37,12 @@ with lib.hm.gvariant;
         two-finger-scrolling-enabled = true;
       };
 
+      "org/gnome/desktop/input-sources" = {
+        show-all-sources = false;
+        sources = [ (mkTuple [ "xkb" "de" ]) ];
+        xkb-options = [ "caps:none" ];
+      };
+
       "org/gnome/desktop/wm/keybindings" = {
         activate-window-menu = [ ];
         begin-move = [ ];
