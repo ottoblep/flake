@@ -140,6 +140,7 @@
                   traits.graphical
                   traits.gnome
                   traits.media
+                  traits.virtualization
                   users.sevi-full
                 ];
               };
