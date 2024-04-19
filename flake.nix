@@ -90,6 +90,7 @@
                   traits.machine
                   traits.tower
                   traits.graphical
+                  traits.office
                   traits.gnome
                   traits.media
                   users.sevi-full
