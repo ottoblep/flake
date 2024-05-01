@@ -9,6 +9,7 @@
       vlc
       pinta
       yt-dlp
+      musescore
     ];
   };
 }
