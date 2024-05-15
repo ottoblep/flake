@@ -9,7 +9,7 @@ stdenv.mkDerivation rec {
 
   src = fetchurl {
     url = "https://syncandshare.lrz.de/client_deployment/LRZ_Sync_Share_Latest_Linux.tar.gz";
-    hash = "sha256-PlhjD0EqeGc9rFru20/ulqGuk5Jl5aIFXX+Q5jo/xxQ=";
+    hash = "sha256-SV3x4n/KWTow42I4fGbfPiqknGf4fh2QI3l37C2jUck=";
   };
 
   installPhase = ''
