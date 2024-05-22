@@ -13,6 +13,7 @@
       discord
       noita-together
       prismlauncher
+      zerotierone
     ];
   };
 }
