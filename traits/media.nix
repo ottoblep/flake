@@ -9,6 +9,8 @@
       vlc
       pinta
       yt-dlp
+      musescore
+      zrythm
     ];
   };
 }
