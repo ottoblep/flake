@@ -13,7 +13,6 @@
       drawio
       nil
       pkgs.unstable.zoom-us
-      zerotierone
       whatsapp-for-linux
       signal-desktop
       # sleek
