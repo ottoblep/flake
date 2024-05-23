@@ -13,8 +13,9 @@
       discord
       noita-together
       prismlauncher
-      zerotierone
     ];
+
+    services.zerotierone.enable = true;
   };
 }
 
