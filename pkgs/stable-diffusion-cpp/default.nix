@@ -16,6 +16,7 @@
 , openblas
 , pkg-config
 , metalSupport ? stdenv.isDarwin && stdenv.isAarch64
+, autoAddDriverRunpath
 , patchelf
 }:
 
@@ -44,10 +45,7 @@ effectiveStdenv.mkDerivation (finalAttrs: {
 
   nativeBuildInputs = [ cmake ] ++ lib.optionals blasSupport [ pkg-config ] ++ lib.optionals cudaSupport [
     cudaPackages.cuda_nvcc
-
-    # TODO: Replace with autoAddDriverRunpath
-    # once https://github.com/NixOS/nixpkgs/pull/275241 has been merged
-    cudaPackages.autoAddOpenGLRunpathHook
+    autoAddDriverRunpath
   ];
 
   buildInputs = lib.optionals effectiveStdenv.isDarwin

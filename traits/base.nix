@@ -34,8 +34,8 @@
     programs.nano.enable = false; # Remove default
 
     services.avahi = {
-      nssmdns = true;
       enable = true;
+      nssmdns4 = true;
       publish = {
         enable = true;
         domain = true;
