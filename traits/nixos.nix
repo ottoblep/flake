@@ -4,8 +4,11 @@
 { config, pkgs, lib, ... }:
 {
   config = {
-    home-manager.useGlobalPkgs = true;
-    home-manager.useUserPackages = true;
+    home-manager = {
+      useGlobalPkgs = true;
+      useUserPackages = true;
+      backupFileExtension = "backup";
+    };
 
     nix.extraOptions = ''
       experimental-features = nix-command flakes
