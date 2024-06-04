@@ -7,9 +7,8 @@
   services = {
     xserver = {
       enable = true;
-      layout = "de";
+      xkb.layout = "de";
       displayManager.gdm.enable = true;
-      displayManager.autoLogin.enable = false;
       desktopManager.gnome.enable = true;
     };
     gnome.gnome-keyring.enable = true;
@@ -24,7 +23,7 @@
   ]) ++ (with pkgs.gnome; [
     cheese # webcam tool
     gnome-music
-    gedit # text editor
+    pkgs.gedit # text editor
     epiphany # web browser
     geary # email reader
     gnome-characters
