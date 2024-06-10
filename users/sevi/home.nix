@@ -10,8 +10,7 @@
     lfs.enable = true;
     extraConfig = {
       init = {
-        defaultBranch = "main";
-      };
+        defaultBranch  home-manager.backupFileExtension = "backup";;
     };
     ignores = [
       ".vscode"
@@ -23,9 +22,6 @@
 
   programs.zsh = {
     enable = true;
-    shellAliases = {
-      ll = "ls -l";
-    };
     oh-my-zsh = {
       enable = true;
       plugins = [ "git" "fd" "zoxide" "ripgrep" ];
@@ -58,6 +54,7 @@
   home.file.".vimrc".source = ./dotfiles/.vimrc;
 
   home.shellAliases = {
+    cd = "z";
     rm = "rm -i";
     srm = "srm -i";
     ll = "ls -l";
