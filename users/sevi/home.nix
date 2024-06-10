@@ -10,7 +10,8 @@
     lfs.enable = true;
     extraConfig = {
       init = {
-        defaultBranch  home-manager.backupFileExtension = "backup";;
+        defaultBranch = "main";
+      };
     };
     ignores = [
       ".vscode"
