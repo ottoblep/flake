@@ -11,15 +11,15 @@
     environment.systemPackages = with pkgs; [
       # Shell utilities
       vim
+      zoxide
+      fd
       curl
       wget
       git
       git-lfs
       ripgrep
       btop
-      fd
       duf
-      zoxide
       tree
       p7zip
       srm
