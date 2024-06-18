@@ -6,6 +6,7 @@
   config = {
     environment.systemPackages = with pkgs; [
       # Graphical Programs
+      asciiquarium-transparent
       keepassxc
       speedcrunch
       xournalpp
