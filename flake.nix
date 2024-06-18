@@ -140,6 +140,7 @@
                   traits.laptop
                   traits.graphical
                   traits.gnome
+                  traits.office
                   traits.media
                   traits.virtualization
                   users.sevi-full
