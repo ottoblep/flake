@@ -37,7 +37,8 @@
         tpacpi-bat
       ];
 
-      services.fprintd.enable = true;
+      # Disabled until stuck on login bug is fixed
+      # services.fprintd.enable = true;
 
       hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     };
