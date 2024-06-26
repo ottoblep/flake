@@ -16,7 +16,6 @@
       pkgs.unstable.zoom-us
       whatsapp-for-linux
       signal-desktop
-      # sleek
     ];
   };
 }
