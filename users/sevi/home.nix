@@ -65,6 +65,7 @@
     btop = "btop -p 0";
     df = "duf";
     todo = "todo.sh -d ~/.config/todo-cli.conf -T -A -n";
+    restartwm = "gnome-extensions reset paperwm@paperwm.github.com; gnome-extensions enable paperwm@paperwm.github.com";
   };
 
   programs.home-manager.enable = true;
