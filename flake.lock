@@ -80,11 +80,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1712757636,
-        "narHash": "sha256-/5qwVQREx471QEGpSAPnpunopJSEzmtnrM2TdKYcvik=",
+        "lastModified": 1719401839,
+        "narHash": "sha256-qSSMlBODFqxuyAxBMRmwO5QGLICou/8MbmunzZ9gmE8=",
         "owner": "ottoblep",
         "repo": "nix-5g-frameworks",
-        "rev": "38b78d053d82a01e6db3c96b84204430b827e3ad",
+        "rev": "601ce53b5d327f41533ce8b61763251ef003c838",
         "type": "github"
       },
       "original": {
