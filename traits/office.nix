@@ -9,6 +9,7 @@
       pdftk
       pdfgrep
       pandoc
+      libreoffice
     ];
   };
 }
