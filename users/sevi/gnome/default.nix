@@ -17,7 +17,7 @@
   gtk = {
     enable = true;
     theme = {
-      name = "Catppuccin-Macchiato-Compact-Mauve-Dark";
+      name = "catppuccin-macchiato-lavender-compact+rimless";
       package = pkgs.catppuccin-gtk.override {
         accents = [ "blue" "flamingo" "green" "lavender" "maroon" "mauve" "peach" "pink" "red" "rosewater" "sapphire" "sky" "teal" ]; # You can specify multiple accents here to output multiple themes
         size = "compact";
