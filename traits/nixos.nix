@@ -7,7 +7,7 @@
     home-manager = {
       useGlobalPkgs = true;
       useUserPackages = true;
-      backupFileExtension = "backup";
+      # backupFileExtension = "backup"; # Does still require manual deletion
     };
 
     nix.extraOptions = ''

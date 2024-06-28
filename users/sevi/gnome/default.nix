@@ -29,16 +29,20 @@
       name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme;
     };
-    gtk3.extraConfig = {
-      Settings = ''
-        gtk-application-prefer-dark-theme=1
-      '';
-    };
-    gtk4.extraConfig = {
-      Settings = ''
-        gtk-application-prefer-dark-theme=1
-      '';
-    };
+
+    # Requires manual deletion of .config/gtk-*.0 on rebuild
+    # gtk3.extraConfig = {
+    #   force = true;
+    #   Settings = ''
+    #     gtk-application-prefer-dark-theme=1
+    #   '';
+    # };
+    # gtk4.extraConfig = {
+    #   force = true;
+    #   Settings = ''
+    #     gtk-application-prefer-dark-theme=1
+    #   '';
+    # };
   };
 
   # Service for fetching and color-filtering new wallpaper images
@@ -92,5 +96,8 @@
   # };
 
   # Default Apps
-  home.file.".config/mimeapps.list".source = ../dotfiles/mimeapps.list;
+  home.file.".config/mimeapps.list" = {
+    source = ../dotfiles/mimeapps.list;
+    force = true;
+  };
 }
