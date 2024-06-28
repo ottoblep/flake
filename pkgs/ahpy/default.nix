@@ -18,7 +18,7 @@ buildPythonPackage rec {
     sha256 = "sha256-bVQpk1zLGyKhkICU9dQSylWp3obvlM6Ziw4Rxzhay7g=";
   };
 
-  buildInputs = [ 
+  buildInputs = [
     numpy
     scipy
     cloudpickle
