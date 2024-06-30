@@ -177,6 +177,7 @@
           py-optimize = import ./devShells/py-optimize { pkgs = pkgs; };
           py-api = import ./devShells/py-api { pkgs = pkgs; };
           py-scrape = import ./devShells/py-scrape { pkgs = pkgs; };
+          py-yolo = import ./devShells/py-yolo { pkgs = pkgs; };
           rust = import ./devShells/rust { pkgs = pkgs; };
         });
 
