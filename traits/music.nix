@@ -1,14 +1,13 @@
 /*
-  Programs for general Image, Audio and Video Processing
+  Programs for Music Processing
 */
 { config, pkgs, lib, ... }:
 {
   config = {
     environment.systemPackages = with pkgs; [
-      shortwave
-      vlc
-      pinta
-      yt-dlp
+      musescore
+      audacity
+      zrythm
     ];
   };
 }
