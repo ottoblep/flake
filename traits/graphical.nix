@@ -9,6 +9,7 @@
       asciiquarium-transparent
       keepassxc
       speedcrunch
+      octaveFull
       xournalpp
       thunderbird
       drawio
