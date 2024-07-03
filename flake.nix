@@ -82,6 +82,7 @@
                   traits.game
                   traits.office
                   traits.media
+                  traits.music
                   users.sevi-full
                 ];
               };
@@ -97,6 +98,7 @@
                   traits.office
                   traits.gnome
                   traits.media
+                  traits.music
                   users.sevi-full
                 ];
               };
@@ -191,6 +193,7 @@
         traits.base = ./traits/base.nix;
         traits.graphical = ./traits/graphical.nix;
         traits.media = ./traits/media.nix;
+        traits.music = ./traits/music.nix;
         traits.machine = ./traits/machine.nix;
         traits.virtualization = ./traits/virtualization.nix;
         traits.tower = ./traits/tower.nix;
