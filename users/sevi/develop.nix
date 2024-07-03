@@ -87,7 +87,7 @@ in
       "workbench.iconTheme" = "catppuccin-macchiato";
       "workbench.startupEditor" = "none";
       "workbench.activityBar.location" = "hidden";
-      "latex-workshop.view.pdf.spreadMode" = 1;
+      "latex-workshop.view.pdf.spreadMode" = 0; # For dual page
       "latex-workshop.view.pdf.color.dark.pageBorderColor" = "#181926"; # Catppuccin Macchiato
       "latex-workshop.view.pdf.color.dark.backgroundColor" = "#1e2030";
       "latex-workshop.view.pdf.color.dark.pageColorsBackground" = "#24273a";
