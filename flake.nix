@@ -59,7 +59,6 @@
                   (system-dependent-overlays { system = system; }).overlay-unstable
                 ];
               }
-              nix-5g.nixosModules.gtp5g
               home-manager.nixosModules.home-manager
               traits.nixos
               traits.base
