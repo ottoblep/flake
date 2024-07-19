@@ -15,13 +15,7 @@
     '';
     # nix.package = pkgs.nixUnstable;
 
-    # For copying nix stores to a new machine (saving bandwidth) use 'nix-serve'
-    # Mind the firewall and add ignore trusted substituters thus as root
-    # nixos-install --flake github:ottoblep/flake#MACHINE --substituters "http://SERVER_URL:PORT?trusted=1 https://cache.nixos.org/" 
-    # nixos-rebuild switch --flake github:ottoblep/flake#MACHINE --option substituters "http://SERVER_URL:PORT?trusted=1 https://cache.nixos.org/" 
-
     environment.systemPackages = with pkgs; [
-      nix-serve
       nixpkgs-fmt
       nix-tree
     ];

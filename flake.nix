@@ -82,6 +82,7 @@
                   traits.office
                   traits.media
                   traits.music
+                  services.nix-serve
                   users.sevi-full
                 ];
               };
@@ -202,6 +203,7 @@
         traits.office = ./traits/office.nix;
         traits.game = ./traits/game.nix;
         services.openssh = ./services/openssh.nix;
+        services.nix-serve = ./services/nix-serve.nix;
 
         users.sevi-headless = ({ lib, ... }: {
           imports = [ ./users/sevi ];
