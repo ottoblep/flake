@@ -11,7 +11,7 @@
     environment.systemPackages = with pkgs; [
       # Shell utilities
       vim
-      zoxide
+      file
       fd
       curl
       wget
@@ -19,11 +19,9 @@
       git-lfs
       ripgrep
       btop
-      duf
       tree
       p7zip
       srm
-      file
       tio
       avahi
       todo-txt-cli
