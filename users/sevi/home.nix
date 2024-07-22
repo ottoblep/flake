@@ -58,8 +58,8 @@
     cd = "z";
     rm = "rm -i";
     srm = "srm -i";
-    ll = "ls -l";
-    ls = "ls --color=tty";
+    ls = "eza";
+    ll = "eza -l";
     "..." = "cd ../..";
     top = "btop -p 0";
     btop = "btop -p 0";
@@ -67,6 +67,14 @@
     todo = "todo.sh -d ~/.config/todo-cli.conf -T -A -n";
     restartwm = "gnome-extensions reset paperwm@paperwm.github.com; gnome-extensions enable paperwm@paperwm.github.com";
   };
+
+  home.packages = with pkgs; [
+    zoxide
+    eza
+    duf
+    srm
+    btop
+  ];
 
   programs.home-manager.enable = true;
   home.stateVersion = "23.05";
