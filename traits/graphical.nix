@@ -1,23 +1,19 @@
 /*
-  Programs for headed machines
+  Base programs for headed machines
 */
 { config, pkgs, lib, ... }:
 {
   config = {
     environment.systemPackages = with pkgs; [
-      # Graphical Programs
       asciiquarium-transparent
       keepassxc
       speedcrunch
-      octaveFull
-      xournalpp
       thunderbird
+      pdftk
+      pdfgrep
+      pandoc
       drawio
       nil
-      pkgs.unstable.zoom-us
-      whatsapp-for-linux
-      signal-desktop
     ];
   };
 }
-

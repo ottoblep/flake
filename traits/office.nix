@@ -1,17 +1,13 @@
 /*
-  Programs for office use 
+  Programs for advanced office use 
 */
 { config, pkgs, lib, ... }:
 {
   config = {
     environment.systemPackages = with pkgs; [
+      xournalpp
       texliveFull
-      pdftk
-      pdfgrep
-      pandoc
       libreoffice
     ];
   };
 }
-
-
