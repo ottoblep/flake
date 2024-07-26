@@ -17,13 +17,9 @@
       url = "github:nix-community/nixos-vscode-server";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-5g = {
-      url = "github:ottoblep/nix-5g-frameworks";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, nixos-hardware, home-manager, nixos-wsl, vscode-server, nix-5g, ... }:
+  outputs = { self, nixpkgs, nixpkgs-unstable, nixos-hardware, home-manager, nixos-wsl, vscode-server, ... }:
     let
       supportedSystems = [ "x86_64-linux" "aarch64-linux" ]; # Only used for package definitions 
       forAllSystems = f: nixpkgs.lib.genAttrs supportedSystems (system: f system);
