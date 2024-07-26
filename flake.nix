@@ -74,11 +74,12 @@
                 modules = (base { system = system; }).modules ++ [
                   platforms.stele
                   traits.machine
-                  traits.virtualization
                   traits.tower
+                  traits.virtualization
                   traits.graphical
                   traits.gnome
                   traits.game
+                  traits.comms
                   traits.office
                   traits.media
                   traits.music
@@ -95,7 +96,6 @@
                   traits.machine
                   traits.tower
                   traits.graphical
-                  traits.office
                   traits.gnome
                   traits.media
                   traits.music
@@ -141,6 +141,7 @@
                   traits.laptop
                   traits.graphical
                   traits.gnome
+                  traits.comms
                   traits.office
                   traits.media
                   traits.virtualization
@@ -193,6 +194,7 @@
         traits.base = ./traits/base.nix;
         traits.graphical = ./traits/graphical.nix;
         traits.media = ./traits/media.nix;
+        traits.comms = ./traits/comms.nix;
         traits.music = ./traits/music.nix;
         traits.machine = ./traits/machine.nix;
         traits.virtualization = ./traits/virtualization.nix;

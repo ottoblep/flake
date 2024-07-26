@@ -1,13 +1,13 @@
 /*
-  Programs for music production
+  Programs for live communication 
 */
 { config, pkgs, lib, ... }:
 {
   config = {
     environment.systemPackages = with pkgs; [
-      musescore
-      audacity
-      zrythm
+      pkgs.unstable.zoom-us
+      whatsapp-for-linux
+      signal-desktop
     ];
   };
 }
