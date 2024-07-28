@@ -6,7 +6,6 @@
   config = {
     environment.systemPackages = with pkgs; [
       shortwave
-      vlc
       pinta
       yt-dlp
     ];
