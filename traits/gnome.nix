@@ -32,13 +32,15 @@
     hitori # sudoku game
     atomix # puzzle game
     yelp # Help view
+    totem # Video Player (replace with vlc)
     gnome-contacts
     gnome-initial-setup
   ]);
 
-  environment.systemPackages = with pkgs.gnome; [
+  environment.systemPackages = with pkgs; with pkgs.gnome; [
     gnome-tweaks
     gnome-characters
+    vlc # Replaces totem
   ];
 
   programs.dconf.enable = true;
