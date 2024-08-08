@@ -66,6 +66,7 @@
     df = "duf";
     todo = "todo.sh -d ~/.config/todo-cli.conf -T -A -n";
     restartwm = "gnome-extensions reset paperwm@paperwm.github.com; gnome-extensions enable paperwm@paperwm.github.com";
+    nixformatall = "nixpkgs-fmt **/*.nix";
   };
 
   home.packages = with pkgs; [
