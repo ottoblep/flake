@@ -14,6 +14,7 @@
       pandoc
       drawio
       nil
+      csv-tui
     ];
   };
 }
