@@ -5,6 +5,7 @@
   home.packages =
     with pkgs; with pkgs.gnomeExtensions;
     [
+      graphite-cursors
       # rounded-window-corners # As soon as available for 45
       rounded-corners
       user-themes
@@ -17,9 +18,9 @@
   gtk = {
     enable = true;
     theme = {
-      name = "catppuccin-macchiato-lavender-compact+rimless";
+      name = "catppuccin-macchiato-mauve-compact+rimless"; # This will be added to dconf to select the accent color
       package = pkgs.catppuccin-gtk.override {
-        accents = [ "blue" "flamingo" "green" "lavender" "maroon" "mauve" "peach" "pink" "red" "rosewater" "sapphire" "sky" "teal" ]; # You can specify multiple accents here to output multiple themes
+        accents = [ "blue" "flamingo" "green" "lavender" "maroon" "mauve" "peach" "red" "sapphire" "sky" "teal" ]; # You can specify multiple accents here to output multiple themes
         size = "compact";
         tweaks = [ "rimless" ]; # You can also specify multiple tweaks here
         variant = "macchiato";
@@ -29,20 +30,6 @@
       name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme;
     };
-
-    # Requires manual deletion of .config/gtk-*.0 on rebuild
-    # gtk3.extraConfig = {
-    #   force = true;
-    #   Settings = ''
-    #     gtk-application-prefer-dark-theme=1
-    #   '';
-    # };
-    # gtk4.extraConfig = {
-    #   force = true;
-    #   Settings = ''
-    #     gtk-application-prefer-dark-theme=1
-    #   '';
-    # };
   };
 
   # Service for fetching and color-filtering new wallpaper images
@@ -86,14 +73,6 @@
       };
       Install.WantedBy = [ "gnome-session-initialized.target" ];
     };
-
-  # Now symlink the `~/.config/gtk-4.0/` folder declaratively:
-  # This folder needs to be manually deleted on rebuild for some reason
-  # xdg.configFile = {
-  #   "gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
-  #   "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
-  #   "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
-  # };
 
   # Default Apps
   home.file.".config/mimeapps.list" = {

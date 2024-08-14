@@ -27,7 +27,8 @@ with lib.hm.gvariant;
         enable-hot-corners = false;
         show-battery-percentage = true;
         text-scaling-factor = 1.0;
-        cursor-theme = "Adwaita";
+        gtk-theme = "${config.gtk.theme.name}";
+        cursor-theme = "graphite-dark";
       };
 
       "org/gnome/desktop/peripherals/touchpad" = {
