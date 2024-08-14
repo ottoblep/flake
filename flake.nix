@@ -176,6 +176,7 @@
         in
         {
           py-optimize = import ./devShells/py-optimize { pkgs = pkgs; };
+          py-numeric = import ./devShells/py-numeric { pkgs = pkgs; };
           py-api = import ./devShells/py-api { pkgs = pkgs; };
           py-scrape = import ./devShells/py-scrape { pkgs = pkgs; };
           py-yolo = import ./devShells/py-yolo { pkgs = pkgs; };
