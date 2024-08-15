@@ -5,7 +5,7 @@
   home.packages =
     with pkgs; with pkgs.gnomeExtensions;
     [
-      graphite-cursors
+      oreo-cursors-plus
       # rounded-window-corners # As soon as available for 45
       rounded-corners
       user-themes
