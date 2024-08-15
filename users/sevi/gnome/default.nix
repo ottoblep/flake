@@ -35,14 +35,14 @@
   # Service for fetching and color-filtering new wallpaper images
   systemd.user.services."wallpaper-fetcher" =
     let
-      palette-1 = pkgs.fetchurl {
-        url = "https://raw.githubusercontent.com/catppuccin/catppuccin/03f1d0557c41331a61871a01b52e343315fdbff8/assets/palette/macchiato.png";
-        hash = "sha256-G4NkibJk5HGOcKh6jc1cJnQyqdNetX72ysxeFPirW/w=";
-      };
-      palette-2 = pkgs.fetchurl {
-        url = "https://raw.githubusercontent.com/catppuccin/catppuccin/03f1d0557c41331a61871a01b52e343315fdbff8/assets/palette/night.png";
-        hash = "sha256-ZbKJoStbyd5lYukpuflN66UPNlEceRtBG1D+T8t669A=";
-      };
+      # palette-1 = pkgs.fetchurl {
+      #   url = "https://raw.githubusercontent.com/catppuccin/catppuccin/03f1d0557c41331a61871a01b52e343315fdbff8/assets/palette/macchiato.png";
+      #   hash = "sha256-G4NkibJk5HGOcKh6jc1cJnQyqdNetX72ysxeFPirW/w=";
+      # };
+      # palette-2 = pkgs.fetchurl {
+      #   url = "https://raw.githubusercontent.com/catppuccin/catppuccin/03f1d0557c41331a61871a01b52e343315fdbff8/assets/palette/night.png";
+      #   hash = "sha256-ZbKJoStbyd5lYukpuflN66UPNlEceRtBG1D+T8t669A=";
+      # };
       script = pkgs.writeShellScriptBin "fetch-wallpaper" ''
         export PATH=$PATH:${lib.makeBinPath [ pkgs.coreutils pkgs.jq pkgs.curl pkgs.imagemagick pkgs.gnome.gnome-shell ]}
         export WD=/home/sevi/.cache/wallpaper-fetcher
