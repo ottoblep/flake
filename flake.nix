@@ -26,13 +26,33 @@
     in
     {
       # This overlay will be applied to all systems
-      # Define custom packages here
+      # Define custom packages here (access via pkgs.mypkgs.<pkg>)
       overlays.default = final: prev: {
-        lrz-sync-share = prev.callPackage ./pkgs/lrz-sync-share { };
-        stable-diffusion-cpp-cuda = prev.callPackage ./pkgs/stable-diffusion-cpp { cudaSupport = true; };
-        noita-together = prev.callPackage ./pkgs/noita-together { };
-        csv-tui = prev.callPackage ./pkgs/csv-tui { };
+        mypkgs = {
+          lrz-sync-share = prev.callPackage ./pkgs/lrz-sync-share { };
+          stable-diffusion-cpp-cuda = prev.callPackage ./pkgs/stable-diffusion-cpp { cudaSupport = true; };
+          noita-together = prev.callPackage ./pkgs/noita-together { };
+          csv-tui = prev.callPackage ./pkgs/csv-tui { };
+        };
       };
+
+      # This presents the packages from the overlay as flake outputs 
+      packages = forAllSystems (system:
+        (import nixpkgs { inherit system; overlays = [ self.overlays.default ]; config.allowUnfree = true; }).mypkgs
+      );
+
+      devShells = forAllSystems (system:
+        let
+          pkgs = import nixpkgs { inherit system; overlays = [ self.overlays.default ]; };
+        in
+        {
+          py-optimize = import ./devShells/py-optimize { pkgs = pkgs; };
+          py-numeric = import ./devShells/py-numeric { pkgs = pkgs; };
+          py-api = import ./devShells/py-api { pkgs = pkgs; };
+          py-scrape = import ./devShells/py-scrape { pkgs = pkgs; };
+          py-yolo = import ./devShells/py-yolo { pkgs = pkgs; };
+          rust = import ./devShells/rust { pkgs = pkgs; };
+        });
 
       nixosConfigurations =
         let
@@ -52,7 +72,7 @@
               {
                 nixpkgs.overlays = [
                   self.overlays.default
-                  # We overlay our unstable into the stable pkgs that is passed to all systems (access via pkgs.unstable.<pkg>)
+                  # Overlay unstable into stable pkgs that is passed to all systems (access via pkgs.unstable.<pkg>)
                   (system-dependent-overlays { system = system; }).overlay-unstable
                 ];
               }
@@ -157,31 +177,6 @@
                 ];
               };
         };
-
-      # This presents the packages from the default overlay to the outside
-      packages = forAllSystems (system:
-        let
-          pkgs = import nixpkgs { inherit system; overlays = [ self.overlays.default ]; };
-        in
-        {
-          lrz-sync-share = pkgs.lrz-sync-share;
-          noita-together = pkgs.noita-together;
-          csv-tui = pkgs.csv-tui;
-        }
-      );
-
-      devShells = forAllSystems (system:
-        let
-          pkgs = import nixpkgs { inherit system; overlays = [ self.overlays.default ]; };
-        in
-        {
-          py-optimize = import ./devShells/py-optimize { pkgs = pkgs; };
-          py-numeric = import ./devShells/py-numeric { pkgs = pkgs; };
-          py-api = import ./devShells/py-api { pkgs = pkgs; };
-          py-scrape = import ./devShells/py-scrape { pkgs = pkgs; };
-          py-yolo = import ./devShells/py-yolo { pkgs = pkgs; };
-          rust = import ./devShells/rust { pkgs = pkgs; };
-        });
 
       nixosModules = {
         platforms.stele = ./platforms/stele.nix;

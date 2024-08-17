@@ -14,7 +14,7 @@
       pandoc
       drawio
       nil
-      csv-tui
+      mypkgs.csv-tui
     ];
   };
 }
