@@ -3,10 +3,8 @@
 */
 { pkgs, ... }:
 {
-  virtualisation.docker = {
-    enable = true;
-    enableNvidia = true;
-  };
+  virtualisation.docker.enable = true;
+  hardware.nvidia-container-toolkit.enable = true;
 
   environment.systemPackages = with pkgs; [
     wireshark
