@@ -9,7 +9,7 @@ let
 in
 {
   home.packages = with pkgs; [
-    lrz-sync-share
+    mypkgs.lrz-sync-share
     lrzSnSDesktopItem
   ];
 
