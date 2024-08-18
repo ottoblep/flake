@@ -28,7 +28,7 @@ with lib.hm.gvariant;
         show-battery-percentage = true;
         text-scaling-factor = 1.0;
         gtk-theme = "${config.gtk.theme.name}";
-        cursor-theme = "oreo_white_cursors";
+        cursor-theme = "graphite-dark";
       };
 
       "org/gnome/desktop/peripherals/touchpad" = {
