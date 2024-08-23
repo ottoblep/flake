@@ -32,7 +32,6 @@
           lrz-sync-share = prev.callPackage ./pkgs/lrz-sync-share { };
           stable-diffusion-cpp-cuda = prev.callPackage ./pkgs/stable-diffusion-cpp { cudaSupport = true; };
           noita-together = prev.callPackage ./pkgs/noita-together { };
-          csv-tui = prev.callPackage ./pkgs/csv-tui { };
         };
       };
 
