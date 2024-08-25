@@ -13,6 +13,7 @@
       discord
       scanmem
       ruffle
+      lutris
     ];
 
     services.zerotierone.enable = true;
