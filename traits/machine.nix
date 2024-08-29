@@ -4,7 +4,7 @@
 { config, pkgs, lib, ... }:
 {
   config = {
-    boot.kernelPackages = pkgs.linuxPackages_latest;
+    boot.kernelPackages = pkgs.linuxPackages_xanmod;
     services.fwupd.enable = true;
     boot.loader.systemd-boot.enable = true;
     boot.loader.systemd-boot.editor = true;
