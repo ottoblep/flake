@@ -18,7 +18,11 @@
     users.mutableUsers = true; # Set passwords after setup
 
     networking.useDHCP = lib.mkDefault true;
-    networking.networkmanager.enable = true;
+    networking.networkmanager = {
+      enable = true;
+      wifi.macAddress = "stable-ssid";
+      wifi.scanRandMacAddress = true;
+    };
     networking.wireless.userControlled.enable = true;
 
     networking.firewall = {
