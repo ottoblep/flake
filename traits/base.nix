@@ -27,6 +27,7 @@
       todo-txt-cli
       neofetch
       wormhole-william # Large file transfer without ssh
+      trickle # Bandwidth limiting
     ];
 
     programs.nano.enable = false; # Remove default
