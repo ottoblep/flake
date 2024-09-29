@@ -17,8 +17,10 @@
     services.pipewire.extraConfig.jack = {
         "20-lower-latency" = {
           "jack.properties" = {
-            "rt.prio" = 90;
-            "node.latency" = "192/48000";
+            "rt.prio" = 100;
+            "node.latency" = "256/48000";
+            "node.lock-quantum" = true;
+            "node.force-quantum" = 256;
           };
         };
       };
