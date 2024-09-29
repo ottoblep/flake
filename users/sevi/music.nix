@@ -20,6 +20,18 @@
       rev = "6d365687b40ac3ae4eed9b43492d27437bcf8adb";
       sha256 = "sha256-s6ZGihjnZmun2/6z8E0ZHldAXGEoz2KrB8SqyF0A0fQ=";
     };
+    ".sfz/SalamanderGrandPiano".source = pkgs.fetchFromGitHub {
+      owner = "sfzinstruments";
+      repo = "SalamanderGrandPiano";
+      rev = "3382bf9496bba2486f5ab0de55a264d1dfc38404";
+      sha256 = "sha256-PpTh8QPHgtU6JGYKZkbBrIhlQMg+ykJBGlOzge9Qfl8=";
+    };
+    ".sfz/MatsHelgesson.MaestroConcertGrandPiano".source = pkgs.fetchFromGitHub {
+      owner = "sfzinstruments";
+      repo = "MatsHelgesson.MaestroConcertGrandPiano";
+      rev = "717078b450eccc4a7733755f4b5973426ebc23e9";
+      sha256 = "sha256-NFN44XQ/qKLSHL6LfXclDGZzoDYocwObrfDDz1E6pP8=";
+    };
   };
 }
 
