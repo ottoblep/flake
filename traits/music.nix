@@ -7,6 +7,7 @@
     environment.systemPackages = with pkgs; [
       audacity
       zrythm
+      # Use pipewire emulated jack as audio driver
       show-midi
       carla
     ];
