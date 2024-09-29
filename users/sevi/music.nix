@@ -6,6 +6,7 @@
     ".lv2/b_whirl".source = "${pkgs.setbfree}/lib/lv2/b_whirl";
     ".lv2/fomp.lv2".source = "${pkgs.fomp}/lib/lv2/fomp.lv2";
     ".lv2/aether.lv2".source = "${pkgs.aether-lv2}/lib/lv2/aether.lv2";
+    ".lv2/sapistaEQv2.lv2".source = "${pkgs.eq10q}/lib/lv2/sapistaEQv2.lv2";
     # Sampler and Samples
     ".lv2/sfizz.lv2".source = "${pkgs.sfizz}/lib/lv2/sfizz.lv2";
     ".sfz/GregSullivan.E-Pianos".source = pkgs.fetchFromGitHub {
