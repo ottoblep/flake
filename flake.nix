@@ -115,7 +115,7 @@
                   traits.gnome
                   traits.media
                   traits.music
-                  users.sevi-full
+                  users.sevi-instruments
                 ];
               };
           slab = let system = "x86_64-linux"; in
@@ -221,6 +221,16 @@
             ./users/sevi/home.nix
             ./users/sevi/graphical.nix
             ./users/sevi/develop.nix
+            ./users/sevi/gnome
+          ];
+        });
+        users.sevi-instruments = ({ lib, ... }: {
+          imports = [ ./users/sevi ];
+          home-manager.users.sevi = lib.mkMerge [
+            ./users/sevi/home.nix
+            ./users/sevi/graphical.nix
+            ./users/sevi/develop.nix
+            ./users/sevi/music.nix
             ./users/sevi/gnome
           ];
         });
