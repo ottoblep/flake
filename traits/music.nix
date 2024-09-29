@@ -5,9 +5,12 @@
 {
   config = {
     environment.systemPackages = with pkgs; [
-      musescore
       audacity
       zrythm
+      show-midi
+      carla
     ];
+
+    boot.kernelPackages = lib.mkForce pkgs.linuxKernel.packages.linux_rt_6_1;
   };
 }
