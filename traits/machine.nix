@@ -45,6 +45,14 @@
       alsa.support32Bit = true;
       pulse.enable = true;
       jack.enable = true;
+      extraConfig.jack = {
+        "20-lower-latency" = {
+          "jack.properties" = {
+            "rt.prio" = 90;
+            "node.latency" = "192/48000";
+          };
+        };
+      };
     };
     hardware.pulseaudio.enable = false;
 
