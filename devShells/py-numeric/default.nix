@@ -9,6 +9,8 @@ pkgs.mkShell {
           numpy
           scipy
           seaborn
+          plotly
+          networkx
         ]);
     in
     [
