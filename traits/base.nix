@@ -13,6 +13,7 @@
       vim
       file
       fd
+      ikill
       curl
       wget
       git
