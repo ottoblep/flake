@@ -11,9 +11,7 @@
     boot.initrd.systemd.enable = true;
     boot.initrd.availableKernelModules = [ "hid_cherry" "usbhid" "mac_hid" "hid_generic" "hid" "usbcore" "evdev" ];
 
-    boot.extraModulePackages = [
-      (config.boot.kernelPackages.callPackage ../pkgs/gtp5g { })
-    ];
+    boot.extraModulePackages = [ ];
 
     users.mutableUsers = true; # Set passwords after setup
 
