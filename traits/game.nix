@@ -4,7 +4,7 @@
 { config, pkgs, lib, ... }:
 {
   config = {
-    boot.kernelPackages = lib.mkForce pkgs.linuxKernel.packages.linux_xanmod;
+    boot.kernelPackages = lib.mkOverride 800 pkgs.linuxKernel.packages.linux_xanmod;
 
     environment.systemPackages = with pkgs; [
       steam # Comes with working proton

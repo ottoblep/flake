@@ -12,7 +12,7 @@
       carla
     ];
 
-    boot.kernelPackages = lib.mkForce pkgs.linuxKernel.packages.linux_rt_6_1;
+    boot.kernelPackages = lib.mkOverride 900 pkgs.linuxKernel.packages.linux_rt_6_1;
 
     services.pipewire.extraConfig.jack = {
         "20-lower-latency" = {
