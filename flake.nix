@@ -99,8 +99,9 @@
                   traits.office
                   traits.compute
                   traits.media
+                  traits.music
                   services.nix-serve
-                  users.sevi-full
+                  users.sevi-instruments
                 ];
               };
           tomnuc = let system = "x86_64-linux"; in
