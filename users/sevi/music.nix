@@ -37,6 +37,12 @@
       rev = "717078b450eccc4a7733755f4b5973426ebc23e9";
       sha256 = "sha256-NFN44XQ/qKLSHL6LfXclDGZzoDYocwObrfDDz1E6pP8=";
     };
+    ".sfz/SamsSonor".source = pkgs.fetchFromGitHub {
+      owner = "sfzinstruments";
+      repo = "SamsSonor";
+      rev = "ef3e32058924ed1c3335e86d03094d3f310a9104";
+      sha256 = "sha256-nZMQp0gfFT+SJFVhB3R96UXnW9pX1L869Ex/qFULpPY=";
+    };
   };
 }
 
