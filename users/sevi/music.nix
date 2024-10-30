@@ -9,8 +9,6 @@
     ".lv2/sapistaEQv2.lv2".source = "${pkgs.eq10q}/lib/lv2/sapistaEQv2.lv2";
     ".lv2/Surge XT.lv2".source = "${pkgs.surge-XT}/lib/lv2/Surge XT.lv2";
     ".lv2/Surge XT Effects.lv2".source = "${pkgs.surge-XT}/lib/lv2/Surge XT Effects.lv2";
-    ".lv2/drumgizmo.lv2".source = "${pkgs.drumgizmo}/lib/lv2/drumgizmo.lv2";
-    ".lv2/ChowKick.lv2".source = "${pkgs.ChowKick}/lib/lv2/ChowKick.lv2";
     # Sampler and Samples
     ".lv2/sfizz.lv2".source = "${pkgs.sfizz}/lib/lv2/sfizz.lv2";
     ".sfz/GregSullivan.E-Pianos".source = pkgs.fetchFromGitHub {
