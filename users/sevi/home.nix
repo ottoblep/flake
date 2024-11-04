@@ -15,6 +15,7 @@
     };
     ignores = [
       ".vscode"
+      "*.bkp"
       "result"
       "notes.md"
       "extra_documents"
