@@ -18,7 +18,7 @@ in
 
   programs.vscode = {
     enable = true;
-    package = pkgs.vscode.fhsWithPackages (ps: with ps;
+    package = pkgs.vscodium.fhsWithPackages (ps: with ps;
       [
         gcc
         rustup # Need to 'rustup default stable' manually
