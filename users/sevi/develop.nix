@@ -16,32 +16,33 @@ in
   # Autostart File Sync
   home.file.".config/autostart/lrz-sync-share.desktop".source = "${lrzSnSDesktopItem}/share/applications/lrz-sync-share.desktop";
 
+  # Build tools and libraries are defined in separate devshells
+  # Open vscode vscode inside this dev shell to inherit
+
   programs.vscode = {
     enable = true;
-    package = pkgs.vscodium.fhsWithPackages (ps: with ps;
-      [
-        gcc
-        rustup # Need to 'rustup default stable' manually
-        zlib
-        openssl.dev
-        pkg-config
-        lldb
-        espup
-        probe-rs
-      ]);
+    package = pkgs.vscodium.fhsWithPackages (ps: with ps; [ ]);
     extensions = with pkgs.vscode-extensions; [
+      # General
       mhutchie.git-graph
       vscodevim.vim
       catppuccin.catppuccin-vsc
       catppuccin.catppuccin-vsc-icons
+      mechatroner.rainbow-csv
+      # Nix
       jnoortheen.nix-ide
       arrterian.nix-env-selector
+      # Latex
       james-yu.latex-workshop
-      mechatroner.rainbow-csv
+      # Python
       ms-python.python
       ms-python.vscode-pylance
+      # Rust
       rust-lang.rust-analyzer
       vadimcn.vscode-lldb
+      # C++
+      ms-vscode.cpptools
+      twxs.cmake
     ];
 
     keybindings = [
