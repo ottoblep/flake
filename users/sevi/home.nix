@@ -64,6 +64,7 @@
     "..." = "cd ../..";
     top = "btop -p 0";
     btop = "btop -p 0";
+    code = "codium";
     df = "duf";
     todo = "todo.sh -d ~/.config/todo-cli.conf -T -A -n";
     ctodo = "csv_tui -f ~/LRZ\\ Sync+Share/Private/continuous_todo.csv";
