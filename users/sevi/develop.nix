@@ -39,10 +39,13 @@ in
       ms-python.vscode-pylance
       # Rust
       rust-lang.rust-analyzer
-      vadimcn.vscode-lldb
       # C++
-      ms-vscode.cpptools
       twxs.cmake
+      ms-vscode.cpptools # Intellisense
+      vadimcn.vscode-lldb # LLDB Debug Config
+      # cpptools wants include paths in .vscode/c_cpp_properties.json, for example "${CMAKE_INCLUDE_PATH}/**"
+      # c_cpp_properties.json can be generated with "C/C++: Edit Configurations (UI)"
+      # make sure to build with debug symbols "cmake -DCMAKE_BUILD_TYPE=Debug"
     ];
 
     keybindings = [
