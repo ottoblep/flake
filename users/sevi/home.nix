@@ -18,6 +18,7 @@
       "*.bkp"
       "result"
       "notes.md"
+      "hs_*.sh"
       "extra_documents"
     ];
   };
