@@ -20,7 +20,7 @@
   environment.gnome.excludePackages = (with pkgs; [
     gnome-photos
     gnome-tour
-  ]) ++ (with pkgs.gnome; [
+  ]) ++ (with pkgs; [
     cheese # webcam tool
     gnome-music
     pkgs.gedit # text editor
@@ -37,7 +37,7 @@
     gnome-initial-setup
   ]);
 
-  environment.systemPackages = with pkgs; with pkgs.gnome; [
+  environment.systemPackages = with pkgs; [
     gnome-tweaks
     gnome-characters
     vlc # Replaces totem

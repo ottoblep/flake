@@ -33,9 +33,6 @@
     };
     networking.nftables.enable = true;
 
-    # On NixOS 24.05 or older, this option must be set:
-    sound.enable = false;
-
     security.rtkit.enable = true;
     services.pipewire = {
       enable = true;

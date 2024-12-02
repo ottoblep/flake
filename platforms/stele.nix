@@ -22,18 +22,21 @@
       boot.initrd.kernelModules = [ ];
       boot.kernelModules = [ "kvm-intel" ];
 
-      # Enable OpenGL
-      hardware.opengl = {
-        enable = true;
-        driSupport = true;
-        driSupport32Bit = true;
-        extraPackages = with pkgs; [
-          libva
-          libvdpau
-          libvdpau-va-gl
-          nvidia-vaapi-driver
-        ];
-      };
+      hardware.graphics =
+        let
+          graphicsDrivers = with pkgs; [
+            libva
+            libvdpau
+            libvdpau-va-gl
+            nvidia-vaapi-driver
+          ];
+        in
+        {
+          enable = true;
+          enable32Bit = true;
+          extraPackages = graphicsDrivers;
+          extraPackages32 = graphicsDrivers;
+        };
       environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
       hardware.openrazer.enable = true;

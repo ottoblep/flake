@@ -44,7 +44,7 @@
       #   hash = "sha256-ZbKJoStbyd5lYukpuflN66UPNlEceRtBG1D+T8t669A=";
       # };
       script = pkgs.writeShellScriptBin "fetch-wallpaper" ''
-        export PATH=$PATH:${lib.makeBinPath [ pkgs.coreutils pkgs.jq pkgs.curl pkgs.imagemagick pkgs.gnome.gnome-shell ]}
+        export PATH=$PATH:${lib.makeBinPath [ pkgs.coreutils pkgs.jq pkgs.curl pkgs.imagemagick pkgs.gnome-shell ]}
         export WD=/home/sevi/.cache/wallpaper-fetcher
         export WPD=/home/sevi/Pictures/Wallpapers
         export META=$(curl 'https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=2&mkt=en-US')
