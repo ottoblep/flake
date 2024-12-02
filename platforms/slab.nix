@@ -36,14 +36,26 @@
           fsType = "vfat";
         };
 
-      hardware.opengl = {
-        enable = true;
-        extraPackages = with pkgs; [
-          mesa
-          amdvlk
-        ];
-      };
+      hardware.graphics =
+        let
+          graphicsDrivers = with pkgs; [
+            mesa
+            amdvlk
+          ];
+        in
+        {
+          enable = true;
+          enable32Bit = true;
+          extraPackages = graphicsDrivers;
+          extraPackages32 = graphicsDrivers;
+        };
 
-      hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+      hardware.amdgpu = {
+        opencl.enable = true;
+        amdvlk.enable = true;
+      }
     };
+
+  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+};
 }
