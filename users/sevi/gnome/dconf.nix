@@ -180,7 +180,7 @@ with lib.hm.gvariant;
         double-super-to-appgrid = true;
         overlay-key = true;
         events-button = false;
-        panel = false;
+        panel = true;
         panel-in-overview = true;
         panel-notification-icon = true;
         power-icon = true;
