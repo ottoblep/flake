@@ -161,7 +161,6 @@
                   traits.comms
                   traits.office
                   traits.media
-                  traits.virtualization
                   users.sevi-full
                 ];
               };
