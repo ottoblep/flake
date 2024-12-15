@@ -81,6 +81,8 @@
         package = config.boot.kernelPackages.nvidiaPackages.production;
       };
 
+      hardware.nvidia-container-toolkit.enable = true;
+
       fileSystems."/" =
         {
           device = "/dev/disk/by-label/nixos";
