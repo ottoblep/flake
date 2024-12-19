@@ -36,8 +36,7 @@
         tpacpi-bat
       ];
 
-      # Disabled until stuck on login bug is fixed
-      # services.fprintd.enable = true;
+      services.fprintd.enable = true;
 
       hardware.graphics =
         let
