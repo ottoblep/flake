@@ -54,8 +54,8 @@
         opencl.enable = true;
         amdvlk.enable = true;
       }
-    };
+        };
 
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-};
+      hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+    };
 }

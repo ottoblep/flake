@@ -12,7 +12,6 @@
       networking.hostName = "sevtp2";
 
       boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "sd_mod" "sr_mod" ];
-      boot.kernelModules = [ "kvm-intel" ];
 
       # Set profile images
       system.activationScripts.setUserImages.text = ''
@@ -39,6 +38,25 @@
 
       # Disabled until stuck on login bug is fixed
       # services.fprintd.enable = true;
+
+      hardware.graphics =
+        let
+          graphicsDrivers = with pkgs; [
+            mesa
+            amdvlk
+          ];
+        in
+        {
+          enable = true;
+          enable32Bit = true;
+          extraPackages = graphicsDrivers;
+          extraPackages32 = graphicsDrivers;
+        };
+
+      hardware.amdgpu = {
+        opencl.enable = true;
+        amdvlk.enable = true;
+      };
 
       hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     };
