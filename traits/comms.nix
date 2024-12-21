@@ -9,6 +9,7 @@
       pkgs.zoom-us
       whatsapp-for-linux
       signal-desktop
+      discord
     ];
   };
 }
