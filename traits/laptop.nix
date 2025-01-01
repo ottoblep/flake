@@ -22,6 +22,10 @@
     };
   };
 
+  services.logind.lidSwitch = "ignore";
+  services.logind.lidSwitchDocked = "ignore";
+  services.logind.lidSwitchExternalPower = "ignore";
+
   services.power-profiles-daemon.enable = false;
 
   # TODO Add distinct dconf for small screens
