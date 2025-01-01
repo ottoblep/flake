@@ -161,6 +161,7 @@
                   traits.comms
                   traits.office
                   traits.media
+                  traits.game
                   users.sevi-full
                 ];
               };
