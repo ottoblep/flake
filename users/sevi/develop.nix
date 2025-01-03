@@ -97,6 +97,7 @@ in
       "latex-workshop.view.pdf.color.dark.pageColorsBackground" = "#24273a";
       "latex-workshop.view.pdf.color.dark.pageColorsForeground" = "#cad3f5";
       "latex-workshop.latex.autoClean.run" = "onBuilt";
+      "symbols.hidesExplorerArrows" = false;
     };
   };
 }
