@@ -70,11 +70,20 @@ in
         key = "ctrl+shift+e";
         command = "-workbench.action.quickOpenNavigatePreviousInFilePicker";
       }
+      {
+        key = "ctrl+shift+[BracketLeft]";
+        command = "search.action.focusPreviousSearchResult";
+      }
+      {
+        key = "ctrl+shift+[Quote]";
+        command = "search.action.focusNextSearchResult";
+      }
       # ctrl+tab to switch tabs 
       # ctrl + 1234 to switch panes
       # ctrl + shift + EFG for sidebar opening
       # ctrl + alt + p to open files
       # ctrl + shift + p for all vscode commands
+      # ctrl + shift + ü/ä to navigate keyword search results
     ];
 
     userSettings = {
