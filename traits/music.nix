@@ -11,6 +11,7 @@
       show-midi
       carla
       hydrogen
+      mypkgs.decent-sampler
     ];
 
     boot.kernelPackages = lib.mkOverride 900 pkgs.linuxKernel.packages.linux_rt_6_1;
