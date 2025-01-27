@@ -5,11 +5,11 @@
 
 stdenv.mkDerivation rec {
   pname = "lrz-sync-share";
-  version = "22.1.100";
+  version = "22.2.103";
 
   src = fetchurl {
     url = "https://syncandshare.lrz.de/client_deployment/LRZ_Sync_Share_Latest_Linux.tar.gz";
-    hash = "sha256-r0v5447/vFBOmL1X5+rE2WZYm8h5Wb2BwHjmC5zBERc=";
+    hash = "sha256-2V3Mxwm1c+kHrQz9+pCpy791iwA0sTggkiR4AAXothw=";
   };
 
   installPhase = ''
