@@ -5,6 +5,7 @@
 {
   virtualisation.docker.enable = true;
   virtualisation.docker.package = pkgs.docker_25;
+  virtualisation.docker.enableNvidia = true;
 
   environment.systemPackages = with pkgs; [
     wireshark
