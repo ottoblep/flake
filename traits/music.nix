@@ -6,7 +6,7 @@
   config = {
     environment.systemPackages = with pkgs; [
       audacity
-      zrythm
+      ardour
       # Use pipewire emulated jack as audio driver
       show-midi
       carla
