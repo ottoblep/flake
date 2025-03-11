@@ -30,7 +30,6 @@
       overlays.default = final: prev: {
         mypkgs = {
           lrz-sync-share = prev.callPackage ./pkgs/lrz-sync-share { };
-          stable-diffusion-cpp-cuda = prev.callPackage ./pkgs/stable-diffusion-cpp { cudaSupport = true; };
           noita-together = prev.callPackage ./pkgs/noita-together { };
           decent-sampler = prev.callPackage ./pkgs/decent-sampler { };
         };
