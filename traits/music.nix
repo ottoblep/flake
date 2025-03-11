@@ -10,7 +10,6 @@
       # Use pipewire emulated jack as audio driver
       show-midi
       carla
-      hydrogen
       mypkgs.decent-sampler
     ];
 

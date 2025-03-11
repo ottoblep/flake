@@ -41,7 +41,7 @@
         [{ device = "/dev/disk/by-label/swap"; }];
 
       environment.variables = {
-        VDPAU_DRIVER = lib.mkIf config.hardware.opengl.enable (lib.mkDefault "va_gl");
+        VDPAU_DRIVER = lib.mkIf config.graphics.enable (lib.mkDefault "va_gl");
       };
 
       hardware.opengl.extraPackages = with pkgs; [
