@@ -144,7 +144,8 @@
                   traits.graphical
                   traits.gnome
                   traits.media
-                  users.sevi-full
+                  traits.music
+                  users.sevi-instruments
                 ];
               };
           sevtp2 = let system = "x86_64-linux"; in
@@ -162,7 +163,8 @@
                   traits.office
                   traits.media
                   traits.game
-                  users.sevi-full
+                  traits.music
+                  users.sevi-instruments
                 ];
               };
           wsl = let system = "x86_64-linux"; in
