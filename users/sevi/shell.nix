@@ -3,26 +3,6 @@
   home.username = "sevi";
   home.homeDirectory = "/home/sevi";
 
-  programs.git = {
-    enable = true;
-    userName = "Severin Lochschmidt";
-    userEmail = "seviron53@gmail.com";
-    lfs.enable = true;
-    extraConfig = {
-      init = {
-        defaultBranch = "main";
-      };
-    };
-    ignores = [
-      ".vscode"
-      "*.bkp"
-      "result"
-      "notes.md"
-      "hs_*.sh"
-      "extra_documents"
-    ];
-  };
-
   programs.zsh = {
     enable = true;
     oh-my-zsh = {
@@ -79,6 +59,8 @@
     duf
     srm
     btop
+    todo-txt-cli
+    unstable.csv-tui
   ];
 
   programs.home-manager.enable = true;

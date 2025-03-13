@@ -5,7 +5,6 @@
 {
   config = {
     environment.systemPackages = with pkgs; [
-      asciiquarium-transparent
       keepassxc
       speedcrunch
       thunderbird
@@ -14,7 +13,6 @@
       pandoc
       drawio
       nil
-      unstable.csv-tui
     ];
   };
 }
