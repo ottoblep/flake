@@ -101,6 +101,7 @@
                   traits.media
                   traits.music
                   services.nix-serve
+                  services.avahi
                   users.sevi-instruments
                 ];
               };
@@ -116,6 +117,7 @@
                   traits.gnome
                   traits.media
                   traits.music
+                  services.avahi
                   users.sevi-instruments
                 ];
               };
@@ -129,6 +131,7 @@
                   traits.machine
                   traits.gnome
                   traits.media
+                  services.avahi
                   users.sevi-minimal
                 ];
               };
@@ -145,6 +148,7 @@
                   traits.gnome
                   traits.media
                   traits.music
+                  services.avahi
                   users.sevi-instruments
                 ];
               };
@@ -164,6 +168,7 @@
                   traits.media
                   traits.game
                   traits.music
+                  services.avahi
                   users.sevi-instruments
                 ];
               };
@@ -203,6 +208,7 @@
         traits.game = ./traits/game.nix;
         services.openssh = ./services/openssh.nix;
         services.nix-serve = ./services/nix-serve.nix;
+        services.avahi = ./services/avahi.nix;
 
         users.sevi-headless = ({ lib, ... }: {
           imports = [ ./users/sevi ];
