@@ -24,7 +24,6 @@
       p7zip
       srm
       tio
-      avahi
       todo-txt-cli
       neofetch
       wormhole-william # Large file transfer without ssh
@@ -32,15 +31,5 @@
     ];
 
     programs.nano.enable = false; # Remove default
-
-    services.avahi = {
-      enable = true;
-      nssmdns4 = true;
-      publish = {
-        enable = true;
-        domain = true;
-        addresses = true;
-      };
-    };
   };
 }
