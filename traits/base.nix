@@ -24,10 +24,9 @@
       p7zip
       srm
       tio
-      todo-txt-cli
       neofetch
-      wormhole-william # Large file transfer without ssh
       trickle # Bandwidth limiting
+      wormhole-william # Large file transfer without ssh
     ];
 
     programs.nano.enable = false; # Remove default

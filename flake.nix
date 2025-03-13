@@ -211,36 +211,53 @@
         services.avahi = ./services/avahi.nix;
 
         users.sevi-headless = ({ lib, ... }: {
-          imports = [ ./users/sevi ];
+          imports = [ 
+            ./users/sevi/default.nix
+          ];
           home-manager.users.sevi = lib.mkMerge [
-            ./users/sevi/home.nix
+            ./users/sevi/shell.nix
+            ./users/sevi/git.nix
           ];
         });
         users.sevi-minimal = ({ lib, ... }: {
-          imports = [ ./users/sevi ];
+          imports = [ 
+            ./users/sevi/default.nix
+            ./users/sevi/ssh.nix
+          ];
           home-manager.users.sevi = lib.mkMerge [
-            ./users/sevi/home.nix
-            ./users/sevi/graphical.nix
+            ./users/sevi/shell.nix
+            ./users/sevi/git.nix
             ./users/sevi/gnome
+            ./users/sevi/graphical.nix
           ];
         });
         users.sevi-full = ({ lib, ... }: {
-          imports = [ ./users/sevi ];
+          imports = [ 
+            ./users/sevi/default.nix
+            ./users/sevi/ssh.nix
+          ];
           home-manager.users.sevi = lib.mkMerge [
-            ./users/sevi/home.nix
-            ./users/sevi/graphical.nix
-            ./users/sevi/develop.nix
+            ./users/sevi/shell.nix
+            ./users/sevi/git.nix
             ./users/sevi/gnome
+            ./users/sevi/graphical.nix
+            ./users/sevi/vsc.nix
+            ./users/sevi/lrz.nix
           ];
         });
         users.sevi-instruments = ({ lib, ... }: {
-          imports = [ ./users/sevi ];
+          imports = [ 
+            ./users/sevi/default.nix
+            ./users/sevi/ssh.nix
+          ];
           home-manager.users.sevi = lib.mkMerge [
-            ./users/sevi/home.nix
-            ./users/sevi/graphical.nix
-            ./users/sevi/develop.nix
-            ./users/sevi/music.nix
+            ./users/sevi/shell.nix
+            ./users/sevi/git.nix
             ./users/sevi/gnome
+            ./users/sevi/graphical.nix
+            ./users/sevi/vsc.nix
+            ./users/sevi/lrz.nix
+            ./users/sevi/audio-plugins.nix
           ];
         });
       };

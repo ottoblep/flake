@@ -47,7 +47,7 @@
         nvitop
         libva-utils
         vdpauinfo
-        (unstable.llama-cpp.override { cudaSupport = true; })
+        (unstable.llama-cpp.override { cudaSupport = true; cudaPackages = cudaPackages;})
       ];
 
       # Load nvidia driver for Xorg and Wayland

@@ -41,10 +41,10 @@
         [{ device = "/dev/disk/by-label/swap"; }];
 
       environment.variables = {
-        VDPAU_DRIVER = lib.mkIf config.graphics.enable (lib.mkDefault "va_gl");
+        VDPAU_DRIVER = lib.mkDefault "va_gl";
       };
 
-      hardware.opengl.extraPackages = with pkgs; [
+      hardware.graphics.extraPackages = with pkgs; [
         (if (lib.versionOlder (lib.versions.majorMinor lib.version) "23.11") then vaapiIntel else intel-vaapi-driver)
         libvdpau-va-gl
         intel-media-driver
