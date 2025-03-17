@@ -29,6 +29,8 @@
       wormhole-william # Large file transfer without ssh
     ];
 
+    programs.gnupg.agent.enable = true;
+
     programs.nano.enable = false; # Remove default
   };
 }
