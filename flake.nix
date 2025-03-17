@@ -243,6 +243,7 @@
             ./users/sevi/graphical.nix
             ./users/sevi/vsc.nix
             ./users/sevi/lrz.nix
+            ./users/sevi/rclone.nix
           ];
         });
         users.sevi-instruments = ({ lib, ... }: {
@@ -257,6 +258,7 @@
             ./users/sevi/graphical.nix
             ./users/sevi/vsc.nix
             ./users/sevi/lrz.nix
+            ./users/sevi/rclone.nix
             ./users/sevi/audio-plugins.nix
           ];
         });
