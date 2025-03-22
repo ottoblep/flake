@@ -14,7 +14,7 @@
     Service = {
       Type = "oneshot";
       # Initial setup:
-      # - Manually configure crypt remote
+      # - Insert config manually 
       # - rclone bisync --resync gdrive-crypt:/ /home/sevi/sync
       ExecStart = "${pkgs.rclone}/bin/rclone bisync --check-access -v /home/sevi/sync gdrive-crypt:/";
     };
