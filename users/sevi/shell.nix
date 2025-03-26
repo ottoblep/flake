@@ -48,7 +48,7 @@
     code = "codium";
     df = "duf";
     todo = "todo.sh -d ~/.config/todo-cli.conf -T -A -n";
-    ctodo = "csv_tui -f ~/LRZ\\ Sync+Share/Private/continuous_todo.csv";
+    ctodo = "csv_tui -f ~/sync/Private/continuous_todo.csv";
     restartwm = "gnome-extensions reset paperwm@paperwm.github.com; gnome-extensions enable paperwm@paperwm.github.com";
     nixformatall = "nixpkgs-fmt **/*.nix";
   };
