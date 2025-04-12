@@ -58,6 +58,11 @@
       };
 
       hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+      environment.sessionVariables = {
+        # Fix for https://gitlab.gnome.org/GNOME/gtk/-/issues/6890
+        GSK_RENDERER = "gl";
+      };
     };
 }
 
