@@ -48,4 +48,11 @@
       Unit = "rclone-local-backup.service";
     };
   };
+
+  # Nautilus Bookmarks
+  home.file.".config/gtk-3.0/bookmarks".text = ''
+      file:///home/sevi/sync/Private Private
+      file:///home/sevi/sync/Work Work
+      file:///home/sevi/sync/Study Study
+    '';
 }
