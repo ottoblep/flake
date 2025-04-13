@@ -51,6 +51,10 @@
     ctodo = "csv_tui -f ~/sync/Private/continuous_todo.csv";
     restartwm = "gnome-extensions reset paperwm@paperwm.github.com; gnome-extensions enable paperwm@paperwm.github.com";
     nixformatall = "nixpkgs-fmt **/*.nix";
+    synclog = "journalctl --user -u rclone-bisync.service -b";
+    syncloglive = "journalctl --user -u rclone-bisync.service -f";
+    syncresync = "rclone bisync --resync ~/sync gdrive-crypt:/ -v";
+    syncstart = "systemctl --user start rclone-bisync.service";
   };
 
   home.packages = with pkgs; [
