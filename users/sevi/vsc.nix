@@ -63,6 +63,16 @@
         key = "ctrl+shift+[Quote]";
         command = "search.action.focusNextSearchResult";
       }
+      {
+        key = "ctrl+u";
+        command = "workbench.action.terminal.scrollUpPage";
+        when = "terminalFocusInAny && terminalHasBeenCreated && !terminalAltBufferActive || terminalFocusInAny && terminalProcessSupported && !terminalAltBufferActive";
+      }
+      {
+        key = "ctrl+d";
+        command = "workbench.action.terminal.scrollDownPage";
+        when = "terminalFocusInAny && terminalHasBeenCreated && !terminalAltBufferActive || terminalFocusInAny && terminalProcessSupported && !terminalAltBufferActive";
+      }
       # ctrl+tab to switch tabs 
       # ctrl + 1234 to switch panes
       # ctrl + shift + EFG for sidebar opening
