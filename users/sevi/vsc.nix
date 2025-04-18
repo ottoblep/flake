@@ -26,11 +26,13 @@
       rust-lang.rust-analyzer
       # C++
       twxs.cmake
-      ms-vscode.cpptools # Intellisense
       vadimcn.vscode-lldb # LLDB Debug Config
+      # make sure to build with debug symbols "cmake -DCMAKE_BUILD_TYPE=Debug"
+      llvm-vs-code-extensions.vscode-clangd # Insellisense
+      # Use -DCMAKE_EXPORT_COMPILE_COMMANDS=ON to generate compile_commands.json which the clangd extension will use
+      # ms-vscode.cpptools # Intellisense
       # cpptools wants include paths in .vscode/c_cpp_properties.json, for example "${CMAKE_INCLUDE_PATH}/**"
       # c_cpp_properties.json can be generated with "C/C++: Edit Configurations (UI)"
-      # make sure to build with debug symbols "cmake -DCMAKE_BUILD_TYPE=Debug"
     ];
 
     keybindings = [
@@ -102,6 +104,7 @@
       "latex-workshop.view.pdf.color.dark.pageColorsForeground" = "#cad3f5";
       "latex-workshop.latex.autoClean.run" = "onBuilt";
       "symbols.hidesExplorerArrows" = false;
+      "clangd.arguments" = [ "--enable-config" ];
     };
   };
 }
