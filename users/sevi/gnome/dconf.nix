@@ -6,10 +6,7 @@ with lib.hm.gvariant;
 {
   dconf.settings =
     let
-      background = pkgs.fetchurl {
-        url = "https://raw.githubusercontent.com/NixOS/nixos-artwork/master/wallpapers/nix-wallpaper-dracula.png";
-        hash = "sha256-SykeFJXCzkeaxw06np0QkJCK28e0k30PdY8ZDVcQnh4=";
-      };
+      background = ../nix-wallpaper-macchiato.png;
     in
     {
       "org/gnome/mutter" = {
