@@ -11,9 +11,17 @@
     boot.initrd.systemd.enable = true;
     boot.initrd.availableKernelModules = [ "hid_cherry" "usbhid" "mac_hid" "hid_generic" "hid" "usbcore" "evdev" ];
 
-    boot.extraModulePackages = [ ];
-
     users.mutableUsers = true; # Set passwords after setup
+
+    # Archer tx20u nano dongle 
+    # https://phip1611.de/blog/enabling-tp-link-archer-tx20u-nano-on-nixos-and-linux-6-12/
+    boot.kernelModules = [ "8852au" ];
+    boot.extraModulePackages = [ config.boot.kernelPackages.rtl8852bu ]; # TP-Link Archer TX20U Nano
+    services.udev.extraRules =
+      # Switch Archer TX20U Nano from CDROM mode (default) to WiFi mode.
+      ''
+        ATTR{idVendor}=="0bda", ATTR{idProduct}=="1a2b", RUN+="${lib.getExe pkgs.usb-modeswitch} -K -v 0bda -p 1a2b"
+      '';
 
     networking.useDHCP = lib.mkDefault true;
     networking.networkmanager = {
