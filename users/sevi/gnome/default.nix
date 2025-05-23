@@ -13,6 +13,9 @@
       just-perfection
       unite
       dconf2nix
+      # For vsc transparency
+      wmctrl
+      xorg.xprop
     ];
 
   gtk = {
