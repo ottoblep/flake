@@ -6,7 +6,7 @@
 
   programs.vscode = {
     enable = true;
-    package = pkgs.vscodium.fhsWithPackages (ps: with ps; [ ]);
+    package = pkgs.vscode.fhsWithPackages (ps: with ps; [ ]);
     extensions = with pkgs.vscode-extensions; [
       # General
       mhutchie.git-graph
@@ -16,23 +16,15 @@
       mechatroner.rainbow-csv
       # Nix
       jnoortheen.nix-ide
-      arrterian.nix-env-selector
+      mkhl.direnv
+      # Docs
+      ms-vscode-remote.remote-containers
       # Latex
-      james-yu.latex-workshop
-      # Python
-      ms-python.python
-      ms-python.vscode-pylance
-      # Rust
-      rust-lang.rust-analyzer
-      # C++
-      twxs.cmake
-      vadimcn.vscode-lldb # LLDB Debug Config
-      # make sure to build with debug symbols "cmake -DCMAKE_BUILD_TYPE=Debug"
-      llvm-vs-code-extensions.vscode-clangd # Insellisense
-      # Use -DCMAKE_EXPORT_COMPILE_COMMANDS=ON to generate compile_commands.json which the clangd extension will use
-      # ms-vscode.cpptools # Intellisense
-      # cpptools wants include paths in .vscode/c_cpp_properties.json, for example "${CMAKE_INCLUDE_PATH}/**"
-      # c_cpp_properties.json can be generated with "C/C++: Edit Configurations (UI)"
+      # james-yu.latex-workshop
+
+      # Not in nixpkgs
+      # letmaik.git-tree-compare
+      # nowsci.glassit-linux
     ];
 
     keybindings = [
@@ -58,6 +50,18 @@
         command = "-workbench.action.quickOpenNavigatePreviousInFilePicker";
       }
       {
+        key = "ctrl+shift+q";
+        command = "workbench.view.extension.gitTreeCompare";
+      }
+      {
+        key = "ctrl+shift+t";
+        command = "workbench.view.extension.test";
+      }
+      {
+        key = "ctrl+shift+t";
+        command = "-workbench.action.reopenClosedEditor";
+      }
+      {
         key = "ctrl+shift+[BracketLeft]";
         command = "search.action.focusPreviousSearchResult";
       }
@@ -75,9 +79,15 @@
         command = "workbench.action.terminal.scrollDownPage";
         when = "terminalFocusInAny && terminalHasBeenCreated && !terminalAltBufferActive || terminalFocusInAny && terminalProcessSupported && !terminalAltBufferActive";
       }
+      {
+        key = "ctrl+shift+w";
+        command = "-workbench.action.closeWindow";
+      }
       # ctrl+tab to switch tabs 
       # ctrl + 1234 to switch panes
-      # ctrl + shift + EFG for sidebar opening
+      # ctrl + shift + EFGQ for sidebar opening
+      # ctrl + shift + q for tree diff 
+      # ctrl + shift + t for tests 
       # ctrl + alt + p to open files
       # ctrl + shift + p for all vscode commands
       # ctrl + shift + ü/ä to navigate keyword search results
@@ -97,6 +107,7 @@
       "workbench.iconTheme" = "catppuccin-macchiato";
       "workbench.startupEditor" = "none";
       "workbench.activityBar.location" = "hidden";
+      "glassit-linux.opacity" =  93;
       "latex-workshop.view.pdf.spreadMode" = 0; # For dual page
       "latex-workshop.view.pdf.color.dark.pageBorderColor" = "#181926"; # Catppuccin Macchiato
       "latex-workshop.view.pdf.color.dark.backgroundColor" = "#1e2030";
@@ -104,7 +115,6 @@
       "latex-workshop.view.pdf.color.dark.pageColorsForeground" = "#cad3f5";
       "latex-workshop.latex.autoClean.run" = "onBuilt";
       "symbols.hidesExplorerArrows" = false;
-      "clangd.arguments" = [ "--enable-config" ];
     };
   };
 }
