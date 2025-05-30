@@ -2,7 +2,9 @@
 
 {
   # Build tools and libraries can be defined in separate devshells
-  # Open vscode inside a dev shell to inherit env
+  # Open vscode inside a dev shell to inherit env (direnv)
+
+  programs.direnv.enable = true;
 
   programs.vscode = {
     enable = true;
