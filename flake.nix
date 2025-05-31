@@ -2,15 +2,11 @@
   description = "Ottoblep Personal Flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nixos-wsl = {
-      url = "github:nix-community/NixOS-WSL";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     vscode-server = {
@@ -19,7 +15,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, nixos-hardware, home-manager, nixos-wsl, vscode-server, ... }:
+  outputs = { self, nixpkgs, nixpkgs-unstable, nixos-hardware, home-manager, vscode-server, ... }:
     let
       supportedSystems = [ "x86_64-linux" "aarch64-linux" ]; # Only used for package definitions 
       forAllSystems = f: nixpkgs.lib.genAttrs supportedSystems (system: f system);
@@ -172,17 +168,6 @@
                   users.sevi-instruments
                 ];
               };
-          wsl = let system = "x86_64-linux"; in
-            nixpkgs.lib.nixosSystem
-              {
-                system = system;
-                modules = (base { system = system; }).modules ++ [
-                  platforms.wsl
-                  nixos-wsl.nixosModules.default
-                  vscode-server.nixosModules.default
-                  users.sevi-headless
-                ];
-              };
         };
 
       nixosModules = {
@@ -191,7 +176,6 @@
         platforms.sevtp = ./platforms/sevtp.nix;
         platforms.sevtp2 = ./platforms/sevtp2.nix;
         platforms.tomnuc = ./platforms/tomnuc.nix;
-        platforms.wsl = ./platforms/wsl.nix;
         traits.base = ./traits/base.nix;
         traits.graphical = ./traits/graphical.nix;
         traits.media = ./traits/media.nix;
@@ -211,7 +195,7 @@
         services.avahi = ./services/avahi.nix;
 
         users.sevi-headless = ({ lib, ... }: {
-          imports = [ 
+          imports = [
             ./users/sevi/default.nix
           ];
           home-manager.users.sevi = lib.mkMerge [
@@ -220,7 +204,7 @@
           ];
         });
         users.sevi-minimal = ({ lib, ... }: {
-          imports = [ 
+          imports = [
             ./users/sevi/default.nix
             ./users/sevi/ssh.nix
           ];
@@ -232,7 +216,7 @@
           ];
         });
         users.sevi-full = ({ lib, ... }: {
-          imports = [ 
+          imports = [
             ./users/sevi/default.nix
             ./users/sevi/ssh.nix
           ];
@@ -246,7 +230,7 @@
           ];
         });
         users.sevi-instruments = ({ lib, ... }: {
-          imports = [ 
+          imports = [
             ./users/sevi/default.nix
             ./users/sevi/ssh.nix
           ];
