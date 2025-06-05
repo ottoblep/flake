@@ -8,8 +8,8 @@
 
   programs.vscode = {
     enable = true;
-    package = pkgs.vscode.fhsWithPackages (ps: with ps; [ ]);
-    extensions = with pkgs.vscode-extensions; [
+    package = pkgs.unstable.vscode.fhsWithPackages (ps: with ps; [ ]);
+    extensions = with pkgs.unstable.vscode-extensions; [
       # General
       mhutchie.git-graph
       vscodevim.vim
