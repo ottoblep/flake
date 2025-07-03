@@ -109,7 +109,7 @@
       "workbench.iconTheme" = "catppuccin-macchiato";
       "workbench.startupEditor" = "none";
       "workbench.activityBar.location" = "hidden";
-      "glassit-linux.opacity" =  93;
+      "glassit-linux.opacity" =  95;
       "latex-workshop.view.pdf.spreadMode" = 0; # For dual page
       "latex-workshop.view.pdf.color.dark.pageBorderColor" = "#181926"; # Catppuccin Macchiato
       "latex-workshop.view.pdf.color.dark.backgroundColor" = "#1e2030";
