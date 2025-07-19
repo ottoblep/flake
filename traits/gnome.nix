@@ -35,6 +35,7 @@
     totem # Video Player (replace with vlc)
     gnome-contacts
     gnome-initial-setup
+    decibels
   ]);
 
   environment.systemPackages = with pkgs; [
