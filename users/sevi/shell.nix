@@ -23,7 +23,6 @@
       };
     in
     "${src}/themes";
-  home.file.".config/todo-cli.conf".source = ./dotfiles/todo-txt-cli.conf;
   home.file.".vim/".source =
     let
       src = pkgs.fetchFromGitHub {
@@ -46,8 +45,6 @@
     top = "btop -p 0";
     btop = "btop -p 0";
     df = "duf";
-    todo = "todo.sh -d ~/.config/todo-cli.conf -T -A -n";
-    ctodo = "csv_tui -f ~/sync/Private/continuous_todo.csv";
     restartwm = "gnome-extensions reset paperwm@paperwm.github.com; gnome-extensions enable paperwm@paperwm.github.com";
     nixformatall = "nixpkgs-fmt **/*.nix";
     synclog = "journalctl --user -u rclone-bisync.service -b";
@@ -62,7 +59,6 @@
     duf
     srm
     btop
-    todo-txt-cli
     unstable.csv-tui
   ];
 
