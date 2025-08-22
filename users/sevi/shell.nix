@@ -51,6 +51,7 @@
     syncloglive = "journalctl --user -u rclone-bisync.service -f";
     syncresync = "rclone bisync --resync ~/sync gdrive-crypt:/ -v";
     syncstart = "systemctl --user start rclone-bisync.service";
+    cr = "crush && rm -rf .crush";
   };
 
   home.packages = with pkgs; [
