@@ -17,9 +17,12 @@
       url = "github:nix-community/nixos-vscode-server";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-ai-tools = {
+      url = "github:numtide/nix-ai-tools";
+    };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, nixos-hardware, home-manager, nixos-wsl, vscode-server, ... }:
+  outputs = { self, nixpkgs, nixpkgs-unstable, nixos-hardware, home-manager, nixos-wsl, vscode-server, nix-ai-tools, ... }:
     let
       supportedSystems = [ "x86_64-linux" "aarch64-linux" ]; # Only used for package definitions 
       forAllSystems = f: nixpkgs.lib.genAttrs supportedSystems (system: f system);
@@ -56,12 +59,13 @@
       nixosConfigurations =
         let
           system-dependent-overlays = { system }: {
-            # An overlay containing the entirety of unstable nixpkgs
-            overlay-unstable = final: prev: {
+            system-resolved-overlays = final: prev: {
+              # An overlay containing the entirety of unstable nixpkgs
               unstable = import nixpkgs-unstable {
                 inherit system;
                 config.allowUnfree = true;
               };
+              crush_custom = nix-ai-tools.packages.${system}.crush;
             };
           };
           # Shared base config
@@ -72,7 +76,7 @@
                 nixpkgs.overlays = [
                   self.overlays.default
                   # Overlay unstable into stable pkgs that is passed to all systems (access via pkgs.unstable.<pkg>)
-                  (system-dependent-overlays { system = system; }).overlay-unstable
+                  (system-dependent-overlays { system = system; }).system-resolved-overlays
                 ];
               }
               home-manager.nixosModules.home-manager
