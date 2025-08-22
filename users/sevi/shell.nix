@@ -60,6 +60,7 @@
     srm
     btop
     unstable.csv-tui
+    crush_custom # LLM Agent doing stuff in the terminal
   ];
 
   programs.home-manager.enable = true;
