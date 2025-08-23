@@ -49,7 +49,9 @@
     nixformatall = "nixpkgs-fmt **/*.nix";
     synclog = "journalctl --user -u rclone-bisync.service -b";
     syncloglive = "journalctl --user -u rclone-bisync.service -f";
-    syncresync = "rclone bisync --resync ~/sync gdrive-crypt:/ -v";
+    syncbisync = "rclone bisync --resync ~/sync gdrive-crypt:/ -v";
+    syncpush = "rclone sync ~/sync gdrive-crypt:/ -v";
+    syncpull = "rclone sync gdrive-crypt:/ ~/sync -v";
     syncstart = "systemctl --user start rclone-bisync.service";
     cr = "crush && rm -rf .crush";
   };
