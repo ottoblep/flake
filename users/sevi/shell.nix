@@ -10,6 +10,22 @@
       plugins = [ "git" "fd" "zoxide" "ripgrep" ];
       theme = "gozilla";
     };
+    # Add nr helper: nr <pkg> [args...] => nix run nixpkgs#<pkg> -- [args...]
+    initExtra = ''
+      nr() {
+        if [ $# -lt 1 ]; then
+          echo "Usage: nr <package> [args...]" >&2
+          return 1
+        fi
+        local pkg="$1"
+        shift
+        if [ $# -gt 0 ]; then
+          nix run "nixpkgs#$pkg" -- "$@"
+        else
+          nix run "nixpkgs#$pkg"
+        fi
+      }
+    '';
   };
 
   home.file.".config/btop/btop.conf".source = ./dotfiles/btop.conf;
