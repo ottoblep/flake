@@ -41,7 +41,6 @@
       hardware.graphics =
         let
           graphicsDrivers = with pkgs; [
-            mesa
             amdvlk
           ];
         in

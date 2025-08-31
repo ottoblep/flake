@@ -25,7 +25,6 @@
       srm
       tio
       neofetch
-      trickle # Bandwidth limiting
       wormhole-william # Large file transfer without ssh
     ];
 
