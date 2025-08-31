@@ -23,7 +23,6 @@
       };
     in
     "${src}/themes";
-  home.file.".config/todo-cli.conf".source = ./dotfiles/todo-txt-cli.conf;
   home.file.".vim/".source =
     let
       src = pkgs.fetchFromGitHub {
@@ -46,14 +45,15 @@
     top = "btop -p 0";
     btop = "btop -p 0";
     df = "duf";
-    todo = "todo.sh -d ~/.config/todo-cli.conf -T -A -n";
-    ctodo = "csv_tui -f ~/sync/Private/continuous_todo.csv";
     restartwm = "gnome-extensions reset paperwm@paperwm.github.com; gnome-extensions enable paperwm@paperwm.github.com";
     nixformatall = "nixpkgs-fmt **/*.nix";
     synclog = "journalctl --user -u rclone-bisync.service -b";
     syncloglive = "journalctl --user -u rclone-bisync.service -f";
-    syncresync = "rclone bisync --resync ~/sync gdrive-crypt:/ -v";
+    syncbisync = "rclone bisync --resync ~/sync gdrive-crypt:/ -v";
+    syncpush = "rclone sync ~/sync gdrive-crypt:/ -v";
+    syncpull = "rclone sync gdrive-crypt:/ ~/sync -v";
     syncstart = "systemctl --user start rclone-bisync.service";
+    cr = "crush && rm -rf .crush";
   };
 
   home.packages = with pkgs; [
@@ -62,8 +62,8 @@
     duf
     srm
     btop
-    todo-txt-cli
     unstable.csv-tui
+    crush_custom # LLM Agent doing stuff in the terminal
   ];
 
   programs.home-manager.enable = true;

@@ -8,22 +8,21 @@
 
   programs.vscode = {
     enable = true;
-    package = pkgs.vscode.fhsWithPackages (ps: with ps; [ ]);
-    profiles.default = {
-      extensions = with pkgs.vscode-extensions; [
-        # General
-        mhutchie.git-graph
-        vscodevim.vim
-        catppuccin.catppuccin-vsc
-        catppuccin.catppuccin-vsc-icons
-        mechatroner.rainbow-csv
-        # Nix
-        jnoortheen.nix-ide
-        mkhl.direnv
-        # Docs
-        ms-vscode-remote.remote-containers
-        # Latex
-        # james-yu.latex-workshop
+    package = pkgs.unstable.vscode.fhsWithPackages (ps: with ps; [ ]);
+    extensions = with pkgs.unstable.vscode-extensions; [
+      # General
+      mhutchie.git-graph
+      vscodevim.vim
+      catppuccin.catppuccin-vsc
+      catppuccin.catppuccin-vsc-icons
+      mechatroner.rainbow-csv
+      # Nix
+      jnoortheen.nix-ide
+      mkhl.direnv
+      # Docs
+      ms-vscode-remote.remote-containers
+      # Latex
+      # james-yu.latex-workshop
 
         # Not in nixpkgs
         # letmaik.git-tree-compare
@@ -96,30 +95,28 @@
         # ctrl + shift + ü/ä to navigate keyword search results
       ];
 
-      userSettings = {
-        "security.workspace.trust.untrustedFiles" = "open";
-        "diffEditor.ignoreTrimWhitespace" = false;
-        "window.menuBarVisibility" = "toggle";
-        "window.titleBarStyle" = "custom";
-        "editor.fontSize" = 13;
-        "editor.wordWrap" = "on";
-        "terminal.integrated.fontSize" = 13;
-        "vim.foldfix" = true;
-        "vim.useSystemClipboard" = true;
-        "editor.minimap.enabled" = false;
-        "workbench.colorTheme" = "Catppuccin Macchiato";
-        "workbench.iconTheme" = "catppuccin-macchiato";
-        "workbench.startupEditor" = "none";
-        "workbench.activityBar.location" = "hidden";
-        "glassit-linux.opacity" = 93;
-        "latex-workshop.view.pdf.spreadMode" = 0; # For dual page
-        "latex-workshop.view.pdf.color.dark.pageBorderColor" = "#181926"; # Catppuccin Macchiato
-        "latex-workshop.view.pdf.color.dark.backgroundColor" = "#1e2030";
-        "latex-workshop.view.pdf.color.dark.pageColorsBackground" = "#24273a";
-        "latex-workshop.view.pdf.color.dark.pageColorsForeground" = "#cad3f5";
-        "latex-workshop.latex.autoClean.run" = "onBuilt";
-        "symbols.hidesExplorerArrows" = false;
-      };
+    userSettings = {
+      "security.workspace.trust.untrustedFiles" = "open";
+      "window.menuBarVisibility" = "toggle";
+      "window.titleBarStyle" = "custom";
+      "editor.fontSize" = 13;
+      "editor.wordWrap" = "on";
+      "terminal.integrated.fontSize" = 13;
+      "vim.foldfix" = true;
+      "vim.useSystemClipboard" = true;
+      "editor.minimap.enabled" = false;
+      "workbench.colorTheme" = "Catppuccin Macchiato";
+      "workbench.iconTheme" = "catppuccin-macchiato";
+      "workbench.startupEditor" = "none";
+      "workbench.activityBar.location" = "hidden";
+      "glassit-linux.opacity" =  93;
+      "latex-workshop.view.pdf.spreadMode" = 0; # For dual page
+      "latex-workshop.view.pdf.color.dark.pageBorderColor" = "#181926"; # Catppuccin Macchiato
+      "latex-workshop.view.pdf.color.dark.backgroundColor" = "#1e2030";
+      "latex-workshop.view.pdf.color.dark.pageColorsBackground" = "#24273a";
+      "latex-workshop.view.pdf.color.dark.pageColorsForeground" = "#cad3f5";
+      "latex-workshop.latex.autoClean.run" = "onBuilt";
+      "symbols.hidesExplorerArrows" = false;
     };
   };
 }
