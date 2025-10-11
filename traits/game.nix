@@ -13,6 +13,7 @@
       scanmem
       ruffle
       lutris
+      r2modman
     ];
 
     services.zerotierone.enable = true;
