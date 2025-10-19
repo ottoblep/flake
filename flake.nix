@@ -97,7 +97,6 @@
                   traits.game
                   traits.comms
                   traits.office
-                  traits.compute
                   traits.media
                   services.nix-serve
                   services.avahi
@@ -185,7 +184,6 @@
         traits.comms = ./traits/comms.nix;
         traits.music = ./traits/music.nix;
         traits.machine = ./traits/machine.nix;
-        traits.compute = ./traits/compute.nix;
         traits.virtualization = ./traits/virtualization.nix;
         traits.tower = ./traits/tower.nix;
         traits.laptop = ./traits/laptop.nix;
