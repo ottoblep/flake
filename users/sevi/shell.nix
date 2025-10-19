@@ -7,7 +7,7 @@
     enable = true;
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "fd" "zoxide" "ripgrep" ];
+      plugins = [ "git" "zoxide" ];
       theme = "gozilla";
     };
     # Add nr helper: nr <pkg> [args...] => nix run nixpkgs#<pkg> -- [args...]
