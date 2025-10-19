@@ -99,7 +99,6 @@
                   traits.office
                   traits.compute
                   traits.media
-                  traits.music
                   services.nix-serve
                   services.avahi
                   users.sevi-instruments
