@@ -102,9 +102,5 @@
       boot.supportedFilesystems = [ "ntfs" ];
 
       hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-
-      nixpkgs.overlays = [
-        (final: prev: { })
-      ];
     };
 }
