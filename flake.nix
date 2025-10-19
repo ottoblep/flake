@@ -100,7 +100,7 @@
                   traits.media
                   services.nix-serve
                   services.avahi
-                  users.sevi-instruments
+                  users.sevi-full
                 ];
               };
           tomnuc = let system = "x86_64-linux"; in
@@ -116,7 +116,7 @@
                   traits.media
                   traits.music
                   services.avahi
-                  users.sevi-instruments
+                  users.sevi-full
                 ];
               };
           slab = let system = "x86_64-linux"; in
@@ -147,7 +147,7 @@
                   traits.media
                   traits.music
                   services.avahi
-                  users.sevi-instruments
+                  users.sevi-full
                 ];
               };
           sevtp2 = let system = "x86_64-linux"; in
@@ -167,7 +167,7 @@
                   traits.game
                   traits.music
                   services.avahi
-                  users.sevi-instruments
+                  users.sevi-full
                 ];
               };
         };
@@ -228,21 +228,6 @@
             ./users/sevi/graphical.nix
             ./users/sevi/vsc.nix
             ./users/sevi/rclone.nix
-          ];
-        });
-        users.sevi-instruments = ({ lib, ... }: {
-          imports = [
-            ./users/sevi/default.nix
-            ./users/sevi/ssh.nix
-          ];
-          home-manager.users.sevi = lib.mkMerge [
-            ./users/sevi/shell.nix
-            ./users/sevi/git.nix
-            ./users/sevi/gnome
-            ./users/sevi/graphical.nix
-            ./users/sevi/vsc.nix
-            ./users/sevi/rclone.nix
-            ./users/sevi/audio-plugins.nix
           ];
         });
       };
