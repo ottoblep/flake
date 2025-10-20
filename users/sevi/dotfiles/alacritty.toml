@@ -12,7 +12,7 @@ style = "Block"
 [window]
 padding = { x = 10, y = 10}
 dynamic_padding = false
-decorations = "None"
+decorations = "Buttonless"
 opacity = 0.95
 
 [font]
