@@ -3,12 +3,16 @@
   home.username = "sevi";
   home.homeDirectory = "/home/sevi";
 
+  home.file.".oh-my-zsh/custom/themes/catppuccin.zsh-theme".source = ./dotfiles/catppuccin.zsh-theme;
+  home.file.".zshrc".text = ''
+    export ZSH_CUSTOM="${config.home.homeDirectory}/.oh-my-zsh/custom"
+  '';
   programs.zsh = {
     enable = true;
     oh-my-zsh = {
       enable = true;
       plugins = [ "git" "zoxide" ];
-      theme = "gozilla";
+      theme = "catppuccin";
     };
     # Add nr helper: nr <pkg> [args...] => nix run nixpkgs#<pkg> -- [args...]
     initExtra = ''
