@@ -97,20 +97,22 @@
       ];
 
       userSettings = {
+        "window.customTitleBarVisibility" = "never";
+        "window.titleBarStyle" = "native";
+        "window.dialogStyle" = "custom";
+        "window.menuBarVisibility" = "toggle";
         "security.workspace.trust.untrustedFiles" = "open";
         "diffEditor.ignoreTrimWhitespace" = false;
-        "window.menuBarVisibility" = "toggle";
-        "window.titleBarStyle" = "custom";
         "editor.fontSize" = 13;
         "editor.wordWrap" = "on";
         "terminal.integrated.fontSize" = 13;
-        "vim.foldfix" = true;
-        "vim.useSystemClipboard" = true;
         "editor.minimap.enabled" = false;
         "workbench.colorTheme" = "Catppuccin Macchiato";
         "workbench.iconTheme" = "catppuccin-macchiato";
         "workbench.startupEditor" = "none";
         "workbench.activityBar.location" = "hidden";
+        "vim.foldfix" = true;
+        "vim.useSystemClipboard" = true;
         "glassit-linux.opacity" = 95;
         "latex-workshop.view.pdf.spreadMode" = 0; # For dual page
         "latex-workshop.view.pdf.color.dark.pageBorderColor" = "#181926"; # Catppuccin Macchiato
