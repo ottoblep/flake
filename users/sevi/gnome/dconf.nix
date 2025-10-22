@@ -206,7 +206,7 @@ with lib.hm.gvariant;
 
       # Unite hides window panel bars
       "org/gnome/shell/extensions/unite" = {
-        hide-window-titlebars = "always";
+        hide-window-titlebars = "never";
       };
 
       "org/gnome/shell/extensions/user-theme" = {
