@@ -166,7 +166,7 @@ with lib.hm.gvariant;
         accessibility-menu = false;
         activities-button = false;
         activities-button-icon-monochrome = true;
-        animation = 4;
+        animation = 5;
         app-menu = false;
         background-menu = true;
         calendar = true;
