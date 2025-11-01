@@ -20,6 +20,8 @@
 
       nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
+      services.xserver.videoDrivers = [ "amdgpu" ];
+
       fileSystems."/" =
         {
           device = "/dev/disk/by-label/nixos";
@@ -39,17 +41,9 @@
       services.fprintd.enable = true;
 
       hardware.graphics =
-        let
-          graphicsDrivers = with pkgs; [
-            mesa
-            amdvlk
-          ];
-        in
         {
           enable = true;
           enable32Bit = true;
-          extraPackages = graphicsDrivers;
-          extraPackages32 = graphicsDrivers;
         };
 
       hardware.amdgpu = {
