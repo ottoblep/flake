@@ -13,27 +13,18 @@ stdenv.mkDerivation rec {
     sha256 = "17qylkkzyx89ahqhf7qijk8x9j30hsj4fjn186qi1srchc03rmr4";
   };
 
-  nativeBuildInputs = [ makeWrapper ] ++ kernel.moduleBuildDependencies;
+  nativeBuildInputs = kernel.moduleBuildDependencies;
 
-  # Use the kernel's make flags and point the build to the kernel dev tree.
-  makeFlags = kernel.makeFlags ++ [
-    "KERNELDIR=${kernel.dev}/lib/modules/${kernel.modDirVersion}/build"
-    "INSTALL_MOD_PATH=$(out)"
-  ];
-
-  prePatch = ''
-    substituteInPlace ./Makefile --replace '/lib/modules/$(shell uname -r)/build' "${kernel.dev}/lib/modules/${kernel.modDirVersion}/build"
+  # The upstream Makefile calls into /lib/modules/$(uname -r)/build, which
+  # must be replaced by the kernel dev path when building against a Nix
+  # kernel. Instead of patching the Makefile we invoke make directly against
+  # the kernel tree using -C and the M=$(PWD) mechanism.
+  buildPhase = ''
+    make -C ${kernel.dev}/lib/modules/${kernel.modDirVersion}/build M=$PWD modules
   '';
 
   installPhase = ''
-  mkdir -p $out/lib/modules/${kernel.modDirVersion}/kernel/drivers/hid
-    # Prefer the built object in the working directory, or the installed path created
-    # by 'make INSTALL_MOD_PATH=$(out)' as $out/lib/modules/..../kernel/drivers/hid/hid-tflight4.ko
-    if [ -f hid-tflight4.ko ]; then
-  cp hid-tflight4.ko $out/lib/modules/${kernel.modDirVersion}/kernel/drivers/hid/
-    elif [ -f out/hid-tflight4.ko ]; then
-  cp out/hid-tflight4.ko $out/lib/modules/${kernel.modDirVersion}/kernel/drivers/hid/
-    fi
+    make -C ${kernel.dev}/lib/modules/${kernel.modDirVersion}/build M=$PWD INSTALL_MOD_PATH=$out modules_install
   '';
 
   meta = with lib; {
