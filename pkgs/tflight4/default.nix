@@ -15,6 +15,12 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = kernel.moduleBuildDependencies;
 
+  postPatch = ''
+    substituteInPlace hid-tflight4.c --replace \
+      'static __u8 *tflight_report_fixup(' \
+      'static const __u8 *tflight_report_fixup('
+  '';
+
   # The upstream Makefile calls into /lib/modules/$(uname -r)/build, which
   # must be replaced by the kernel dev path when building against a Nix
   # kernel. Instead of patching the Makefile we invoke make directly against
