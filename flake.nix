@@ -191,6 +191,7 @@
         traits.gnome = ./traits/gnome.nix;
         traits.office = ./traits/office.nix;
         traits.game = ./traits/game.nix;
+        traits.kiosk = ./traits/kiosk.nix;
         services.openssh = ./services/openssh.nix;
         services.nix-serve = ./services/nix-serve.nix;
         services.avahi = ./services/avahi.nix;
