@@ -1,4 +1,4 @@
-{ stdenv, fetchFromGitHub, lib, makeWrapper, kernel, kernelModuleMakeFlags ? null }:
+{ stdenv, fetchFromGitHub, lib, kernel }:
 
 let
   pname = "tflight4";
