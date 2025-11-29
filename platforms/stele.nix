@@ -22,10 +22,8 @@
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" "sr_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" "hid-tflight4" ];
-  # Build and install tflight4 kernel module for the running kernel
-  boot.extraModulePackages = lib.mkDefault [ tflight4 ];
-  # Optional modprobe options; enable seesaw extra axis (throttle separation) by default
-  boot.extraModprobeConfig = lib.mkDefault ''options hid-tflight4 throttle_seesaw_extra_axis=1'';
+  boot.extraModulePackages = [ tflight4 ];
+  boot.extraModprobeConfig = ''options hid-tflight4 throttle_seesaw_extra_axis=1'';
 
       hardware.graphics =
         let
