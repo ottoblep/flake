@@ -19,11 +19,11 @@
 
       nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" "sr_mod" "hid-tflight4"];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" "sr_mod"];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelModules = [ "kvm-intel" "hid-tflight4" ];
   boot.extraModulePackages = [ tflight4 ];
-  boot.extraModprobeConfig = ''options hid-tflight4 throttle_seesaw_extra_axis=1'';
+  # boot.extraModprobeConfig = ''options hid-tflight4 throttle_seesaw_extra_axis=1'';
 
       hardware.graphics =
         let
