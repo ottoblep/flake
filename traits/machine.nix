@@ -19,8 +19,11 @@
     boot.extraModulePackages = [ config.boot.kernelPackages.rtl8852bu ]; # TP-Link Archer TX20U Nano
     services.udev.extraRules =
       # Switch Archer TX20U Nano from CDROM mode (default) to WiFi mode.
+      # Also set global hidraw device permissions so hidraw* devices are
+      # accessible to users in the plugdev group.
       ''
         ATTR{idVendor}=="0bda", ATTR{idProduct}=="1a2b", RUN+="${lib.getExe pkgs.usb-modeswitch} -K -v 0bda -p 1a2b"
+        KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0660", GROUP="plugdev"
       '';
 
     networking.useDHCP = lib.mkDefault true;
