@@ -159,6 +159,7 @@
                   platforms.sevtp2
                   traits.machine
                   traits.laptop
+                  traits.virtualization
                   traits.graphical
                   traits.gnome
                   traits.comms
