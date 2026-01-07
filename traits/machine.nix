@@ -10,6 +10,9 @@
     boot.loader.systemd-boot.editor = true;
     boot.initrd.systemd.enable = true;
     boot.initrd.availableKernelModules = [ "hid_cherry" "usbhid" "mac_hid" "hid_generic" "hid" "usbcore" "evdev" ];
+    boot.kernel.sysctl = {
+      "vm.swappiness" = 10;
+    };
 
     users.mutableUsers = true; # Set passwords after setup
 
