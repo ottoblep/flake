@@ -3,9 +3,13 @@
 */
 { pkgs, ... }:
 {
-  virtualisation.docker.enable = true;
-  virtualisation.docker.package = pkgs.docker_25;
-  virtualisation.docker.enableNvidia = true;
+  virtualisation.docker = {
+      enable = true;
+      enableOnBoot = true;
+      package = pkgs.docker_25;
+      # Nvidia Docker (deprecated)
+      #enableNvidia = true;
+  };
 
   environment.systemPackages = with pkgs; [
     wireshark
