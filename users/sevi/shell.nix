@@ -15,7 +15,7 @@
       theme = "catppuccin";
     };
     # Add nr helper: nr <pkg> [args...] => nix run nixpkgs#<pkg> -- [args...]
-    initExtra = ''
+    initContent = ''
       nr() {
         if [ $# -lt 1 ]; then
           echo "Usage: nr <package> [args...]" >&2
