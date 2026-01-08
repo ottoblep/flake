@@ -13,6 +13,7 @@
       scanmem
       ruffle
       lutris
+      heroic
       r2modman
     ];
 
