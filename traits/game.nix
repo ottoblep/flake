@@ -17,6 +17,11 @@
       r2modman
     ];
 
+    # Required by heroic 2.18.1
+    nixpkgs.config.permittedInsecurePackages = [
+      "electron-36.9.5"
+    ];
+
     services.zerotierone.enable = true;
   };
 }
