@@ -12,6 +12,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    podman-compose
     wireshark
   ];
 
