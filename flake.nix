@@ -216,6 +216,7 @@
         users.sevi-headless = ({ lib, ... }: {
           imports = [
             ./users/sevi/default.nix
+            ./users/sevi/sudo.nix
           ];
           home-manager.users.sevi = lib.mkMerge [
             ./users/sevi/shell.nix
