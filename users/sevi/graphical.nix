@@ -22,4 +22,8 @@
     ".config/openrazer/persistence.conf".source = ./dotfiles/openrazer.conf;
     ".config/xournalpp/settings.xml".source = ./dotfiles/xournalpp.xml;
   };
+
+  home.packages = with pkgs; [
+    crush_custom # LLM Agent doing stuff in the terminal
+  ];
 }
