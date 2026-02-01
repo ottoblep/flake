@@ -28,7 +28,6 @@
       # Define custom packages here (access via pkgs.mypkgs.<pkg>)
       overlays.default = final: prev: {
         mypkgs = {
-          lrz-sync-share = prev.callPackage ./pkgs/lrz-sync-share { };
           noita-together = prev.callPackage ./pkgs/noita-together { };
           decent-sampler = prev.callPackage ./pkgs/decent-sampler { };
         };
