@@ -3,6 +3,9 @@
 */
 { pkgs, ... }:
 {
+  # Ability to build impure arm images
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+
   virtualisation.podman = {
       enable = true;
       # enableOnBoot = true;
