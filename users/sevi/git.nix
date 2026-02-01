@@ -2,14 +2,18 @@
 {
   programs.git = {
     enable = true;
-    userName = "Severin Lochschmidt";
-    userEmail = "seviron53@gmail.com";
-    lfs.enable = true;
-    extraConfig = {
-      init = {
-        defaultBranch = "main";
+    settings = {
+      user = {
+        name = "Severin Lochschmidt";
+        email = "seviron53@gmail.com";
+      };
+      extraConfig = {
+        init = {
+          defaultBranch = "main";
+        };
       };
     };
+    lfs.enable = true;
     ignores = [
       ".vscode"
       "*.bkp"
