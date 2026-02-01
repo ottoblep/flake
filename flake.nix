@@ -180,7 +180,7 @@
                   services.avahi
                   services.auto-upgrade
                   services.openssh
-                  users.sevi-minimal
+                  users.sevi-headless
                 ];
               };
         };
@@ -225,7 +225,6 @@
         users.sevi-minimal = ({ lib, ... }: {
           imports = [
             ./users/sevi/default.nix
-            ./users/sevi/ssh.nix
           ];
           home-manager.users.sevi = lib.mkMerge [
             ./users/sevi/shell.nix
@@ -237,7 +236,6 @@
         users.sevi-full = ({ lib, ... }: {
           imports = [
             ./users/sevi/default.nix
-            ./users/sevi/ssh.nix
           ];
           home-manager.users.sevi = lib.mkMerge [
             ./users/sevi/shell.nix
