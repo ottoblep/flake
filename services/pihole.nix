@@ -2,7 +2,8 @@
 {
   services.pihole-ftl = {
     enable = true;
-    openFirewallDNS = true;              # To open port 53 for DNS traffic
+    openFirewallDNS = true;
+    openFirewallWebserver = true;
 
     # Settings documented at <https://docs.pi-hole.net/ftldns/configfile/>
     settings = {
