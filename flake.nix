@@ -180,6 +180,7 @@
                   services.avahi
                   services.auto-upgrade
                   services.openssh
+                  services.pihole
                   users.sevi-headless
                 ];
               };
@@ -212,6 +213,7 @@
         services.nix-serve = ./services/nix-serve.nix;
         services.auto-upgrade = ./services/auto-upgrade.nix;
         services.avahi = ./services/avahi.nix;
+        services.pihole = ./services/pihole.nix;
 
         users.sevi-headless = ({ lib, ... }: {
           imports = [
