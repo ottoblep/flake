@@ -2,11 +2,11 @@
   description = "Ottoblep Personal Flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     vscode-server = {
@@ -44,9 +44,7 @@
           pkgs = import nixpkgs { inherit system; overlays = [ self.overlays.default ]; };
         in
         {
-          py-optimize = import ./devShells/py-optimize { pkgs = pkgs; };
           py-numeric = import ./devShells/py-numeric { pkgs = pkgs; };
-          py-api = import ./devShells/py-api { pkgs = pkgs; };
           py-scrape = import ./devShells/py-scrape { pkgs = pkgs; };
           py-yolo = import ./devShells/py-yolo { pkgs = pkgs; };
           rust = import ./devShells/rust { pkgs = pkgs; };
