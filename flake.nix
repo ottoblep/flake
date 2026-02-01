@@ -178,6 +178,8 @@
                 modules = (base { system = system; }).modules ++ [
                   platforms.pihole
                   services.avahi
+                  services.auto-upgrade
+                  services.openssh
                   users.sevi-minimal
                 ];
               };
@@ -208,6 +210,7 @@
         traits.kiosk = ./traits/kiosk.nix;
         services.openssh = ./services/openssh.nix;
         services.nix-serve = ./services/nix-serve.nix;
+        services.auto-upgrade = ./services/auto-upgrade.nix;
         services.avahi = ./services/avahi.nix;
 
         users.sevi-headless = ({ lib, ... }: {
