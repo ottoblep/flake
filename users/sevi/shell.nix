@@ -10,10 +10,10 @@
       enable = true;
       plugins = [ "git" "zoxide" ];
       theme = "catppuccin";
+      custom = "${config.home.homeDirectory}/.oh-my-zsh/custom";
     };
     # Add nr helper: nr <pkg> [args...] => nix run nixpkgs#<pkg> -- [args...]
     initContent = ''
-      export ZSH_CUSTOM="${config.home.homeDirectory}/.oh-my-zsh/custom"
       nr() {
         if [ $# -lt 1 ]; then
           echo "Usage: nr <package> [args...]" >&2
