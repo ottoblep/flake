@@ -6,5 +6,6 @@
       PasswordAuthentication = false;
       PermitRootLogin = lib.mkForce "no";
     };
+  };
 }
 
