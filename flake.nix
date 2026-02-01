@@ -22,7 +22,7 @@
     let
       supportedSystems = [ "x86_64-linux" "aarch64-linux" ]; # Only used for package definitions 
       forAllSystems = f: nixpkgs.lib.genAttrs supportedSystems (system: f system);
-    in
+    in rec
     {
       # This overlay will be applied to all systems
       # Define custom packages here (access via pkgs.mypkgs.<pkg>)
@@ -171,7 +171,19 @@
                   users.sevi-full
                 ];
               };
+          pihole = let system = "aarch64-linux"; in
+            nixpkgs.lib.nixosSystem
+              {
+                system = system;
+                modules = (base { system = system; }).modules ++ [
+                  platforms.pihole
+                  services.avahi
+                  users.sevi-minimal
+                ];
+              };
         };
+
+      pihole-image = nixosConfigurations.pihole.config.system.build.sdImage;
 
       nixosModules = {
         platforms.stele = ./platforms/stele.nix;
@@ -179,6 +191,7 @@
         platforms.sevtp = ./platforms/sevtp.nix;
         platforms.sevtp2 = ./platforms/sevtp2.nix;
         platforms.tomnuc = ./platforms/tomnuc.nix;
+        platforms.pihole = ./platforms/pihole.nix;
         traits.base = ./traits/base.nix;
         traits.graphical = ./traits/graphical.nix;
         traits.media = ./traits/media.nix;
