@@ -4,7 +4,6 @@
     enable = true;
     dates = "monthly";
     flake = "github:ottoblep/flake";
-    runGarbageCollection = true;
     allowReboot = true;
     rebootWindow = {
       lower = "03:00";
