@@ -8,9 +8,9 @@
     xserver = {
       enable = true;
       xkb.layout = "de";
-      displayManager.gdm.enable = true;
-      desktopManager.gnome.enable = true;
     };
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
     gnome.gnome-keyring.enable = true;
     dbus.packages = with pkgs; [ dconf ];
   };
