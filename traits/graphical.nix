@@ -7,7 +7,6 @@
     environment.systemPackages = with pkgs; [
       keepassxc
       speedcrunch
-      thunderbird
       pdftk
       pdfgrep
       pandoc
