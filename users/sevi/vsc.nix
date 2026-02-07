@@ -8,7 +8,7 @@
 
   programs.vscode = {
     enable = true;
-    package = pkgs.unstable.vscode.fhsWithPackages (ps: with ps; [ ]);
+    package = pkgs.vscode.fhsWithPackages (ps: with ps; [ ]);
     profiles.default = {
       extensions = with pkgs.vscode-extensions; [
         # General
