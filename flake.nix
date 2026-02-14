@@ -124,8 +124,6 @@
                   platforms.slab
                   traits.tower
                   traits.machine
-                  traits.gnome
-                  traits.media
                   traits.kiosk
                   services.avahi
                   users.sevi-minimal
