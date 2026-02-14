@@ -1,4 +1,3 @@
-```nix
 /*
   Kiosk Mode
 
@@ -59,5 +58,3 @@ in {
     environment.etc."openbox/autostart".source = writeScript "autostart" autostart;
   };
 }
-
-```
