@@ -40,7 +40,6 @@
         let
           graphicsDrivers = with pkgs; [
             mesa
-            amdvlk
           ];
         in
         {
@@ -52,7 +51,6 @@
 
       hardware.amdgpu = {
         opencl.enable = true;
-        amdvlk.enable = true;
       };
 
       hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
