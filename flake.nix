@@ -231,6 +231,7 @@
             ./users/sevi/shell.nix
             ./users/sevi/git.nix
             ./users/sevi/gnome
+            ./users/sevi/graphical.nix
           ];
         });
         users.sevi-minimal = ({ lib, ... }: {
