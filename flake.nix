@@ -127,7 +127,7 @@
                   traits.gnome
                   traits.kiosk
                   services.avahi
-                  users.sevi-minimal
+                  users.sevi-kiosk
                 ];
               };
           sevtp = let system = "x86_64-linux"; in
@@ -220,6 +220,17 @@
           home-manager.users.sevi = lib.mkMerge [
             ./users/sevi/shell.nix
             ./users/sevi/git.nix
+          ];
+        });
+        users.sevi-kiosk = ({ lib, ... }: {
+          imports = [
+            ./users/sevi/default.nix
+            ./users/sevi/sudo.nix
+          ];
+          home-manager.users.sevi = lib.mkMerge [
+            ./users/sevi/shell.nix
+            ./users/sevi/git.nix
+            ./users/sevi/gnome
           ];
         });
         users.sevi-minimal = ({ lib, ... }: {
