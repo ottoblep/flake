@@ -37,16 +37,9 @@
         };
 
       hardware.graphics =
-        let
-          graphicsDrivers = with pkgs; [
-            mesa
-          ];
-        in
         {
           enable = true;
           enable32Bit = true;
-          extraPackages = graphicsDrivers;
-          extraPackages32 = graphicsDrivers;
         };
 
       hardware.amdgpu = {
