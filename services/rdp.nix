@@ -9,6 +9,10 @@
       wantedBy = [ "graphical.target" ];
     };
 
+    environment.systemPackages = with pkgs; [
+      remmina
+    ];
+
     # Open the default RDP port (3389)
     networking.firewall.allowedTCPPorts = [ 3389 ];
 
