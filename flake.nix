@@ -94,6 +94,7 @@
                   traits.game
                   traits.comms
                   traits.office
+                  traits.rdp
                   traits.media
                   services.nix-serve
                   services.avahi
