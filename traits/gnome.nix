@@ -17,12 +17,11 @@
 
   security.pam.services.gdm.enableGnomeKeyring = true;
 
-  environment.gnome.excludePackages = (with pkgs; [
+  environment.gnome.excludePackages = with pkgs; [
     gnome-photos
     gnome-tour
-  ]) ++ (with pkgs; [
     cheese # webcam tool
-    gnome-music
+    gnome-music # Music Player (replace with vlc)
     pkgs.gedit # text editor
     epiphany # web browser
     geary # email reader
@@ -35,7 +34,8 @@
     totem # Video Player (replace with vlc)
     gnome-contacts
     gnome-initial-setup
-  ]);
+    gnome-connections # RDP CLient (replace with remmina)
+  ];
 
   environment.systemPackages = with pkgs; [
     gnome-tweaks
