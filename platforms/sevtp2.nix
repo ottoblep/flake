@@ -48,7 +48,6 @@
 
       hardware.amdgpu = {
         opencl.enable = true;
-        amdvlk.enable = true;
       };
 
       hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
