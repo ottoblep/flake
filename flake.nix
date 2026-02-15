@@ -94,7 +94,7 @@
                   traits.game
                   traits.comms
                   traits.office
-                  traits.rdp
+                  services.rdp
                   traits.media
                   services.nix-serve
                   services.avahi
@@ -144,6 +144,7 @@
                   traits.gnome
                   traits.media
                   traits.music
+                  services.rdp
                   services.avahi
                   users.sevi-full
                 ];
@@ -165,6 +166,7 @@
                   traits.media
                   traits.game
                   traits.music
+                  services.rdp
                   services.avahi
                   users.sevi-full
                 ];
@@ -207,7 +209,7 @@
         traits.office = ./traits/office.nix;
         traits.game = ./traits/game.nix;
         traits.kiosk = ./traits/kiosk.nix;
-        traits.rdp = ./traits/rdp.nix;
+        services.rdp = ./services/rdp.nix;
         services.openssh = ./services/openssh.nix;
         services.nix-serve = ./services/nix-serve.nix;
         services.auto-upgrade = ./services/auto-upgrade.nix;
