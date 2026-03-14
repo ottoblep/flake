@@ -7,6 +7,11 @@
     environment.systemPackages = with pkgs; [
       pinta
       yt-dlp
+      # Audiobooks
+      # https://github.com/devnen/Chatterbox-TTS-Server
+      # Axel, low temp, exxageration
+      unzip
+      epub2txt2
     ];
   };
 }
