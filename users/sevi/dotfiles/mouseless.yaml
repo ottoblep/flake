@@ -1,5 +1,6 @@
 baseMouseSpeed: 750.0
 baseScrollSpeed: 20.0
+mouseAccelerationTime: 200.0
 
 layers:
 - name: initial
@@ -12,8 +13,8 @@ layers:
   passThrough: false
   bindings:
     # Directional movement (HJKL or IJKL)
-    i: move  0 -1
-    j: move -1  0
+    j: move  0 -1
+    h: move -1  0
     k: move  0  1
     l: move  1  0
     # Buttons
