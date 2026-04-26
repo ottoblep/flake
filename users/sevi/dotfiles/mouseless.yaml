@@ -1,0 +1,27 @@
+baseMouseSpeed: 750.0
+baseScrollSpeed: 20.0
+
+layers:
+- name: initial
+  bindings:
+    # Remap Caps Lock to toggle the mouse layer when held and another key is pressed
+    # The '200' is the tap-hold timeout in milliseconds. Capslock will act as a regular capslock if tapped for less than 200ms.
+    capslock: tap-hold capslock; toggle-layer mouse; 200
+    
+- name: mouse
+  passThrough: false
+  bindings:
+    # Directional movement (HJKL or IJKL)
+    i: move  0 -1
+    j: move -1  0
+    k: move  0  1
+    l: move  1  0
+    # Buttons
+    f: button left
+    d: button middle
+    s: button right
+    # Scrolling
+    p: scroll up
+    n: scroll down
+    # Exit mouse mode (This is not needed as capslock toggles the layer when released)
+    # q: layer initial
