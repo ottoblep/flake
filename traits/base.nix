@@ -31,5 +31,10 @@
     programs.gnupg.agent.enable = true;
 
     programs.nano.enable = false; # Remove default
+
+    boot.kernelModules = [ "uinput" ];
+    services.udev.extraRules = ''
+      KERNEL=="uinput", GROUP="uinput", MODE="0660"
+    '';
   };
 }
