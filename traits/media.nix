@@ -11,6 +11,7 @@
       # https://github.com/devnen/Chatterbox-TTS-Server
       # Axel, low temp, exxageration
       unzip
+      foliate
       epub2txt2
     ];
   };
