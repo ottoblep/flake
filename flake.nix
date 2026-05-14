@@ -86,6 +86,7 @@
                 modules = (base { system = system; }).modules ++ [
                   platforms.stele
                   traits.machine
+                  traits.embedded
                   traits.tower
                   traits.virtualization
                   traits.graphical
@@ -107,6 +108,7 @@
                 modules = (base { system = system; }).modules ++ [
                   platforms.tomnuc
                   traits.machine
+                  traits.embedded
                   traits.tower
                   traits.graphical
                   traits.gnome
@@ -124,6 +126,7 @@
                   platforms.slab
                   traits.tower
                   traits.machine
+                  traits.embedded
                   traits.gnome
                   traits.kiosk
                   services.avahi
@@ -138,6 +141,7 @@
                   nixos-hardware.nixosModules.lenovo-thinkpad-x250
                   platforms.sevtp
                   traits.machine
+                  traits.embedded
                   traits.laptop
                   traits.graphical
                   traits.gnome
@@ -156,6 +160,7 @@
                   nixos-hardware.nixosModules.lenovo-thinkpad-t14-amd-gen3
                   platforms.sevtp2
                   traits.machine
+                  traits.embedded
                   traits.laptop
                   traits.virtualization
                   traits.graphical
@@ -181,6 +186,7 @@
                   services.openssh
                   services.pihole
                   users.sevi-headless
+                  traits.embedded
                 ];
               };
         };
@@ -208,12 +214,14 @@
         traits.office = ./traits/office.nix;
         traits.game = ./traits/game.nix;
         traits.kiosk = ./traits/kiosk.nix;
+        traits.embedded = ./traits/embedded.nix;
         services.rdp = ./services/rdp.nix;
         services.openssh = ./services/openssh.nix;
         services.nix-serve = ./services/nix-serve.nix;
         services.auto-upgrade = ./services/auto-upgrade.nix;
         services.avahi = ./services/avahi.nix;
         services.pihole = ./services/pihole.nix;
+        services.probe-rs = ./services/probe-rs.nix;
 
         users.sevi-headless = ({ lib, ... }: {
           imports = [

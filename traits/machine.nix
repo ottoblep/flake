@@ -16,9 +16,6 @@
 
     users.mutableUsers = true; # Set passwords after setup
 
-    # Create udev group
-    hardware.hackrf.enable = true;
-
     # Archer tx20u nano dongle 
     # https://phip1611.de/blog/enabling-tp-link-archer-tx20u-nano-on-nixos-and-linux-6-12/
     boot.kernelModules = [ "8852au" ];
