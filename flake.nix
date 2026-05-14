@@ -29,7 +29,6 @@
       overlays.default = final: prev: {
         mypkgs = {
           noita-together = prev.callPackage ./pkgs/noita-together { };
-          decent-sampler = prev.callPackage ./pkgs/decent-sampler { };
         };
       };
 
