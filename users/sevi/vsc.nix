@@ -24,6 +24,8 @@
         ms-vscode-remote.remote-containers
         # Latex
         # james-yu.latex-workshop
+        # LLM
+        saoudrizwan.claude-dev
 
         # Not in nixpkgs
         # letmaik.git-tree-compare
