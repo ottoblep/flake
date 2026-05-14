@@ -25,7 +25,7 @@
         # Latex
         # james-yu.latex-workshop
         # LLM
-        saoudrizwan.claude-dev
+        rooveterinaryinc.roo-cline
 
         # Not in nixpkgs
         # letmaik.git-tree-compare
@@ -90,7 +90,7 @@
         }
         {
           key = "ctrl+shift+i";
-          command = "workbench.view.extension.claude-dev-ActivityBar";
+          command = "workbench.view.extension.roo-cline-ActivityBar";
         }
         # ctrl+tab to switch tabs 
         # ctrl + 1234 to switch panes
