@@ -57,7 +57,6 @@
                 inherit system;
                 config.allowUnfree = true;
               };
-              crush_custom = nix-ai-tools.packages.${system}.crush;
             };
           };
           # Shared base config

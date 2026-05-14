@@ -23,8 +23,4 @@
     ".config/xournalpp/settings.xml".source = ./dotfiles/xournalpp.xml;
     ".config/mouseless/config.yaml".source = ./dotfiles/mouseless.yaml;
   };
-
-  home.packages = with pkgs; [
-    crush_custom # LLM Agent doing stuff in the terminal
-  ];
 }

@@ -71,7 +71,6 @@
     syncpush = "rclone sync ~/sync gdrive-crypt:/ -v";
     syncpull = "rclone sync gdrive-crypt:/ ~/sync -v";
     syncstart = "systemctl --user start rclone-bisync.service";
-    cr = "crush && rm -rf .crush";
   };
 
   home.packages = with pkgs; [
