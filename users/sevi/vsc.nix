@@ -86,11 +86,19 @@
           key = "ctrl+shift+w";
           command = "-workbench.action.closeWindow";
         }
+        {
+          key = "ctrl+shift+i";
+          command = "workbench.view.extension.claude-dev-ActivityBar";
+        }
         # ctrl+tab to switch tabs 
         # ctrl + 1234 to switch panes
-        # ctrl + shift + EFGQ for sidebar opening
-        # ctrl + shift + q for tree diff 
+        # ctrl + shift + e for editor 
+        # ctrl + shift + f for search 
+        # ctrl + shift + g for git 
+        # ctrl + shift + q for git diff 
         # ctrl + shift + t for tests 
+        # ctrl + shift + w for git provider
+        # ctrl + shift + i (ctrl + alt + i) for llm 
         # ctrl + alt + p to open files
         # ctrl + shift + p for all vscode commands
         # ctrl + shift + ü/ä to navigate keyword search results
