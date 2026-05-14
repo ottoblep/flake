@@ -19,11 +19,11 @@
 
       nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" "sr_mod"];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" "hid-tflight4" ];
-  boot.extraModulePackages = [ tflight4 ];
-  # boot.extraModprobeConfig = ''options hid-tflight4 throttle_seesaw_extra_axis=1'';
+      boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" "sr_mod" ];
+      boot.initrd.kernelModules = [ ];
+      boot.kernelModules = [ "kvm-intel" "hid-tflight4" ];
+      boot.extraModulePackages = [ tflight4 ];
+      # boot.extraModprobeConfig = ''options hid-tflight4 throttle_seesaw_extra_axis=1'';
 
       hardware.graphics =
         let
@@ -50,7 +50,7 @@
         nvitop
         libva-utils
         vdpauinfo
-        (unstable.llama-cpp.override { cudaSupport = true; cudaPackages = cudaPackages;})
+        (unstable.llama-cpp.override { cudaSupport = true; cudaPackages = cudaPackages; })
       ];
 
       # Load nvidia driver for Xorg and Wayland

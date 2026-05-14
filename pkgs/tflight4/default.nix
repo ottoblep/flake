@@ -37,7 +37,7 @@ stdenv.mkDerivation rec {
     description = "Linux kernel HID module for Thrustmaster T.Flight HOTAS 4";
     license = licenses.bsd3;
     homepage = https://github.com/walterschell/tflight4;
-    maintainers = with maintainers; [];
+    maintainers = with maintainers; [ ];
     platforms = [ "x86_64-linux" "aarch64-linux" ];
   };
 }

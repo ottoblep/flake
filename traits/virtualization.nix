@@ -7,11 +7,11 @@
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   virtualisation.podman = {
-      enable = true;
-      # enableOnBoot = true;
-      # package = pkgs.docker_25;
-      # Nvidia Docker (deprecated)
-      #enableNvidia = true;
+    enable = true;
+    # enableOnBoot = true;
+    # package = pkgs.docker_25;
+    # Nvidia Docker (deprecated)
+    #enableNvidia = true;
   };
 
   environment.systemPackages = with pkgs; [

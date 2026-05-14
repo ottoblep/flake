@@ -9,8 +9,7 @@
     domain = "pihole.local";
     wireless = {
       enable = true;
-      networks = {
-      };
+      networks = { };
     };
     firewall = {
       enable = true;

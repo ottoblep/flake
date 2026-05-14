@@ -1,9 +1,8 @@
-
 { config, pkgs, lib, ... }:
 {
   config = {
     # Enable autologin for the user 'sevi'
-    services.xserver.displayManager.gdm.autoLogin = {
+    services.displayManager.autoLogin = {
       enable = true;
       user = "sevi";
     };
