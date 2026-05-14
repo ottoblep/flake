@@ -135,6 +135,7 @@
         "github.copilot.chat.agent.thinkingTool" = true;
         "chat.tools.autoApprove" = true;
         "cmake.configureOnEdit" = false;
+        "git.confirmSync" = false;
       };
     };
   };
