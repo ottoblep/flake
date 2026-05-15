@@ -14,6 +14,7 @@
     };
     # Add nr helper: nr <pkg> [args...] => nix run nixpkgs#<pkg> -- [args...]
     initContent = ''
+      export NIXPKGS_ALLOW_UNFREE=1;
       nr() {
         if [ $# -lt 1 ]; then
           echo "Usage: nr <package> [args...]" >&2
@@ -22,9 +23,9 @@
         local pkg="$1"
         shift
         if [ $# -gt 0 ]; then
-          nix run "nixpkgs#$pkg" -- "$@"
+          nix run --impure "nixpkgs#$pkg" -- "$@"
         else
-          nix run "nixpkgs#$pkg"
+          nix run --impure "nixpkgs#$pkg"
         fi
       }
     '';
