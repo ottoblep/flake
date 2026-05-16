@@ -6,6 +6,10 @@
 
   programs.direnv.enable = true;
 
+  home.packages = with pkgs; [
+    gemini-cli
+  ];
+
   programs.vscode = {
     enable = true;
     package = pkgs.vscode.fhsWithPackages (ps: with ps; [ ]);
@@ -24,8 +28,6 @@
         ms-vscode-remote.remote-containers
         # Latex
         # james-yu.latex-workshop
-        # LLM
-        rooveterinaryinc.roo-cline
 
         # Not in nixpkgs
         # letmaik.git-tree-compare
@@ -88,10 +90,10 @@
           key = "ctrl+shift+w";
           command = "-workbench.action.closeWindow";
         }
-        {
-          key = "ctrl+shift+i";
-          command = "workbench.view.extension.roo-cline-ActivityBar";
-        }
+        # {
+        #   key = "ctrl+shift+i";
+        #   command = "workbench.view.extension.llm-extension";
+        # }
         # ctrl+tab to switch tabs 
         # ctrl + 1234 to switch panes
         # ctrl + shift + e for editor 
