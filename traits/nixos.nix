@@ -18,6 +18,7 @@
     environment.systemPackages = with pkgs; [
       nixpkgs-fmt
       nix-tree
+      nix-search-cli
     ];
 
     nixpkgs.config.allowUnfree = true;
