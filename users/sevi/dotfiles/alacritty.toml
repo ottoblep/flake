@@ -20,3 +20,12 @@ size = 12.0
 
 [terminal]
 
+[[keyboard.bindings]]
+key = "D"
+mods = "Control"
+action = "ScrollPageDown"
+
+[[keyboard.bindings]]
+key = "U"
+mods = "Control"
+action = "ScrollPageUp"
