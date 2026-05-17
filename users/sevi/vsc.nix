@@ -133,9 +133,6 @@
         "latex-workshop.view.pdf.color.dark.pageColorsForeground" = "#cad3f5";
         "latex-workshop.latex.autoClean.run" = "onBuilt";
         "symbols.hidesExplorerArrows" = false;
-        "github.copilot.chat.codesearch.enabled" = true;
-        "github.copilot.chat.agent.thinkingTool" = true;
-        "chat.tools.autoApprove" = true;
         "cmake.configureOnEdit" = false;
         "git.confirmSync" = false;
       };
