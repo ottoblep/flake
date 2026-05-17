@@ -24,7 +24,7 @@
       p7zip
       srm
       tio
-      neofetch
+      fastfetch
       wormhole-william # Large file transfer without ssh
     ];
 
