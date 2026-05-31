@@ -7,7 +7,7 @@
   config =
     let
       user-image = ./icons/stele.jpg;
-      tflight4 = pkgs.linuxPackages.callPackage ../pkgs/tflight4 { };
+      tflight4 = config.boot.kernelPackages.callPackage ../pkgs/tflight4 { };
     in
     {
       networking.hostName = "stele";
