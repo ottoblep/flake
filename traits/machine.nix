@@ -35,7 +35,7 @@
       wifi.macAddress = "stable-ssid";
       wifi.scanRandMacAddress = true;
     };
-    networking.wireless.userControlled.enable = true;
+    networking.wireless.userControlled = true;
 
     networking.firewall = {
       enable = true;

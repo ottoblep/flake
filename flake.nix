@@ -2,11 +2,11 @@
   description = "Ottoblep Personal Flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     vscode-server = {
@@ -32,7 +32,10 @@
 
       # This presents the packages from the overlay as flake outputs 
       packages = forAllSystems (system:
-        (import nixpkgs { inherit system; overlays = [ self.overlays.default ]; config.allowUnfree = true; }).mypkgs
+        (import nixpkgs { inherit system; overlays = [ self.overlays.default ]; config.allowUnfree = true; }).mypkgs //
+        (nixpkgs.lib.optionalAttrs (system == "aarch64-linux") {
+          pihole-image = nixosConfigurations.pihole.config.system.build.sdImage;
+        })
       );
 
       devShells = forAllSystems (system:
@@ -184,11 +187,12 @@
                   services.pihole
                   users.sevi-headless
                   traits.embedded
+                  {
+                    boot.zfs.forceImportRoot = false;
+                  }
                 ];
               };
         };
-
-      pihole-image = nixosConfigurations.pihole.config.system.build.sdImage;
 
       nixosModules = {
         platforms.stele = ./platforms/stele.nix;
@@ -226,6 +230,7 @@
             ./users/sevi/sudo.nix
           ];
           home-manager.users.sevi = lib.mkMerge [
+            ./users/sevi/state-version.nix
             ./users/sevi/shell.nix
             ./users/sevi/git.nix
           ];
@@ -236,6 +241,7 @@
             ./users/sevi/sudo.nix
           ];
           home-manager.users.sevi = lib.mkMerge [
+            ./users/sevi/state-version.nix
             ./users/sevi/shell.nix
             ./users/sevi/git.nix
             ./users/sevi/gnome
@@ -247,6 +253,7 @@
             ./users/sevi/default.nix
           ];
           home-manager.users.sevi = lib.mkMerge [
+            ./users/sevi/state-version.nix
             ./users/sevi/shell.nix
             ./users/sevi/git.nix
             ./users/sevi/gnome
@@ -258,6 +265,7 @@
             ./users/sevi/default.nix
           ];
           home-manager.users.sevi = lib.mkMerge [
+            ./users/sevi/state-version.nix
             ./users/sevi/shell.nix
             ./users/sevi/git.nix
             ./users/sevi/gnome

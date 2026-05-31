@@ -4,13 +4,14 @@ pkgs.mkShell {
     with pkgs;
     let
       python-with-my-packages =
-        python311.withPackages (ps: with ps; [
+        python312.withPackages (ps: with ps; [
           pandas
           numpy
           scipy
           seaborn
           plotly
           networkx
+          sphinx
         ]);
     in
     [
