@@ -8,7 +8,20 @@
 
   home.packages = with pkgs; [
     gemini-cli
+    opencode
   ];
+
+  xdg.configFile."opencode/config.json".source = pkgs.writeText "opencode-config.json" ''
+    {
+      "model_servers": [
+        {
+          "name": "Local Model Server",
+          "url": "http://localhost:8080/v1"
+        }
+      ]
+    }
+  '';
+
 
   programs.vscode = {
     enable = true;
