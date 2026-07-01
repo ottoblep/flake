@@ -11,17 +11,19 @@
     opencode
   ];
 
-  xdg.configFile."opencode/config.json".source = pkgs.writeText "opencode-config.json" ''
+  xdg.configFile."opencode/config.json".text = ''
     {
-      "model_servers": [
-        {
-          "name": "Local Model Server",
-          "url": "http://localhost:8080/v1"
+      "$schema": "https://opencode.ai/config.json",
+      "model": "local-llm-provider/local-llm-model",
+      "provider": {
+        "local-llm-provider": {
+          "options": {
+            "baseURL": "http://localhost:8080/v1"
+          }
         }
-      ]
+      }
     }
   '';
-
 
   programs.vscode = {
     enable = true;
