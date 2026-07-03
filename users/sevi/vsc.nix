@@ -11,14 +11,21 @@
     opencode
   ];
 
-  xdg.configFile."opencode/config.json".text = ''
+  xdg.configFile."opencode/opencode.json".text = ''
     {
       "$schema": "https://opencode.ai/config.json",
       "model": "local-llm-provider/local-llm-model",
       "provider": {
         "local-llm-provider": {
+          "npm": "@ai-sdk/openai-compatible",
+          "name": "Local LLM Provider",
           "options": {
             "baseURL": "http://localhost:8080/v1"
+          },
+          "models": {
+            "local-llm-model": {
+              "name": "Local LLM Model"
+            }
           }
         }
       }
