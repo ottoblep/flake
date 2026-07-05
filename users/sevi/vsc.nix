@@ -9,6 +9,7 @@
   home.packages = with pkgs; [
     gemini-cli
     opencode
+    claude-code
   ];
 
   xdg.configFile."opencode/opencode.json".text = ''
