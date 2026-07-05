@@ -18,8 +18,8 @@
         src = pkgs.fetchFromGitHub {
           owner = "GregTheMadMonk";
           repo = "alacritty-smooth-cursor";
-          rev = "master";
-          hash = "sha256-WgfXJYdCJDkcM2CJrIYWYUldpz6U/vgQIlEJKkNiFc0=";
+          rev = "6d1c260460487bfa68d00f9a8e72963a51500102";
+          hash = "sha256-/Tu5IIE+5sPCYYwXldq0+Keb2WcH3r5KnyjpuxwhZSM=";
         };
         cargoDeps = pkgs.unstable.rustPlatform.fetchCargoVendor {
           inherit src;
