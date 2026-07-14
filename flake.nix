@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-gnome48.url = "github:NixOS/nixpkgs/nixos-25.05";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
@@ -15,7 +16,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, nixos-hardware, home-manager, vscode-server, ... }:
+  outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-gnome48, nixos-hardware, home-manager, vscode-server, ... }:
     let
       supportedSystems = [ "x86_64-linux" "aarch64-linux" ]; # Only used for package definitions 
       forAllSystems = f: nixpkgs.lib.genAttrs supportedSystems (system: f system);
@@ -292,11 +293,6 @@
         rclone = ./users/sevi/rclone.nix;
       };
 
-      # Standalone home-manager for non-NixOS hosts (Debian + nix).
-      # Portable modules (dconf/gtk/apps) work on Debian 13 "trixie" (stable) and newer.
-      # nixpkgs 26.05 ships GNOME 50, so gnome-extensions needs a GNOME 50 host:
-      # Debian "forky" (testing) or "sid" (unstable) — NOT trixie (GNOME 48).
-      # Usage: home-manager switch --flake .#sevi@debian
       homeConfigurations =
         let
           system = "x86_64-linux";
@@ -311,6 +307,13 @@
                   config.allowUnfree = true;
                 };
               })
+              # Override extensions to gnome 48 to match debian version
+              (final: prev: {
+                gnomeExtensions = (import nixpkgs-gnome48 {
+                  inherit system;
+                  config.allowUnfree = true;
+                }).gnomeExtensions;
+              })
             ];
             config.allowUnfree = true;
             config.allowBroken = true;
@@ -324,11 +327,11 @@
           };
         in
         {
-          "sevi@debian" = mkStandaloneHome (with self.homeModules; [
+          debian13 = mkStandaloneHome (with self.homeModules; [
             shell
             git
             gnome
-            # gnome-extensions  # requires GNOME 50 host: Debian forky (testing)/sid; NOT trixie (GNOME 48)
+            gnome-extensions
             desktop
             graphical
             office
