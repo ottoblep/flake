@@ -76,6 +76,14 @@
               traits.base
             ];
           };
+          mkHome = modules: {
+            home-manager.users.sevi.imports = [ ./users/sevi/state-version.nix ] ++ modules;
+          };
+          homeProfiles = with self.homeModules; {
+            headless = [ shell git ];
+            kiosk = [ shell git gnome graphical ];
+            full = [ shell git gnome graphical vsc rclone ];
+          };
         in
         # Machine specific configs
         with self.nixosModules; {
@@ -98,7 +106,8 @@
                   traits.media
                   services.nix-serve
                   services.avahi
-                  users.sevi-full
+                  users.sevi
+                  (mkHome homeProfiles.full)
                 ];
               };
           tomnuc = let system = "x86_64-linux"; in
@@ -115,7 +124,8 @@
                   traits.media
                   traits.music
                   services.avahi
-                  users.sevi-full
+                  users.sevi
+                  (mkHome homeProfiles.full)
                 ];
               };
           slab = let system = "x86_64-linux"; in
@@ -130,7 +140,9 @@
                   traits.gnome
                   traits.kiosk
                   services.avahi
-                  users.sevi-kiosk
+                  users.sevi
+                  users.sevi-sudo
+                  (mkHome homeProfiles.kiosk)
                 ];
               };
           sevtp = let system = "x86_64-linux"; in
@@ -149,7 +161,8 @@
                   traits.music
                   services.rdp
                   services.avahi
-                  users.sevi-full
+                  users.sevi
+                  (mkHome homeProfiles.full)
                 ];
               };
           sevtp2 = let system = "x86_64-linux"; in
@@ -172,7 +185,8 @@
                   traits.music
                   services.rdp
                   services.avahi
-                  users.sevi-full
+                  users.sevi
+                  (mkHome homeProfiles.full)
                 ];
               };
           pihole = let system = "aarch64-linux"; in
@@ -185,7 +199,9 @@
                   services.auto-upgrade
                   services.openssh
                   services.pihole
-                  users.sevi-headless
+                  users.sevi
+                  users.sevi-sudo
+                  (mkHome homeProfiles.headless)
                   traits.embedded
                   {
                     boot.zfs.forceImportRoot = false;
@@ -201,6 +217,7 @@
         platforms.sevtp2 = ./platforms/sevtp2.nix;
         platforms.tomnuc = ./platforms/tomnuc.nix;
         platforms.pihole = ./platforms/pihole.nix;
+
         traits.base = ./traits/base.nix;
         traits.graphical = ./traits/graphical.nix;
         traits.media = ./traits/media.nix;
@@ -216,6 +233,7 @@
         traits.game = ./traits/game.nix;
         traits.kiosk = ./traits/kiosk.nix;
         traits.embedded = ./traits/embedded.nix;
+
         services.rdp = ./services/rdp.nix;
         services.openssh = ./services/openssh.nix;
         services.nix-serve = ./services/nix-serve.nix;
@@ -224,56 +242,17 @@
         services.pihole = ./services/pihole.nix;
         services.probe-rs = ./services/probe-rs.nix;
 
-        users.sevi-headless = ({ lib, ... }: {
-          imports = [
-            ./users/sevi/default.nix
-            ./users/sevi/sudo.nix
-          ];
-          home-manager.users.sevi = lib.mkMerge [
-            ./users/sevi/state-version.nix
-            ./users/sevi/shell.nix
-            ./users/sevi/git.nix
-          ];
-        });
-        users.sevi-kiosk = ({ lib, ... }: {
-          imports = [
-            ./users/sevi/default.nix
-            ./users/sevi/sudo.nix
-          ];
-          home-manager.users.sevi = lib.mkMerge [
-            ./users/sevi/state-version.nix
-            ./users/sevi/shell.nix
-            ./users/sevi/git.nix
-            ./users/sevi/gnome
-            ./users/sevi/graphical.nix
-          ];
-        });
-        users.sevi-minimal = ({ lib, ... }: {
-          imports = [
-            ./users/sevi/default.nix
-          ];
-          home-manager.users.sevi = lib.mkMerge [
-            ./users/sevi/state-version.nix
-            ./users/sevi/shell.nix
-            ./users/sevi/git.nix
-            ./users/sevi/gnome
-            ./users/sevi/graphical.nix
-          ];
-        });
-        users.sevi-full = ({ lib, ... }: {
-          imports = [
-            ./users/sevi/default.nix
-          ];
-          home-manager.users.sevi = lib.mkMerge [
-            ./users/sevi/state-version.nix
-            ./users/sevi/shell.nix
-            ./users/sevi/git.nix
-            ./users/sevi/gnome
-            ./users/sevi/graphical.nix
-            ./users/sevi/vsc.nix
-            ./users/sevi/rclone.nix
-          ];
-        });
+        users.sevi = ./users/sevi/default.nix;
+        users.sevi-sudo = ./users/sevi/sudo.nix;
+      };
+
+      homeModules = {
+        shell = ./users/sevi/shell.nix;
+        git = ./users/sevi/git.nix;
+        gnome = ./users/sevi/gnome;
+        graphical = ./users/sevi/graphical.nix;
+        vsc = ./users/sevi/vsc.nix;
+        rclone = ./users/sevi/rclone.nix;
       };
     };
 }
