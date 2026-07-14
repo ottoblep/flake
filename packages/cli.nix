@@ -16,6 +16,9 @@ pkgs: with pkgs; [
   tio
   fastfetch
   wormhole-william # Large file transfer without ssh
+  zoxide
+  eza
+  duf
   nixpkgs-fmt
   nix-tree
   nix-search-cli

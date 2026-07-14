@@ -282,7 +282,6 @@
       };
 
       homeModules = {
-        cli = ./users/sevi/cli.nix;
         shell = ./users/sevi/shell.nix;
         git = ./users/sevi/git.nix;
         gnome = ./users/sevi/gnome;
@@ -331,7 +330,6 @@
         in
         {
           debian13 = mkStandaloneHome (with self.homeModules; [
-            cli
             shell
             git
             gnome

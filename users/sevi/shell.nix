@@ -74,14 +74,11 @@
     syncstart = "systemctl --user start rclone-bisync.service";
   };
 
-  home.packages = with pkgs; [
-    zoxide
-    eza
-    duf
-    srm
-    btop
-    unstable.csv-tui
-  ];
+  home.packages = import ../../packages/cli.nix pkgs;
+
+  home.sessionVariables.EDITOR = "vim";
+
+  services.gpg-agent.enable = true;
 
   programs.home-manager.enable = true;
 }

@@ -8,8 +8,6 @@
     time.hardwareClockInLocalTime = true;
     console.keyMap = "de";
 
-    programs.gnupg.agent.enable = true;
-
     programs.nano.enable = false; # Remove default
 
     boot.kernelModules = [ "uinput" ];
