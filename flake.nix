@@ -75,6 +75,7 @@
               home-manager.nixosModules.home-manager
               traits.nixos
               traits.base
+              traits.cli
             ];
           };
           mkHome = modules: {
@@ -256,6 +257,7 @@
         platforms.pihole = ./platforms/pihole.nix;
 
         traits.base = ./traits/base.nix;
+        traits.cli = ./traits/cli.nix;
         traits.music = ./traits/music.nix;
         traits.machine = ./traits/machine.nix;
         traits.virtualization = ./traits/virtualization.nix;
@@ -280,6 +282,7 @@
       };
 
       homeModules = {
+        cli = ./users/sevi/cli.nix;
         shell = ./users/sevi/shell.nix;
         git = ./users/sevi/git.nix;
         gnome = ./users/sevi/gnome;
@@ -328,6 +331,7 @@
         in
         {
           debian13 = mkStandaloneHome (with self.homeModules; [
+            cli
             shell
             git
             gnome
