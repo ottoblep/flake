@@ -1,0 +1,8 @@
+# Programs for live communication
+{ pkgs, ... }:
+{
+  home.packages = with pkgs; [
+    signal-desktop
+    discord
+  ];
+}

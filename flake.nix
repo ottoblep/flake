@@ -94,9 +94,7 @@
                   traits.virtualization
                   traits.gnome
                   traits.game
-                  traits.comms
                   services.rdp
-                  traits.media
                   services.nix-serve
                   services.avahi
                   users.sevi
@@ -107,6 +105,8 @@
                     desktop
                     graphical
                     office
+                    comms
+                    media
                     vsc
                     rclone
                   ]))
@@ -122,7 +122,6 @@
                   traits.embedded
                   traits.tower
                   traits.gnome
-                  traits.media
                   traits.music
                   services.avahi
                   users.sevi
@@ -132,6 +131,7 @@
                     gnome
                     desktop
                     graphical
+                    media
                     vsc
                     rclone
                   ]))
@@ -170,7 +170,6 @@
                   traits.embedded
                   traits.laptop
                   traits.gnome
-                  traits.media
                   traits.music
                   services.rdp
                   services.avahi
@@ -181,6 +180,7 @@
                     gnome
                     desktop
                     graphical
+                    media
                     vsc
                     rclone
                   ]))
@@ -198,8 +198,6 @@
                   traits.laptop
                   traits.virtualization
                   traits.gnome
-                  traits.comms
-                  traits.media
                   traits.game
                   traits.music
                   services.rdp
@@ -212,6 +210,8 @@
                     desktop
                     graphical
                     office
+                    comms
+                    media
                     vsc
                     rclone
                   ]))
@@ -250,8 +250,6 @@
         platforms.pihole = ./platforms/pihole.nix;
 
         traits.base = ./traits/base.nix;
-        traits.media = ./traits/media.nix;
-        traits.comms = ./traits/comms.nix;
         traits.music = ./traits/music.nix;
         traits.machine = ./traits/machine.nix;
         traits.virtualization = ./traits/virtualization.nix;
@@ -282,6 +280,8 @@
         desktop = ./users/sevi/desktop.nix;
         graphical = ./users/sevi/graphical.nix;
         office = ./users/sevi/office.nix;
+        media = ./users/sevi/media.nix;
+        comms = ./users/sevi/comms.nix;
         vsc = ./users/sevi/vsc.nix;
         rclone = ./users/sevi/rclone.nix;
       };
