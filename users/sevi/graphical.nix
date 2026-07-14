@@ -36,6 +36,5 @@
     ".config/alacritty/alacritty-macchiato.toml".source = ./dotfiles/alacritty-macchiato.toml;
     ".config/openrazer/persistence.conf".source = ./dotfiles/openrazer.conf;
     ".config/xournalpp/settings.xml".source = ./dotfiles/xournalpp.xml;
-    ".config/mouseless/config.yaml".source = ./dotfiles/mouseless.yaml;
   };
 }
