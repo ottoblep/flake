@@ -79,11 +79,6 @@
           mkHome = modules: {
             home-manager.users.sevi.imports = [ ./users/sevi/state-version.nix ] ++ modules;
           };
-          homeProfiles = with self.homeModules; {
-            headless = [ shell git ];
-            kiosk = [ shell git gnome graphical ];
-            full = [ shell git gnome graphical vsc rclone ];
-          };
         in
         # Machine specific configs
         with self.nixosModules; {
@@ -97,17 +92,24 @@
                   traits.embedded
                   traits.tower
                   traits.virtualization
-                  traits.graphical
                   traits.gnome
                   traits.game
                   traits.comms
-                  traits.office
                   services.rdp
                   traits.media
                   services.nix-serve
                   services.avahi
                   users.sevi
-                  (mkHome homeProfiles.full)
+                  (mkHome (with self.homeModules; [
+                    shell
+                    git
+                    gnome
+                    desktop
+                    graphical
+                    office
+                    vsc
+                    rclone
+                  ]))
                 ];
               };
           tomnuc = let system = "x86_64-linux"; in
@@ -119,13 +121,20 @@
                   traits.machine
                   traits.embedded
                   traits.tower
-                  traits.graphical
                   traits.gnome
                   traits.media
                   traits.music
                   services.avahi
                   users.sevi
-                  (mkHome homeProfiles.full)
+                  (mkHome (with self.homeModules; [
+                    shell
+                    git
+                    gnome
+                    desktop
+                    graphical
+                    vsc
+                    rclone
+                  ]))
                 ];
               };
           slab = let system = "x86_64-linux"; in
@@ -142,7 +151,12 @@
                   services.avahi
                   users.sevi
                   users.sevi-sudo
-                  (mkHome homeProfiles.kiosk)
+                  (mkHome (with self.homeModules; [
+                    shell
+                    git
+                    gnome
+                    desktop
+                  ]))
                 ];
               };
           sevtp = let system = "x86_64-linux"; in
@@ -155,14 +169,21 @@
                   traits.machine
                   traits.embedded
                   traits.laptop
-                  traits.graphical
                   traits.gnome
                   traits.media
                   traits.music
                   services.rdp
                   services.avahi
                   users.sevi
-                  (mkHome homeProfiles.full)
+                  (mkHome (with self.homeModules; [
+                    shell
+                    git
+                    gnome
+                    desktop
+                    graphical
+                    vsc
+                    rclone
+                  ]))
                 ];
               };
           sevtp2 = let system = "x86_64-linux"; in
@@ -176,17 +197,24 @@
                   traits.embedded
                   traits.laptop
                   traits.virtualization
-                  traits.graphical
                   traits.gnome
                   traits.comms
-                  traits.office
                   traits.media
                   traits.game
                   traits.music
                   services.rdp
                   services.avahi
                   users.sevi
-                  (mkHome homeProfiles.full)
+                  (mkHome (with self.homeModules; [
+                    shell
+                    git
+                    gnome
+                    desktop
+                    graphical
+                    office
+                    vsc
+                    rclone
+                  ]))
                 ];
               };
           pihole = let system = "aarch64-linux"; in
@@ -201,7 +229,10 @@
                   services.pihole
                   users.sevi
                   users.sevi-sudo
-                  (mkHome homeProfiles.headless)
+                  (mkHome (with self.homeModules; [
+                    shell
+                    git
+                  ]))
                   traits.embedded
                   {
                     boot.zfs.forceImportRoot = false;
@@ -219,7 +250,6 @@
         platforms.pihole = ./platforms/pihole.nix;
 
         traits.base = ./traits/base.nix;
-        traits.graphical = ./traits/graphical.nix;
         traits.media = ./traits/media.nix;
         traits.comms = ./traits/comms.nix;
         traits.music = ./traits/music.nix;
@@ -229,7 +259,6 @@
         traits.laptop = ./traits/laptop.nix;
         traits.nixos = ./traits/nixos.nix;
         traits.gnome = ./traits/gnome.nix;
-        traits.office = ./traits/office.nix;
         traits.game = ./traits/game.nix;
         traits.kiosk = ./traits/kiosk.nix;
         traits.embedded = ./traits/embedded.nix;
@@ -250,7 +279,9 @@
         shell = ./users/sevi/shell.nix;
         git = ./users/sevi/git.nix;
         gnome = ./users/sevi/gnome;
+        desktop = ./users/sevi/desktop.nix;
         graphical = ./users/sevi/graphical.nix;
+        office = ./users/sevi/office.nix;
         vsc = ./users/sevi/vsc.nix;
         rclone = ./users/sevi/rclone.nix;
       };
