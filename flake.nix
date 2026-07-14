@@ -102,6 +102,7 @@
                     shell
                     git
                     gnome
+                    gnome-extensions
                     desktop
                     graphical
                     office
@@ -129,6 +130,7 @@
                     shell
                     git
                     gnome
+                    gnome-extensions
                     desktop
                     graphical
                     media
@@ -155,6 +157,7 @@
                     shell
                     git
                     gnome
+                    gnome-extensions
                     desktop
                   ]))
                 ];
@@ -178,6 +181,7 @@
                     shell
                     git
                     gnome
+                    gnome-extensions
                     desktop
                     graphical
                     media
@@ -207,6 +211,7 @@
                     shell
                     git
                     gnome
+                    gnome-extensions
                     desktop
                     graphical
                     office
@@ -277,6 +282,7 @@
         shell = ./users/sevi/shell.nix;
         git = ./users/sevi/git.nix;
         gnome = ./users/sevi/gnome;
+        gnome-extensions = ./users/sevi/gnome-extensions.nix;
         desktop = ./users/sevi/desktop.nix;
         graphical = ./users/sevi/graphical.nix;
         office = ./users/sevi/office.nix;
@@ -285,5 +291,52 @@
         vsc = ./users/sevi/vsc.nix;
         rclone = ./users/sevi/rclone.nix;
       };
+
+      # Standalone home-manager for non-NixOS hosts (Debian + nix).
+      # Portable modules (dconf/gtk/apps) work on Debian 13 "trixie" (stable) and newer.
+      # nixpkgs 26.05 ships GNOME 50, so gnome-extensions needs a GNOME 50 host:
+      # Debian "forky" (testing) or "sid" (unstable) — NOT trixie (GNOME 48).
+      # Usage: home-manager switch --flake .#sevi@debian
+      homeConfigurations =
+        let
+          system = "x86_64-linux";
+          pkgs = import nixpkgs {
+            inherit system;
+            overlays = [
+              self.overlays.default
+              # Expose unstable nixpkgs as pkgs.unstable, matching the NixOS setup
+              (final: prev: {
+                unstable = import nixpkgs-unstable {
+                  inherit system;
+                  config.allowUnfree = true;
+                };
+              })
+            ];
+            config.allowUnfree = true;
+            config.allowBroken = true;
+          };
+          mkStandaloneHome = modules: home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
+            modules = [
+              ./users/sevi/state-version.nix
+              { targets.genericLinux.enable = true; }
+            ] ++ modules;
+          };
+        in
+        {
+          "sevi@debian" = mkStandaloneHome (with self.homeModules; [
+            shell
+            git
+            gnome
+            # gnome-extensions  # requires GNOME 50 host: Debian forky (testing)/sid; NOT trixie (GNOME 48)
+            desktop
+            graphical
+            office
+            media
+            comms
+            vsc
+            rclone
+          ]);
+        };
     };
 }
