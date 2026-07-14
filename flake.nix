@@ -282,7 +282,7 @@
         shell = ./users/sevi/shell.nix;
         git = ./users/sevi/git.nix;
         gnome = ./users/sevi/gnome;
-        gnome-extensions = ./users/sevi/gnome-extensions.nix;
+        gnome-extensions = ./users/sevi/gnome/extensions.nix;
         desktop = ./users/sevi/desktop.nix;
         graphical = ./users/sevi/graphical.nix;
         office = ./users/sevi/office.nix;
