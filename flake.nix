@@ -14,9 +14,13 @@
       url = "github:nix-community/nixos-vscode-server";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixgl = {
+      url = "github:nix-community/nixGL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-gnome48, nixos-hardware, home-manager, vscode-server, ... }:
+  outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-gnome48, nixos-hardware, home-manager, vscode-server, nixgl, ... }:
     let
       supportedSystems = [ "x86_64-linux" "aarch64-linux" ]; # Only used for package definitions 
       forAllSystems = f: nixpkgs.lib.genAttrs supportedSystems (system: f system);
@@ -79,7 +83,7 @@
             ];
           };
           mkHome = modules: {
-            home-manager.users.sevi.imports = [ ./users/sevi/state-version.nix ] ++ modules;
+            home-manager.users.sevi.imports = [ ./users/sevi/state-version.nix ./users/sevi/nixgl.nix ] ++ modules;
           };
         in
         # Machine specific configs
@@ -324,7 +328,11 @@
             inherit pkgs;
             modules = [
               ./users/sevi/state-version.nix
-              { targets.genericLinux.enable = true; }
+              ./users/sevi/nixgl.nix
+              {
+                targets.genericLinux.enable = true;
+                targets.genericLinux.nixGL.packages = nixgl.packages.${system};
+              }
             ] ++ modules;
           };
         in

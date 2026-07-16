@@ -1,7 +1,17 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 {
   home.username = "sevi";
   home.homeDirectory = "/home/sevi";
+
+  # If we land in bash on standalone, open zsh automatically
+  programs.bash = lib.mkIf config.targets.genericLinux.enable {
+    enable = true;
+    initExtra = ''
+      if [[ $- == *i* && -z "$ZSH_VERSION" && -x "$HOME/.nix-profile/bin/zsh" ]]; then
+        exec "$HOME/.nix-profile/bin/zsh"
+      fi
+    '';
+  };
 
   home.file.".oh-my-zsh/custom/themes/catppuccin.zsh-theme".source = ./dotfiles/catppuccin.zsh-theme;
   programs.zsh = {

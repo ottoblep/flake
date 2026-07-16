@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ pkgs, wrapGL, ... }:
 {
   programs.chromium = {
     enable = true;
@@ -11,9 +11,9 @@
     ];
   };
 
-  programs.alacritty = {
-    enable = true;
-    package = (pkgs.unstable.alacritty.overrideAttrs (old: rec {
+  programs.alacritty =
+    let
+      smoothCursorAlacritty = pkgs.unstable.alacritty.overrideAttrs (old: rec {
         version = "0.17.0-dev";
         src = pkgs.fetchFromGitHub {
           owner = "GregTheMadMonk";
@@ -28,8 +28,12 @@
         postPatch = (old.postPatch or "") + ''
           sed -i '614s/`/\"/g' extra/man/alacritty.5.scd
         '';
-      }));
-  };
+      });
+    in
+    {
+      enable = true;
+      package = wrapGL smoothCursorAlacritty;
+    };
 
   home.file = {
     ".config/alacritty/alacritty.toml".source = ./dotfiles/alacritty.toml;

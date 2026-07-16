@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
 
 {
   # Build tools and libraries can be defined in separate devshells
@@ -35,7 +35,11 @@
 
   programs.vscode = {
     enable = true;
-    package = pkgs.vscode.fhsWithPackages (ps: with ps; [ ]);
+    package =
+      if config.targets.genericLinux.enable then
+        pkgs.vscode
+      else
+        pkgs.vscode.fhsWithPackages (ps: with ps; [ ]);
     profiles.default = {
       extensions = with pkgs.vscode-extensions; [
         # General
@@ -158,6 +162,10 @@
         "symbols.hidesExplorerArrows" = false;
         "cmake.configureOnEdit" = false;
         "git.confirmSync" = false;
+        "chat.tools.terminal.ignoreDefaultAutoApproveRules" = true;
+        "chat.tools.global.autoApprove" = true;
+      } // lib.optionalAttrs config.targets.genericLinux.enable {
+        "terminal.integrated.defaultProfile.linux" = "zsh";
       };
     };
   };
