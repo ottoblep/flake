@@ -42,15 +42,11 @@
         };
       environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-      hardware.openrazer.enable = true;
-      hardware.openrazer.users = [ "sevi" ];
       environment.systemPackages = with pkgs; [
-        openrazer-daemon
-        polychromatic
         nvitop
         libva-utils
         vdpauinfo
-        (unstable.llama-cpp.override { cudaSupport = true; cudaPackages = cudaPackages; })
+        (unstable.llama-cpp.override { cudaSupport = true; cudaPackages = unstable.cudaPackages; })
       ];
 
       # Load nvidia driver for Xorg and Wayland
