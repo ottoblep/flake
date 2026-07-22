@@ -7,7 +7,7 @@
   programs.bash = lib.mkIf config.targets.genericLinux.enable {
     enable = true;
     initExtra = ''
-      if [[ $- == *i* && -z "$ZSH_VERSION" && -x "$HOME/.nix-profile/bin/zsh" ]]; then
+      if [[ $- == *i* && -z "$ZSH_VERSION" && -z "$IN_NIX_SHELL" && -x "$HOME/.nix-profile/bin/zsh" ]]; then
         exec "$HOME/.nix-profile/bin/zsh"
       fi
     '';
