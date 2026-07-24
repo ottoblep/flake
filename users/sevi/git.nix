@@ -21,6 +21,7 @@
       "notes.md"
       "hs_*.sh"
       "extra_documents"
+      ".claude"
     ];
   };
 }
