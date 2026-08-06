@@ -9,5 +9,6 @@
     pandoc
     drawio
     nil
+    wl-clipboard
   ];
 }
