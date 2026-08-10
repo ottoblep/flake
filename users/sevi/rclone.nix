@@ -3,7 +3,6 @@
 {
   home.packages = with pkgs; [
     rclone
-    rclone-browser
   ];
 
   # Home-Manager service settings correspond to the original systemd config file closely while the default nixos service module is more abstracted
