@@ -1,5 +1,25 @@
 { pkgs, lib, config, ... }:
 
+let
+  # The nixpkgs wrapper prepends its own alsa-lib to LD_LIBRARY_PATH for voice mode.
+  # That alsa-lib reads the host pipewire config but only searches the nix store for
+  # plugins, and the host plugin is unusable because the nix loader ignores
+  # /etc/ld.so.cache and so cannot resolve the host libpipewire. Supply the nix
+  # pipewire plugin instead; it talks to the host daemon over the socket.
+  claudeCode =
+    if config.targets.genericLinux.enable then
+      pkgs.symlinkJoin {
+        name = "claude-code-alsa-pipewire";
+        paths = [ pkgs.claude-code ];
+        nativeBuildInputs = [ pkgs.makeWrapper ];
+        postBuild = ''
+          wrapProgram $out/bin/claude \
+            --set-default ALSA_PLUGIN_DIR ${pkgs.pipewire}/lib/alsa-lib
+        '';
+      }
+    else
+      pkgs.claude-code;
+in
 {
   # Build tools and libraries can be defined in separate devshells
   # Open vscode inside a dev shell to inherit env (direnv)
