@@ -8,10 +8,8 @@
 
   virtualisation.podman = {
     enable = true;
-    # enableOnBoot = true;
-    # package = pkgs.docker_25;
-    # Nvidia Docker (deprecated)
-    #enableNvidia = true;
+    dockerCompat = true;
+    enableNvidia = true;
   };
 
   environment.systemPackages = with pkgs; [
