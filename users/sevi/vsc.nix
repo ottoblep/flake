@@ -19,6 +19,11 @@ let
       }
     else
       pkgs.claude-code;
+
+  claudeMacchiatoTheme = pkgs.fetchurl {
+    url = "https://raw.githubusercontent.com/matcra587/claude-themes/0f8043acb7b672daa197965852f0ab4fe8085114/plugins/catppuccin/themes/catppuccin-macchiato.json";
+    hash = "sha256-sHyNS02PlDJOuWol/NoFNl5ru/40vDyxRdzEUQ20Qfg=";
+  };
 in
 {
   # Build tools and libraries can be defined in separate devshells
@@ -31,6 +36,8 @@ in
     opencode
     claude-code
   ];
+
+  home.file.".claude/themes/catppuccin-macchiato.json".source = claudeMacchiatoTheme;
 
   xdg.configFile."opencode/opencode.json".text = ''
     {
