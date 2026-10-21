@@ -14,6 +14,7 @@
       lutris
       heroic
       r2modman
+      bottles
     ];
 
     programs.steam = {
