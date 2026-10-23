@@ -23,10 +23,11 @@
       dedicatedServer.openFirewall = true; # Open ports for dedicated server discovery
     };
 
-    programs.alvr = {
-      enable = true;
-      openFirewall = true;
-    };
+    # Use SteamLink instead
+    # programs.alvr = {
+    #   enable = true;
+    #   openFirewall = true;
+    # };
 
     # Required by heroic 2.18.1
     nixpkgs.config.permittedInsecurePackages = [
